@@ -54,6 +54,14 @@ export function Footer() {
               No liability is accepted for any loss, damage, or inconvenience
               arising from the use of this tool or reliance on its content.
             </p>
+            <a
+              href="https://tally.so/r/aQG4gW"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-400 hover:text-primary-300 underline"
+            >
+              Give feedback
+            </a>
           </div>
         </div>
 

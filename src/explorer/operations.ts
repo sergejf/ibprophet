@@ -41,7 +41,11 @@ export const getPathwaysForSubjects: GetPathwaysForSubjects<
 > = async (args, context) => {
   const { subjectIds, hlSubjectIds } = args;
 
-  if (subjectIds.length === 0) {
+  if (
+    subjectIds.length === 0 ||
+    subjectIds.length > 6 ||
+    hlSubjectIds.length > 6
+  ) {
     return { pathways: [] };
   }
 
