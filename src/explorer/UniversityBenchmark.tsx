@@ -5,32 +5,32 @@ interface UniversityBenchmarkProps {
   slIds: string[];
 }
 
-/** Russell Group universities with IB point ranges (source: uniadmissions.co.uk) */
+/** Russell Group universities with IB point ranges and HL requirements (source: uniadmissions.co.uk) */
 const RUSSELL_GROUP = [
-  { name: "Cambridge", low: 41, high: 42 },
-  { name: "Oxford", low: 38, high: 40 },
-  { name: "Imperial", low: 38, high: 40 },
-  { name: "UCL", low: 34, high: 40 },
-  { name: "LSE", low: 37, high: 38 },
-  { name: "Edinburgh", low: 34, high: 39 },
-  { name: "King's College London", low: 33, high: 39 },
-  { name: "Durham", low: 36, high: 38 },
-  { name: "Bristol", low: 31, high: 38 },
-  { name: "Manchester", low: 30, high: 38 },
-  { name: "Glasgow", low: 34, high: 38 },
-  { name: "Exeter", low: 32, high: 38 },
-  { name: "Warwick", low: 32, high: 39 },
-  { name: "Southampton", low: 30, high: 38 },
-  { name: "Sheffield", low: 32, high: 38 },
-  { name: "Leeds", low: 34, high: 36 },
-  { name: "Nottingham", low: 28, high: 36 },
-  { name: "Cardiff", low: 31, high: 36 },
-  { name: "Liverpool", low: 30, high: 36 },
-  { name: "Birmingham", low: 32, high: 32 },
-  { name: "Queen Mary London", low: 30, high: 37 },
-  { name: "York", low: 31, high: 36 },
-  { name: "Newcastle", low: 30, high: 34 },
-  { name: "Queen's Belfast", low: 29, high: 37 },
+  { name: "Cambridge", low: 41, high: 42, hl: "7,7,6" },
+  { name: "Oxford", low: 38, high: 40, hl: "6,6,6 – 7,7,6" },
+  { name: "Imperial", low: 38, high: 40, hl: "7,6,6" },
+  { name: "UCL", low: 34, high: 40, hl: "16–20 total" },
+  { name: "LSE", low: 37, high: 38, hl: "6,6,6 – 7,6,6" },
+  { name: "Edinburgh", low: 34, high: 39, hl: "6,5,5 – 6,6,6" },
+  { name: "King's College London", low: 33, high: 39, hl: "16–20 total" },
+  { name: "Durham", low: 36, high: 38, hl: "6,6,5 – 7,7,6" },
+  { name: "Bristol", low: 31, high: 38, hl: "15–18 total" },
+  { name: "Manchester", low: 30, high: 38, hl: "5,5,4 – 7,7,6" },
+  { name: "Glasgow", low: 34, high: 38, hl: "6,5,5 – 6,6,6" },
+  { name: "Exeter", low: 32, high: 38, hl: "6,5,5 – 7,6,6" },
+  { name: "Warwick", low: 32, high: 39, hl: "up to 7,6,6" },
+  { name: "Southampton", low: 30, high: 38, hl: "15 total – 7,6,6" },
+  { name: "Sheffield", low: 32, high: 38, hl: "varies by course" },
+  { name: "Leeds", low: 34, high: 36, hl: "5,5,5" },
+  { name: "Nottingham", low: 28, high: 36, hl: "5,5,5 – 7,6,6" },
+  { name: "Cardiff", low: 31, high: 36, hl: "6,6,5 – 6,6,6" },
+  { name: "Liverpool", low: 30, high: 36, hl: "no HL below 4" },
+  { name: "Birmingham", low: 32, high: 32, hl: "5,5,5 – 7,7,7" },
+  { name: "Queen Mary London", low: 30, high: 37, hl: "5,5,5 – 6,6,6" },
+  { name: "York", low: 31, high: 36, hl: "up to 6 in HL" },
+  { name: "Newcastle", low: 30, high: 34, hl: "5,5,5" },
+  { name: "Queen's Belfast", low: 29, high: 37, hl: "5,5,5 – 6,6,6" },
 ];
 
 /** Worldwide tier data (source: num8ers.com) */
@@ -149,7 +149,7 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
                 return (
                   <div
                     key={u.name}
-                    className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm ${
+                    className={`flex flex-col gap-0.5 rounded-lg px-3 py-2 text-sm ${
                       competitive
                         ? "bg-emerald-500/10 text-emerald-400"
                         : inRange
@@ -157,9 +157,14 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
                           : "bg-dark-700 text-neutral-500"
                     }`}
                   >
-                    <span className="font-medium">{u.name}</span>
-                    <span className="text-xs">
-                      {competitive ? "Competitive" : inRange ? "In range" : `Need ${u.low}+`}
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium">{u.name}</span>
+                      <span className="text-xs">
+                        {competitive ? "Competitive" : inRange ? "In range" : `Need ${u.low}+`}
+                      </span>
+                    </div>
+                    <span className="text-[10px] opacity-70">
+                      HL: {u.hl}
                     </span>
                   </div>
                 );
