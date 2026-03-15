@@ -1,0 +1,97 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id       String @id @default(uuid())
+  username String
+
+  savedLoadouts SavedLoadout[]
+}
+
+model IBSubject {
+  id       String          @id @default(uuid())
+  name     String          @unique
+  group    Int
+  category SubjectCategory
+
+  pathwayLinks SubjectPathwayLink[]
+}
+
+model UniversityPathway {
+  id          String @id @default(uuid())
+  name        String @unique
+  description String
+  field       String
+
+  subjectLinks SubjectPathwayLink[]
+  careerLinks  PathwayCareerLink[]
+}
+
+model Career {
+  id              String       @id @default(uuid())
+  name            String       @unique
+  description     String
+  salaryStartUS   Int
+  salaryMidUS     Int
+  salaryStartUK   Int
+  salaryMidUK     Int
+  growthPercent10Y Float
+  aiResilience    AIResilience
+  pros            String
+  cons            String
+
+  pathwayLinks PathwayCareerLink[]
+}
+
+model SubjectPathwayLink {
+  id         String @id @default(uuid())
+  subjectId  String
+  pathwayId  String
+  weight     Int    @default(1)
+  hlRequired Boolean @default(false)
+
+  subject IBSubject         @relation(fields: [subjectId], references: [id])
+  pathway UniversityPathway @relation(fields: [pathwayId], references: [id])
+
+  @@unique([subjectId, pathwayId])
+}
+
+model PathwayCareerLink {
+  id        String @id @default(uuid())
+  pathwayId String
+  careerId  String
+  weight    Int    @default(1)
+
+  pathway UniversityPathway @relation(fields: [pathwayId], references: [id])
+  career  Career            @relation(fields: [careerId], references: [id])
+
+  @@unique([pathwayId, careerId])
+}
+
+model SavedLoadout {
+  id            String   @id @default(uuid())
+  name          String
+  subjectConfig String
+  createdAt     DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+enum SubjectCategory {
+  HL_ONLY
+  SL_ONLY
+  BOTH
+}
+
+enum AIResilience {
+  GREEN
+  YELLOW
+  RED
+}

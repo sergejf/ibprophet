@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --text-tiny: 0.625rem;
+  --text-tiny--line-height: 1rem;
+
+  /* Primary gold */
+  --color-primary-50: #fffbeb;
+  --color-primary-100: #fff7d6;
+  --color-primary-200: #ffefad;
+  --color-primary-300: #ffe680;
+  --color-primary-400: #ffda47;
+  --color-primary-500: #ffcc00;
+  --color-primary-600: #e6b800;
+  --color-primary-700: #cca300;
+  --color-primary-800: #a88700;
+  --color-primary-900: #7a6200;
+  --color-primary-950: #574500;
+
+  /* Dark backgrounds */
+  --color-dark-950: #0a0a0f;
+  --color-dark-900: #13131a;
+  --color-dark-800: #1c1c27;
+  --color-dark-700: #262633;
+  --color-dark-600: #333345;
+
+  /* AI resilience */
+  --color-ai-green: #22c55e;
+  --color-ai-yellow: #eab308;
+  --color-ai-red: #ef4444;
+
+  /* IB group colors */
+  --color-ib-1: #60a5fa;
+  --color-ib-2: #f472b6;
+  --color-ib-3: #a78bfa;
+  --color-ib-4: #34d399;
+  --color-ib-5: #fb923c;
+  --color-ib-6: #f87171;
+}
+
+body {
+  @apply bg-dark-950 text-neutral-100 has-[dialog:open]:overflow-hidden;
+}
+
+@utility card {
+  @apply rounded-xl border border-dark-600 bg-dark-800 shadow-xs transition-all duration-200;
+}
+
+@utility label {
+  @apply text-sm font-medium text-neutral-300;
+}

@@ -1,0 +1,104 @@
+app ibprophet {
+  wasp: {
+    version: "^0.21.1"
+  },
+  title: "IB Prophet",
+  head: [
+    "<link rel='icon' href='/favicon.ico' />",
+  ],
+  auth: {
+    userEntity: User,
+    methods: {
+      email: {
+        fromField: {
+          name: "IB Prophet",
+          email: "hello@example.com"
+        },
+        userSignupFields: import { userSignupFields } from "@src/auth/email/userSignupFields",
+        emailVerification: {
+          clientRoute: EmailVerificationRoute,
+        },
+        passwordReset: {
+          clientRoute: PasswordResetRoute,
+        }
+      },
+    },
+    onAuthSucceededRedirectTo: "/",
+    onAuthFailedRedirectTo: "/login",
+  },
+  emailSender: {
+    provider: Dummy,
+  },
+  client: {
+    rootComponent: import { App } from "@src/App",
+  },
+  db: {
+    seeds: [
+      import { seedData } from "@src/shared/seed"
+    ]
+  }
+}
+
+// #region Auth
+route LoginRoute { path: "/login", to: LoginPage }
+page LoginPage {
+  component: import { LoginPage } from "@src/auth/email/LoginPage"
+}
+
+route SignupRoute { path: "/signup", to: SignupPage }
+page SignupPage {
+  component: import { SignupPage } from "@src/auth/email/SignupPage"
+}
+
+route RequestPasswordResetRoute { path: "/request-password-reset", to: RequestPasswordResetPage }
+page RequestPasswordResetPage {
+  component: import { RequestPasswordResetPage } from "@src/auth/email/RequestPasswordResetPage",
+}
+
+route PasswordResetRoute { path: "/password-reset", to: PasswordResetPage }
+page PasswordResetPage {
+  component: import { PasswordResetPage } from "@src/auth/email/PasswordResetPage",
+}
+
+route EmailVerificationRoute { path: "/email-verification", to: EmailVerificationPage }
+page EmailVerificationPage {
+  component: import { EmailVerificationPage } from "@src/auth/email/EmailVerificationPage",
+}
+// #endregion Auth
+
+// #region Explorer
+route ExplorerRoute { path: "/", to: ExplorerPage }
+page ExplorerPage {
+  component: import { ExplorerPage } from "@src/explorer/ExplorerPage"
+}
+
+route CareerRoute { path: "/career/:careerId", to: CareerPage }
+page CareerPage {
+  component: import { CareerPage } from "@src/career/CareerPage"
+}
+
+query getSubjects {
+  fn: import { getSubjects } from "@src/explorer/operations",
+  entities: [IBSubject]
+}
+
+query getPathwaysForSubjects {
+  fn: import { getPathwaysForSubjects } from "@src/explorer/operations",
+  entities: [IBSubject, UniversityPathway, Career, SubjectPathwayLink, PathwayCareerLink]
+}
+
+query getSavedLoadouts {
+  fn: import { getSavedLoadouts } from "@src/explorer/operations",
+  entities: [SavedLoadout]
+}
+
+action saveLoadout {
+  fn: import { saveLoadout } from "@src/explorer/operations",
+  entities: [SavedLoadout]
+}
+
+query getCareer {
+  fn: import { getCareer } from "@src/career/operations",
+  entities: [Career, PathwayCareerLink, UniversityPathway, SubjectPathwayLink, IBSubject]
+}
+// #endregion Explorer
