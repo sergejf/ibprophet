@@ -1,35 +1,45 @@
-# Basic Starter – A Simple ToDo App
+# IB Prophet
 
-Basic starter is a well-rounded template that showcases the most important bits of working with Wasp.
+IB Prophet helps IB Diploma students explore how their subject choices connect to university pathways and careers. Pick your HL and SL subjects, and instantly see which degrees and professions open up — with salary data, growth projections, and AI resilience ratings.
 
-## Prerequisites
+## Features
 
-- **Node.js** (newest LTS version recommended): We recommend install Node through a Node version manager, e.g. `nvm`.
-- **Wasp** (latest version): Install via
-  ```sh
-  npm i -g @wasp.sh/wasp-cli@latest
-  ```
+- **Subject Explorer** — select up to 6 IB subjects (3 HL + 3 SL) and see matching university pathways
+- **Career Cards** — each career shows UK/US salary ranges, 10-year growth outlook, and AI resilience tier (green/yellow/red)
+- **Pathway Detail** — drill into any university pathway to see required subjects and HL grade expectations
+- **Zero friction** — no signup required; all reference data is public
 
-## Using the template
+## Tech Stack
 
-You can use this template through the Wasp CLI:
-
-```bash
-wasp new <project-name>
-# or
-wasp new <project-name> -t basic
-```
+- [Wasp](https://wasp.sh) — full-stack framework (React + Node.js + Prisma)
+- PostgreSQL
+- Tailwind CSS 4
+- Vitest
 
 ## Development
 
-To start the application locally for development or preview purposes:
+### Prerequisites
 
-1. Run `wasp db migrate-dev` to migrate the database to the latest migration
-2. Run `wasp start` to start the Wasp application. If running for the first time, this will also install the client and the server dependencies for you.
-3. The application should be running on `localhost:3000`. Open in it your browser to access the client.
+- Node.js (LTS)
+- Wasp CLI: `npm i -g @wasp.sh/wasp-cli@latest`
+- PostgreSQL (or use `wasp start db` for a Docker-managed instance)
 
-To improve your Wasp development experience, we recommend installing the [Wasp extension for VSCode](https://marketplace.visualstudio.com/items?itemName=wasp-lang.wasp).
+### Setup
 
-## Learn more
+```bash
+# Start the database
+wasp start db
 
-To find out more about Wasp, visit out [docs](https://wasp.sh/docs).
+# Run migrations and seed data
+wasp db migrate-dev --name init
+wasp db seed
+
+# Start the dev server
+wasp start
+```
+
+The app runs at `http://localhost:3000`.
+
+## License
+
+All rights reserved.
