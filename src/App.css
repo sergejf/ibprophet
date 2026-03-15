@@ -49,3 +49,11 @@ body {
 @utility label {
   @apply text-sm font-medium text-neutral-300;
 }
+
+/* Wasp auth forms have white-background inputs — force black text */
+form[class*="Form"] input,
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  color: #111 !important;
+}
