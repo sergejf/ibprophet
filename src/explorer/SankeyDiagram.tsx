@@ -1,6 +1,12 @@
 import { ResponsiveSankey } from "@nivo/sankey";
-import type { SankeyData } from "./sankey-utils";
+import type { SankeyData, MatchTier } from "./sankey-utils";
 import { truncateLabel } from "./sankey-utils";
+
+const TIER_LABEL_COLORS: Record<MatchTier, string> = {
+  strong: "#86efac",   // green-300
+  moderate: "#fde047",  // yellow-300
+  stretch: "#9ca3af",   // gray-400
+};
 
 interface SankeyDiagramProps {
   data: SankeyData;
@@ -44,6 +50,19 @@ export function SankeyDiagram({
         </span>
       </div>
 
+      {/* Career fit legend */}
+      <div className="flex justify-end gap-3 px-1 pb-1" style={{ marginRight: 180 }}>
+        <span className="flex items-center gap-1 text-[10px] text-neutral-500">
+          <span className="inline-block h-2 w-2 rounded-full bg-green-500" /> Strong fit
+        </span>
+        <span className="flex items-center gap-1 text-[10px] text-neutral-500">
+          <span className="inline-block h-2 w-2 rounded-full bg-yellow-500" /> Possible
+        </span>
+        <span className="flex items-center gap-1 text-[10px] text-neutral-500">
+          <span className="inline-block h-2 w-2 rounded-full bg-gray-500" /> Stretch
+        </span>
+      </div>
+
       <div className="w-full" style={{ height }}>
         <ResponsiveSankey
           data={{
@@ -53,6 +72,7 @@ export function SankeyDiagram({
               nodeColor: n.color,
               nodeType: n.nodeType,
               entityId: n.entityId,
+              matchTier: n.matchTier,
             })),
             links: data.links,
           }}
@@ -74,8 +94,10 @@ export function SankeyDiagram({
           labelOrientation="horizontal"
           labelPadding={16}
           labelTextColor={(node: any) => {
-            // Career labels get a subtle underline-style color to hint clickability
-            if (node.id?.startsWith?.("c-")) return "#86efac";
+            if (node.id?.startsWith?.("c-")) {
+              const tier: MatchTier = node.matchTier ?? "strong";
+              return TIER_LABEL_COLORS[tier];
+            }
             if (node.id?.startsWith?.("p-")) return "#fcd34d";
             return "#e5e5e5";
           }}
@@ -83,20 +105,28 @@ export function SankeyDiagram({
             const text = truncateLabel(node.label || node.id);
             return text;
           }}
-          nodeTooltip={({ node }: any) => (
-            <div className="rounded-lg border border-dark-600 bg-dark-800 px-3 py-2 text-sm text-neutral-100 shadow-xl">
-              <span className="font-semibold" style={{ color: node.color }}>
-                {node.label}
-              </span>
-              <span className="ml-2 text-xs text-neutral-400">
-                {node.nodeType === "subject"
-                  ? "IB Subject"
-                  : node.nodeType === "pathway"
-                    ? "Click to view pathway"
-                    : "Click to view career details"}
-              </span>
-            </div>
-          )}
+          nodeTooltip={({ node }: any) => {
+            const tierLabels: Record<string, string> = {
+              strong: "Strong fit",
+              moderate: "Possible",
+              stretch: "Stretch",
+            };
+            const tierHint = node.matchTier ? ` · ${tierLabels[node.matchTier]}` : "";
+            return (
+              <div className="rounded-lg border border-dark-600 bg-dark-800 px-3 py-2 text-sm text-neutral-100 shadow-xl">
+                <span className="font-semibold" style={{ color: node.color }}>
+                  {node.label}
+                </span>
+                <span className="ml-2 text-xs text-neutral-400">
+                  {node.nodeType === "subject"
+                    ? "IB Subject"
+                    : node.nodeType === "pathway"
+                      ? "Click to view pathway"
+                      : `Click to explore${tierHint}`}
+                </span>
+              </div>
+            );
+          }}
           linkTooltip={({ link }: any) => {
             const strength =
               link.value >= 6 ? "Strong" : link.value >= 3 ? "Moderate" : "Weak";

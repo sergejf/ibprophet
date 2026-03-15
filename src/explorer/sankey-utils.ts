@@ -1,9 +1,12 @@
+export type MatchTier = "strong" | "moderate" | "stretch";
+
 export interface SankeyNode {
   id: string;
   label: string;
   color: string;
   nodeType: "subject" | "pathway" | "career";
   entityId: string;
+  matchTier?: MatchTier;
 }
 
 export interface SankeyLink {
@@ -55,7 +58,11 @@ const GROUP_COLORS: Record<number, string> = {
 };
 
 const PATHWAY_COLOR = "#f59e0b";
-const CAREER_COLOR = "#22c55e";
+const CAREER_COLORS: Record<MatchTier, string> = {
+  strong: "#22c55e",   // green-500 — strong fit
+  moderate: "#eab308", // yellow-500 — possible
+  stretch: "#6b7280",  // gray-500 — stretch
+};
 
 export function truncateLabel(name: string, max = 28): string {
   if (name.length <= max) return name;
@@ -67,6 +74,9 @@ export function buildSankeyData(input: BuildSankeyInput): SankeyData {
 
   const nodeMap = new Map<string, SankeyNode>();
   const links: SankeyLink[] = [];
+
+  // Track incoming link values per career node for match-tier calculation
+  const careerIncoming = new Map<string, number>();
 
   for (const pathway of pathways) {
     const pathwayNodeId = `p-${pathway.id}`;
@@ -116,20 +126,49 @@ export function buildSankeyData(input: BuildSankeyInput): SankeyData {
     // Career links are also boosted by how well the subjects match the pathway
     for (const cl of pathway.careerLinks) {
       const careerNodeId = `c-${cl.careerId}`;
+      const linkValue = Math.round(cl.weight * comboMultiplier);
       if (!nodeMap.has(careerNodeId)) {
         nodeMap.set(careerNodeId, {
           id: careerNodeId,
           label: cl.career.name,
-          color: CAREER_COLOR,
+          color: CAREER_COLORS.strong, // placeholder, assigned below
           nodeType: "career",
           entityId: cl.careerId,
         });
       }
+      careerIncoming.set(
+        careerNodeId,
+        (careerIncoming.get(careerNodeId) ?? 0) + linkValue,
+      );
       links.push({
         source: pathwayNodeId,
         target: careerNodeId,
-        value: Math.round(cl.weight * comboMultiplier),
+        value: linkValue,
       });
+    }
+  }
+
+  // Assign match tiers to career nodes using a hybrid of absolute and relative scoring.
+  // Absolute thresholds ensure that weakly-connected careers (e.g. Engineer for a
+  // humanities student) don't appear as "strong fit" just because nothing else scores higher.
+  const incomingValues = [...careerIncoming.values()];
+  const maxIncoming = Math.max(...incomingValues, 1);
+
+  for (const [nodeId, total] of careerIncoming) {
+    const ratio = total / maxIncoming;
+    // Strong: high relative share AND meaningful absolute value
+    // Moderate: decent relative share OR reasonable absolute value
+    // Stretch: weakly connected — career is reachable but unlikely given subject choices
+    const tier: MatchTier =
+      ratio >= 0.45 && total >= 3
+        ? "strong"
+        : ratio >= 0.2 || total >= 2
+          ? "moderate"
+          : "stretch";
+    const node = nodeMap.get(nodeId);
+    if (node) {
+      node.color = CAREER_COLORS[tier];
+      node.matchTier = tier;
     }
   }
 

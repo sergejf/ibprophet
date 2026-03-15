@@ -139,6 +139,28 @@ export function PathwayResults({
   );
 }
 
+const careerFitStyle = (pathwayPercent: number, linkWeight: number) => {
+  // Higher pathway match + higher link weight = stronger career fit
+  const score = pathwayPercent * (linkWeight / 3);
+  if (score >= 40)
+    return {
+      bg: "bg-green-500/10 hover:bg-green-500/20",
+      text: "text-green-400",
+      label: "Strong fit",
+    };
+  if (score >= 15)
+    return {
+      bg: "bg-yellow-500/10 hover:bg-yellow-500/20",
+      text: "text-yellow-400",
+      label: "Possible",
+    };
+  return {
+    bg: "bg-neutral-500/10 hover:bg-neutral-500/20",
+    text: "text-neutral-400",
+    label: "Stretch",
+  };
+};
+
 function PathwayCard({
   data,
   onCareerClick,
@@ -188,22 +210,26 @@ function PathwayCard({
         ))}
       </div>
 
-      {/* Career outcomes */}
+      {/* Career outcomes with fit indicator */}
       {pathway.careerLinks.length > 0 && (
         <div className="flex flex-col gap-1.5 border-t border-dark-600 pt-3">
           <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
             Career paths
           </span>
           <div className="flex flex-wrap gap-2">
-            {pathway.careerLinks.map((cl) => (
-              <button
-                key={cl.careerId}
-                onClick={() => onCareerClick(cl.career)}
-                className="rounded-lg bg-green-500/10 px-2.5 py-1 text-xs font-medium text-green-400 transition-colors hover:bg-green-500/20"
-              >
-                {cl.career.name} →
-              </button>
-            ))}
+            {pathway.careerLinks.map((cl) => {
+              const fit = careerFitStyle(percent, cl.weight);
+              return (
+                <button
+                  key={cl.careerId}
+                  onClick={() => onCareerClick(cl.career)}
+                  className={`rounded-lg px-2.5 py-1 text-xs font-medium transition-colors ${fit.bg} ${fit.text}`}
+                  title={fit.label}
+                >
+                  {cl.career.name}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
@@ -238,9 +264,9 @@ function PathwayCardCompact({
           <button
             key={cl.careerId}
             onClick={() => onCareerClick(cl.career)}
-            className="text-xs text-green-500/70 hover:text-green-400"
+            className="text-xs text-neutral-500 hover:text-neutral-300"
           >
-            {cl.career.name} →
+            {cl.career.name}
           </button>
         ))}
       </div>

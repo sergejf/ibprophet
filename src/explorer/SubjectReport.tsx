@@ -173,6 +173,8 @@ export function analyseSubjects(
 
   /* ═══ WORKLOAD & BALANCE CHECKS ═══ */
 
+  const essayCount = count(allNames, ESSAY_HEAVY);
+
   // Too many essay-heavy HLs
   if (essayHLCount >= 3) {
     cons.push(
@@ -180,6 +182,10 @@ export function analyseSubjects(
     );
     recommendations.push(
       "Consider swapping one essay-heavy HL for a more quantitative or creative subject to balance your workload and develop a broader skill set.",
+    );
+  } else if (essayCount >= 4) {
+    cons.push(
+      "Essay-heavy combination — with four or more essay-based subjects (HL + SL combined), you'll face overlapping coursework deadlines and heavy reading loads throughout the year.",
     );
   }
 
@@ -214,10 +220,37 @@ export function analyseSubjects(
   }
 
   // No essay-based subject
-  const essayCount = count(allNames, ESSAY_HEAVY);
   if (allNames.length >= 4 && essayCount === 0) {
     recommendations.push(
       "Consider adding an essay-based subject. Universities value written communication skills, and essay subjects strengthen your Extended Essay preparation.",
+    );
+  }
+
+  // Business Management + Economics overlap
+  if (has(allNames, BM) && has(allNames, ECON)) {
+    if (isHL(hlNames, BM) && isHL(hlNames, ECON)) {
+      cons.push(
+        "Significant overlap — HL Business Management and HL Economics cover similar territory (market structures, strategy, micro/macro concepts). Universities may view this as narrow rather than broad.",
+      );
+      recommendations.push(
+        "Consider keeping one at HL and replacing the other with a contrasting subject (e.g. a science, maths, or language) to demonstrate breadth.",
+      );
+    }
+  }
+
+  // Psychology without Biology
+  if (has(allNames, PSYCH) && !hasBio) {
+    recommendations.push(
+      "Many psychology degrees have a biological component. Adding Biology (even at SL) strengthens applications to neuroscience and clinical psychology programmes.",
+    );
+  }
+
+  // Arts in Group 6 when STEM-oriented
+  const artsCount = count(allNames, ARTS);
+  const stemSubjectCount = count(allNames, [MATHS_AA, MATHS_AI, PHYS, CHEM, BIO, CS, DT]);
+  if (artsCount >= 1 && stemSubjectCount >= 3) {
+    recommendations.push(
+      "You have a STEM-heavy profile but include an arts subject. If aiming for science or engineering degrees, consider replacing it with a second science or humanities subject — many universities prefer applicants with two sciences.",
     );
   }
 

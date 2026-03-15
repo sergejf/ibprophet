@@ -80,4 +80,23 @@ describe("analyseSubjects", () => {
     expect(result.recommendations.some((r) => r.includes("Higher Level"))).toBe(true);
     expect(result.recommendations.some((r) => r.includes("Standard Level"))).toBe(true);
   });
+
+  it("warns about 4+ essay-heavy subjects total", () => {
+    // HL: English Lit, History, Maths AA; SL: Psych, Economics, Global Politics
+    // That's 5 essay-heavy subjects (ENG_LIT, HIST, PSYCH, ECON, GP)
+    const result = analyseSubjects(subjects, ["6", "7", "3"], ["5", "8", "15"]);
+    expect(result.cons.some((c) => c.includes("Essay-heavy combination"))).toBe(true);
+  });
+
+  it("warns about HL Business Management + HL Economics overlap", () => {
+    // HL: BM, Econ, Maths AA; SL: English, History, Bio
+    const result = analyseSubjects(subjects, ["9", "8", "3"], ["6", "7", "2"]);
+    expect(result.cons.some((c) => c.includes("overlap"))).toBe(true);
+  });
+
+  it("recommends Biology for Psychology students", () => {
+    // HL: Psych, History, English; SL: Maths AI, Film, French
+    const result = analyseSubjects(subjects, ["5", "7", "6"], ["14", "13", "17"]);
+    expect(result.recommendations.some((r) => r.includes("psychology") || r.includes("Psychology"))).toBe(true);
+  });
 });
