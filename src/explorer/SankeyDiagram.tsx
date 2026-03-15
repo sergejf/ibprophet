@@ -32,6 +32,9 @@ export function SankeyDiagram({
         </span>
         <span className="mx-auto text-xs font-semibold uppercase tracking-wider text-neutral-400">
           University Pathways
+          <span className="ml-1.5 text-[10px] font-normal normal-case text-neutral-500">
+            (click to explore)
+          </span>
         </span>
         <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
           Careers
@@ -78,8 +81,6 @@ export function SankeyDiagram({
           }}
           label={(node: any) => {
             const text = truncateLabel(node.label || node.id);
-            // Append arrow hint for career nodes
-            if (node.id?.startsWith?.("c-")) return `${text} →`;
             return text;
           }}
           nodeTooltip={({ node }: any) => (

@@ -479,6 +479,32 @@
     { "subject": "Vietnamese A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
     { "subject": "Hebrew A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
 
+    { "subject": "English B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    { "subject": "Spanish B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    { "subject": "French B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    { "subject": "German B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    { "subject": "Italian B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    { "subject": "Chinese B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    { "subject": "Russian B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+
+    { "subject": "English B", "pathway": "Education", "weight": 1, "hlRequired": false },
+    { "subject": "Spanish B", "pathway": "Education", "weight": 1, "hlRequired": false },
+    { "subject": "French B", "pathway": "Education", "weight": 1, "hlRequired": false },
+    { "subject": "German B", "pathway": "Education", "weight": 1, "hlRequired": false },
+
+    { "subject": "English B", "pathway": "Law", "weight": 1, "hlRequired": false },
+    { "subject": "Spanish B", "pathway": "Law", "weight": 1, "hlRequired": false },
+    { "subject": "French B", "pathway": "Law", "weight": 1, "hlRequired": false },
+    { "subject": "German B", "pathway": "Law", "weight": 1, "hlRequired": false },
+
+    { "subject": "English B", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
+    { "subject": "Spanish B", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
+    { "subject": "French B", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
+
+    { "subject": "English B", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
+    { "subject": "Spanish B", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
+    { "subject": "French B", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
+
     { "subject": "Biology", "pathway": "Environmental Science", "weight": 2, "hlRequired": false },
     { "subject": "Chemistry", "pathway": "Environmental Science", "weight": 2, "hlRequired": false },
     { "subject": "Environmental Systems and Societies", "pathway": "Environmental Science", "weight": 3, "hlRequired": false },
