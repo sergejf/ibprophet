@@ -27,7 +27,7 @@ app ibprophet {
     onAuthFailedRedirectTo: "/login",
   },
   emailSender: {
-    provider: Dummy,
+    provider: SMTP,
   },
   client: {
     rootComponent: import { App } from "@src/App",
