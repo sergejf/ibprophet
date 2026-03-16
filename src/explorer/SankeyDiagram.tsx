@@ -3,9 +3,9 @@ import type { SankeyData, MatchTier } from "./sankey-utils";
 import { truncateLabel } from "./sankey-utils";
 
 const TIER_LABEL_COLORS: Record<MatchTier, string> = {
-  strong: "#86efac",   // green-300
-  moderate: "#fde047",  // yellow-300
-  stretch: "#9ca3af",   // gray-400
+  strong: "#86efac", // green-300
+  moderate: "#fde047", // yellow-300
+  stretch: "#9ca3af", // gray-400
 };
 
 interface SankeyDiagramProps {
@@ -32,34 +32,43 @@ export function SankeyDiagram({
   return (
     <div className="flex flex-col gap-0">
       {/* Column headings */}
-      <div className="flex items-center px-1" style={{ marginLeft: 180, marginRight: 180 }}>
-        <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
+      <div
+        className="flex items-center px-1"
+        style={{ marginLeft: 180, marginRight: 180 }}
+      >
+        <span className="text-xs font-semibold tracking-wider text-neutral-400 uppercase">
           Your IB Subjects
         </span>
-        <span className="mx-auto text-xs font-semibold uppercase tracking-wider text-neutral-400">
+        <span className="mx-auto text-xs font-semibold tracking-wider text-neutral-400 uppercase">
           University Pathways
-          <span className="ml-1.5 text-[10px] font-normal normal-case text-neutral-500">
+          <span className="ml-1.5 text-[10px] font-normal text-neutral-500 normal-case">
             (click to explore)
           </span>
         </span>
-        <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
+        <span className="text-xs font-semibold tracking-wider text-neutral-400 uppercase">
           Careers
-          <span className="ml-1.5 text-[10px] font-normal normal-case text-neutral-500">
+          <span className="ml-1.5 text-[10px] font-normal text-neutral-500 normal-case">
             (click to explore)
           </span>
         </span>
       </div>
 
       {/* Career fit legend */}
-      <div className="flex justify-end gap-3 px-1 pb-1" style={{ marginRight: 180 }}>
+      <div
+        className="flex justify-end gap-3 px-1 pb-1"
+        style={{ marginRight: 180 }}
+      >
         <span className="flex items-center gap-1 text-[10px] text-neutral-500">
-          <span className="inline-block h-2 w-2 rounded-full bg-green-500" /> Strong fit
+          <span className="inline-block h-2 w-2 rounded-full bg-green-500" />{" "}
+          Strong fit
         </span>
         <span className="flex items-center gap-1 text-[10px] text-neutral-500">
-          <span className="inline-block h-2 w-2 rounded-full bg-yellow-500" /> Possible
+          <span className="inline-block h-2 w-2 rounded-full bg-yellow-500" />{" "}
+          Possible
         </span>
         <span className="flex items-center gap-1 text-[10px] text-neutral-500">
-          <span className="inline-block h-2 w-2 rounded-full bg-gray-500" /> Stretch
+          <span className="inline-block h-2 w-2 rounded-full bg-gray-500" />{" "}
+          Stretch
         </span>
       </div>
 
@@ -111,9 +120,11 @@ export function SankeyDiagram({
               moderate: "Possible",
               stretch: "Stretch",
             };
-            const tierHint = node.matchTier ? ` · ${tierLabels[node.matchTier]}` : "";
+            const tierHint = node.matchTier
+              ? ` · ${tierLabels[node.matchTier]}`
+              : "";
             return (
-              <div className="rounded-lg border border-dark-600 bg-dark-800 px-3 py-2 text-sm text-neutral-100 shadow-xl">
+              <div className="border-dark-600 bg-dark-800 rounded-lg border px-3 py-2 text-sm text-neutral-100 shadow-xl">
                 <span className="font-semibold" style={{ color: node.color }}>
                   {node.label}
                 </span>
@@ -129,9 +140,13 @@ export function SankeyDiagram({
           }}
           linkTooltip={({ link }: any) => {
             const strength =
-              link.value >= 6 ? "Strong" : link.value >= 3 ? "Moderate" : "Weak";
+              link.value >= 6
+                ? "Strong"
+                : link.value >= 3
+                  ? "Moderate"
+                  : "Weak";
             return (
-              <div className="rounded-lg border border-dark-600 bg-dark-800 px-3 py-2 text-sm text-neutral-100 shadow-xl">
+              <div className="border-dark-600 bg-dark-800 rounded-lg border px-3 py-2 text-sm text-neutral-100 shadow-xl">
                 <span style={{ color: link.source.color }}>
                   {link.source.label}
                 </span>

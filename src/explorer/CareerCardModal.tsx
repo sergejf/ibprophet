@@ -10,13 +10,20 @@ interface CareerCardModalProps {
   onClose: () => void;
 }
 
-const aiLabels: Record<string, { text: string; color: "green" | "yellow" | "red" }> = {
+const aiLabels: Record<
+  string,
+  { text: string; color: "green" | "yellow" | "red" }
+> = {
   GREEN: { text: "AI-Resilient", color: "green" },
   YELLOW: { text: "AI-Augmented", color: "yellow" },
   RED: { text: "AI-Exposed", color: "red" },
 };
 
-export function CareerCardModal({ career, open, onClose }: CareerCardModalProps) {
+export function CareerCardModal({
+  career,
+  open,
+  onClose,
+}: CareerCardModalProps) {
   if (!career) return null;
 
   const pros: string[] = JSON.parse(career.pros);
@@ -24,15 +31,17 @@ export function CareerCardModal({ career, open, onClose }: CareerCardModalProps)
   const ai = aiLabels[career.aiResilience];
   const maxSalary = Math.max(career.salaryMidUS, career.salaryMidUK);
   const growthColor =
-    career.growthPercent10Y > 10 ? "text-green-400" :
-    career.growthPercent10Y >= 0 ? "text-yellow-400" :
-    "text-red-400";
+    career.growthPercent10Y > 10
+      ? "text-green-400"
+      : career.growthPercent10Y >= 0
+        ? "text-yellow-400"
+        : "text-red-400";
 
   return (
     <Dialog open={open} onClose={onClose}>
       <div className="flex w-full flex-col gap-4 overflow-y-auto p-6">
         <div className="flex items-start justify-between">
-          <h2 className="text-xl font-bold text-primary-500">{career.name}</h2>
+          <h2 className="text-primary-500 text-xl font-bold">{career.name}</h2>
           <Badge color={ai.color}>{ai.text}</Badge>
         </div>
 
@@ -40,27 +49,56 @@ export function CareerCardModal({ career, open, onClose }: CareerCardModalProps)
 
         {/* Salary bars */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-400">Salary</h3>
+          <h3 className="text-xs font-semibold tracking-wider text-neutral-400 uppercase">
+            Salary
+          </h3>
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-            <SalaryBar label="US Start" value={career.salaryStartUS} maxValue={maxSalary} currency="$" />
-            <SalaryBar label="UK Start" value={career.salaryStartUK} maxValue={maxSalary} color="bg-blue-500" currency="£" />
-            <SalaryBar label="US Mid" value={career.salaryMidUS} maxValue={maxSalary} currency="$" />
-            <SalaryBar label="UK Mid" value={career.salaryMidUK} maxValue={maxSalary} color="bg-blue-500" currency="£" />
+            <SalaryBar
+              label="US Start"
+              value={career.salaryStartUS}
+              maxValue={maxSalary}
+              currency="$"
+            />
+            <SalaryBar
+              label="UK Start"
+              value={career.salaryStartUK}
+              maxValue={maxSalary}
+              color="bg-blue-500"
+              currency="£"
+            />
+            <SalaryBar
+              label="US Mid"
+              value={career.salaryMidUS}
+              maxValue={maxSalary}
+              currency="$"
+            />
+            <SalaryBar
+              label="UK Mid"
+              value={career.salaryMidUK}
+              maxValue={maxSalary}
+              color="bg-blue-500"
+              currency="£"
+            />
           </div>
         </div>
 
         {/* Growth */}
         <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">10Y Growth:</span>
+          <span className="text-xs font-semibold tracking-wider text-neutral-400 uppercase">
+            10Y Growth:
+          </span>
           <span className={`font-bold ${growthColor}`}>
-            {career.growthPercent10Y > 0 ? "+" : ""}{career.growthPercent10Y}%
+            {career.growthPercent10Y > 0 ? "+" : ""}
+            {career.growthPercent10Y}%
           </span>
         </div>
 
         {/* Pros / Cons */}
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-green-400">Pros</h3>
+            <h3 className="mb-1 text-xs font-semibold tracking-wider text-green-400 uppercase">
+              Pros
+            </h3>
             <ul className="space-y-1 text-sm text-neutral-300">
               {pros.map((p, i) => (
                 <li key={i} className="flex gap-1.5">
@@ -70,7 +108,9 @@ export function CareerCardModal({ career, open, onClose }: CareerCardModalProps)
             </ul>
           </div>
           <div>
-            <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-red-400">Cons</h3>
+            <h3 className="mb-1 text-xs font-semibold tracking-wider text-red-400 uppercase">
+              Cons
+            </h3>
             <ul className="space-y-1 text-sm text-neutral-300">
               {cons.map((c, i) => (
                 <li key={i} className="flex gap-1.5">
@@ -84,7 +124,7 @@ export function CareerCardModal({ career, open, onClose }: CareerCardModalProps)
         <Link
           to="/career/:careerId"
           params={{ careerId: career.id }}
-          className="text-center text-sm text-primary-500 hover:text-primary-400"
+          className="text-primary-500 hover:text-primary-400 text-center text-sm"
         >
           View full details →
         </Link>

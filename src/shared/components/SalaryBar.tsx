@@ -30,7 +30,7 @@ export function SalaryBar({
           {formatSalary(value, currency)}
         </span>
       </div>
-      <div className="h-2 w-full rounded-full bg-dark-700">
+      <div className="bg-dark-700 h-2 w-full rounded-full">
         <div
           className={`h-full rounded-full ${color}`}
           style={{ width: `${widthPercent}%` }}

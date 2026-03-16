@@ -20,7 +20,9 @@ function readStoredIds(): { hl: string[]; sl: string[] } {
   try {
     const raw = sessionStorage.getItem("ibp-selection");
     if (raw) return JSON.parse(raw);
-  } catch { /* ignore */ }
+  } catch {
+    /* ignore */
+  }
   return { hl: [], sl: [] };
 }
 
@@ -67,19 +69,16 @@ export function ExplorerPage() {
     return pathwayData.pathways.find((p) => p.id === selectedPathwayId) ?? null;
   }, [selectedPathwayId, pathwayData]);
 
-  const handleSelect = useCallback(
-    (subjectId: string, level: "hl" | "sl") => {
-      setHlIds((prev) => prev.filter((id) => id !== subjectId));
-      setSlIds((prev) => prev.filter((id) => id !== subjectId));
+  const handleSelect = useCallback((subjectId: string, level: "hl" | "sl") => {
+    setHlIds((prev) => prev.filter((id) => id !== subjectId));
+    setSlIds((prev) => prev.filter((id) => id !== subjectId));
 
-      if (level === "hl") {
-        setHlIds((prev) => (prev.length < 3 ? [...prev, subjectId] : prev));
-      } else {
-        setSlIds((prev) => (prev.length < 3 ? [...prev, subjectId] : prev));
-      }
-    },
-    [],
-  );
+    if (level === "hl") {
+      setHlIds((prev) => (prev.length < 3 ? [...prev, subjectId] : prev));
+    } else {
+      setSlIds((prev) => (prev.length < 3 ? [...prev, subjectId] : prev));
+    }
+  }, []);
 
   const handleDeselect = useCallback((subjectId: string) => {
     setHlIds((prev) => prev.filter((id) => id !== subjectId));

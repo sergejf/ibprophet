@@ -35,11 +35,41 @@ const RUSSELL_GROUP = [
 
 /** Worldwide tier data (source: num8ers.com) */
 const TIERS = [
-  { label: "Ivy League / Oxbridge", range: "40–42", min: 40, color: "text-purple-400", bg: "bg-purple-500" },
-  { label: "Top-tier global", range: "38–39", min: 38, color: "text-blue-400", bg: "bg-blue-500" },
-  { label: "Strong competitive", range: "34–37", min: 34, color: "text-emerald-400", bg: "bg-emerald-500" },
-  { label: "Solid mid-tier", range: "30–33", min: 30, color: "text-yellow-400", bg: "bg-yellow-500" },
-  { label: "Minimum diploma", range: "24–29", min: 24, color: "text-neutral-400", bg: "bg-neutral-500" },
+  {
+    label: "Ivy League / Oxbridge",
+    range: "40–42",
+    min: 40,
+    color: "text-purple-400",
+    bg: "bg-purple-500",
+  },
+  {
+    label: "Top-tier global",
+    range: "38–39",
+    min: 38,
+    color: "text-blue-400",
+    bg: "bg-blue-500",
+  },
+  {
+    label: "Strong competitive",
+    range: "34–37",
+    min: 34,
+    color: "text-emerald-400",
+    bg: "bg-emerald-500",
+  },
+  {
+    label: "Solid mid-tier",
+    range: "30–33",
+    min: 30,
+    color: "text-yellow-400",
+    bg: "bg-yellow-500",
+  },
+  {
+    label: "Minimum diploma",
+    range: "24–29",
+    min: 24,
+    color: "text-neutral-400",
+    bg: "bg-neutral-500",
+  },
 ];
 
 function getTier(points: number) {
@@ -49,7 +79,10 @@ function getTier(points: number) {
   return TIERS[TIERS.length - 1];
 }
 
-export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) {
+export function UniversityBenchmark({
+  hlIds,
+  slIds,
+}: UniversityBenchmarkProps) {
   const [predictedPoints, setPredictedPoints] = useState<number | null>(null);
   const [showUnis, setShowUnis] = useState(false);
 
@@ -61,9 +94,10 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
 
   const tier = predictedPoints !== null ? getTier(predictedPoints) : null;
 
-  const reachableUnis = predictedPoints !== null
-    ? RUSSELL_GROUP.filter((u) => predictedPoints >= u.low).length
-    : 0;
+  const reachableUnis =
+    predictedPoints !== null
+      ? RUSSELL_GROUP.filter((u) => predictedPoints >= u.low).length
+      : 0;
 
   return (
     <section className="card p-5">
@@ -71,12 +105,16 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
         University Benchmark
       </h3>
       <p className="mb-4 text-sm text-neutral-400">
-        Enter your predicted or target IB total points (24–45) to see where you stand.
+        Enter your predicted or target IB total points (24–45) to see where you
+        stand.
       </p>
 
       {/* Points input */}
       <div className="mb-4 flex items-center gap-3">
-        <label htmlFor="ib-points" className="text-sm font-medium text-neutral-300">
+        <label
+          htmlFor="ib-points"
+          className="text-sm font-medium text-neutral-300"
+        >
           Predicted IB points
         </label>
         <input
@@ -85,7 +123,7 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
           min={24}
           max={45}
           placeholder="e.g. 36"
-          className="w-20 rounded-lg border border-dark-600 bg-dark-700 px-3 py-1.5 text-sm text-neutral-100 placeholder-neutral-500 focus:border-primary-500 focus:outline-none"
+          className="border-dark-600 bg-dark-700 focus:border-primary-500 w-20 rounded-lg border px-3 py-1.5 text-sm text-neutral-100 placeholder-neutral-500 focus:outline-none"
           onChange={(e) => {
             const v = parseInt(e.target.value);
             setPredictedPoints(v >= 24 && v <= 45 ? v : null);
@@ -103,22 +141,24 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
           {/* Visual tier bar */}
           <div className="mb-4 flex flex-col gap-1.5">
             <div className="flex gap-0.5">
-              {TIERS.slice().reverse().map((t) => {
-                const isActive = predictedPoints >= t.min;
-                const isCurrent = t.label === tier.label;
-                return (
-                  <div
-                    key={t.label}
-                    className={`flex-1 rounded-sm py-1 text-center text-[10px] font-medium transition-all ${
-                      isActive
-                        ? `${t.bg}/30 ${t.color}`
-                        : "bg-dark-700 text-neutral-600"
-                    } ${isCurrent ? "ring-1 ring-white/30" : ""}`}
-                  >
-                    {t.range}
-                  </div>
-                );
-              })}
+              {TIERS.slice()
+                .reverse()
+                .map((t) => {
+                  const isActive = predictedPoints >= t.min;
+                  const isCurrent = t.label === tier.label;
+                  return (
+                    <div
+                      key={t.label}
+                      className={`flex-1 rounded-sm py-1 text-center text-[10px] font-medium transition-all ${
+                        isActive
+                          ? `${t.bg}/30 ${t.color}`
+                          : "bg-dark-700 text-neutral-600"
+                      } ${isCurrent ? "ring-1 ring-white/30" : ""}`}
+                    >
+                      {t.range}
+                    </div>
+                  );
+                })}
             </div>
             <div className="flex justify-between text-[10px] text-neutral-500">
               <span>24 pts</span>
@@ -128,15 +168,18 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
 
           {/* Russell Group summary */}
           <div className="mb-3 flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-primary-500">{reachableUnis}</span>
+            <span className="text-primary-500 text-2xl font-bold">
+              {reachableUnis}
+            </span>
             <span className="text-sm text-neutral-300">
-              of {RUSSELL_GROUP.length} Russell Group universities have courses accepting {predictedPoints} points
+              of {RUSSELL_GROUP.length} Russell Group universities have courses
+              accepting {predictedPoints} points
             </span>
           </div>
 
           <button
             onClick={() => setShowUnis(!showUnis)}
-            className="mb-3 text-sm text-primary-500 hover:text-primary-400"
+            className="text-primary-500 hover:text-primary-400 mb-3 text-sm"
           >
             {showUnis ? "Hide" : "Show"} Russell Group breakdown
           </button>
@@ -160,12 +203,14 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
                     <div className="flex items-center justify-between">
                       <span className="font-medium">{u.name}</span>
                       <span className="text-xs">
-                        {competitive ? "Competitive" : inRange ? "In range" : `Need ${u.low}+`}
+                        {competitive
+                          ? "Competitive"
+                          : inRange
+                            ? "In range"
+                            : `Need ${u.low}+`}
                       </span>
                     </div>
-                    <span className="text-[10px] opacity-70">
-                      HL: {u.hl}
-                    </span>
+                    <span className="text-[10px] opacity-70">HL: {u.hl}</span>
                   </div>
                 );
               })}
@@ -173,7 +218,8 @@ export function UniversityBenchmark({ hlIds, slIds }: UniversityBenchmarkProps) 
           )}
 
           <p className="mt-3 text-xs text-neutral-500">
-            Point ranges vary by course. Source: uniadmissions.co.uk, num8ers.com. Always check specific course requirements.
+            Point ranges vary by course. Source: uniadmissions.co.uk,
+            num8ers.com. Always check specific course requirements.
           </p>
         </>
       )}

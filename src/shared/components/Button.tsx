@@ -42,10 +42,7 @@ export function ButtonLink({
   ...props
 }: ButtonLinkProps) {
   return (
-    <Link
-      className={getButtonClasses({ size, variant, className })}
-      {...props}
-    >
+    <Link className={getButtonClasses({ size, variant, className })} {...props}>
       {children}
     </Link>
   );
@@ -78,6 +75,5 @@ const variantStyles: Record<ButtonVariant, ClassNameValue> = {
   primary:
     "bg-primary-500 hover:bg-primary-400 active:bg-primary-300 text-dark-900",
   danger: "bg-red-600 text-white hover:bg-red-700 active:bg-red-800",
-  ghost:
-    "bg-transparent text-neutral-300 hover:bg-dark-700 active:bg-dark-600",
+  ghost: "bg-transparent text-neutral-300 hover:bg-dark-700 active:bg-dark-600",
 };

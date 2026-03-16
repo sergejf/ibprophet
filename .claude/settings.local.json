@@ -58,7 +58,14 @@
       "Bash(~/.fly/bin/flyctl logs:*)",
       "Bash(chmod:*)",
       "Bash(./deploy.sh --client)",
-      "Bash(./deploy.sh --check 2>&1 | tail -20)"
+      "Bash(./deploy.sh --check 2>&1 | tail -20)",
+      "Bash(which gitleaks:*)",
+      "Bash(npx husky:*)",
+      "Bash(npx lint-staged:*)",
+      "Bash(~/.local/bin/gitleaks protect:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx prettier:*)",
+      "Bash(~/.local/bin/gitleaks detect:*)"
     ]
   }
 }

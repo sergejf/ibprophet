@@ -53,19 +53,31 @@ describe("analyseSubjects", () => {
 
   it("warns about three essay-heavy HLs", () => {
     // HL: English Lit, History, Psych (all essay-heavy)
-    const result = analyseSubjects(subjects, ["6", "7", "5"], ["14", "2", "17"]);
+    const result = analyseSubjects(
+      subjects,
+      ["6", "7", "5"],
+      ["14", "2", "17"],
+    );
     expect(result.cons.some((c) => c.includes("essay workload"))).toBe(true);
   });
 
   it("warns about no quantitative subjects", () => {
     // HL: English Lit, History, Global Politics; SL: Theatre, Film, French
-    const result = analyseSubjects(subjects, ["6", "7", "15"], ["12", "13", "17"]);
+    const result = analyseSubjects(
+      subjects,
+      ["6", "7", "15"],
+      ["12", "13", "17"],
+    );
     expect(result.cons.some((c) => c.includes("No quantitative"))).toBe(true);
   });
 
   it("flags Maths AI with CS as potential issue", () => {
     // HL: CS, Maths AI, Physics; SL: ...
-    const result = analyseSubjects(subjects, ["10", "14", "4"], ["6", "8", "17"]);
+    const result = analyseSubjects(
+      subjects,
+      ["10", "14", "4"],
+      ["6", "8", "17"],
+    );
     expect(result.cons.some((c) => c.includes("Maths AI"))).toBe(true);
   });
 
@@ -77,15 +89,21 @@ describe("analyseSubjects", () => {
   it("shows incomplete selection nudge", () => {
     // 2 HL, 1 SL → should nudge for both
     const result = analyseSubjects(subjects, ["1", "2"], ["6"]);
-    expect(result.recommendations.some((r) => r.includes("Higher Level"))).toBe(true);
-    expect(result.recommendations.some((r) => r.includes("Standard Level"))).toBe(true);
+    expect(result.recommendations.some((r) => r.includes("Higher Level"))).toBe(
+      true,
+    );
+    expect(
+      result.recommendations.some((r) => r.includes("Standard Level")),
+    ).toBe(true);
   });
 
   it("warns about 4+ essay-heavy subjects total", () => {
     // HL: English Lit, History, Maths AA; SL: Psych, Economics, Global Politics
     // That's 5 essay-heavy subjects (ENG_LIT, HIST, PSYCH, ECON, GP)
     const result = analyseSubjects(subjects, ["6", "7", "3"], ["5", "8", "15"]);
-    expect(result.cons.some((c) => c.includes("Essay-heavy combination"))).toBe(true);
+    expect(result.cons.some((c) => c.includes("Essay-heavy combination"))).toBe(
+      true,
+    );
   });
 
   it("warns about HL Business Management + HL Economics overlap", () => {
@@ -96,7 +114,15 @@ describe("analyseSubjects", () => {
 
   it("recommends Biology for Psychology students", () => {
     // HL: Psych, History, English; SL: Maths AI, Film, French
-    const result = analyseSubjects(subjects, ["5", "7", "6"], ["14", "13", "17"]);
-    expect(result.recommendations.some((r) => r.includes("psychology") || r.includes("Psychology"))).toBe(true);
+    const result = analyseSubjects(
+      subjects,
+      ["5", "7", "6"],
+      ["14", "13", "17"],
+    );
+    expect(
+      result.recommendations.some(
+        (r) => r.includes("psychology") || r.includes("Psychology"),
+      ),
+    ).toBe(true);
   });
 });

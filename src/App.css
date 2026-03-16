@@ -43,7 +43,7 @@ body {
 }
 
 @utility card {
-  @apply rounded-xl border border-dark-600 bg-dark-800 shadow-xs transition-all duration-200;
+  @apply border-dark-600 bg-dark-800 rounded-xl border shadow-xs transition-all duration-200;
 }
 
 @utility label {

@@ -94,7 +94,7 @@ export function SubjectCard({
             className={twJoin(
               "rounded-md px-3 py-1 text-xs font-semibold transition-colors",
               hlFull
-                ? "cursor-not-allowed bg-dark-700 text-neutral-600"
+                ? "bg-dark-700 cursor-not-allowed text-neutral-600"
                 : "bg-orange-500/15 text-orange-400 hover:bg-orange-500/30",
             )}
           >
@@ -107,7 +107,7 @@ export function SubjectCard({
           className={twJoin(
             "rounded-md px-3 py-1 text-xs font-semibold transition-colors",
             slFull
-              ? "cursor-not-allowed bg-dark-700 text-neutral-600"
+              ? "bg-dark-700 cursor-not-allowed text-neutral-600"
               : "bg-sky-500/15 text-sky-400 hover:bg-sky-500/30",
             isSLOnly && "ml-0",
           )}
@@ -115,9 +115,7 @@ export function SubjectCard({
           + SL
         </button>
         {isSLOnly && (
-          <span className="self-center text-xs text-neutral-600">
-            SL only
-          </span>
+          <span className="self-center text-xs text-neutral-600">SL only</span>
         )}
       </div>
     </div>

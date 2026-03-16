@@ -68,7 +68,8 @@ function scorePathways(
         0,
       );
 
-      const percent = maxPossibleScore > 0 ? Math.round((score / maxPossibleScore) * 100) : 0;
+      const percent =
+        maxPossibleScore > 0 ? Math.round((score / maxPossibleScore) * 100) : 0;
 
       return { pathway, matchingSubjects, score, maxPossibleScore, percent };
     })
@@ -117,7 +118,11 @@ export function PathwayResults({
           </h3>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {combos.map((ps) => (
-              <PathwayCard key={ps.pathway.id} data={ps} onCareerClick={onCareerClick} />
+              <PathwayCard
+                key={ps.pathway.id}
+                data={ps}
+                onCareerClick={onCareerClick}
+              />
             ))}
           </div>
         </div>
@@ -125,12 +130,14 @@ export function PathwayResults({
 
       {singles.length > 0 && (
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-medium text-neutral-500">
-            Also related
-          </h3>
+          <h3 className="text-sm font-medium text-neutral-500">Also related</h3>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
             {singles.map((ps) => (
-              <PathwayCardCompact key={ps.pathway.id} data={ps} onCareerClick={onCareerClick} />
+              <PathwayCardCompact
+                key={ps.pathway.id}
+                data={ps}
+                onCareerClick={onCareerClick}
+              />
             ))}
           </div>
         </div>
@@ -185,13 +192,15 @@ function PathwayCard({
 
       {/* Match bar */}
       <div className="flex items-center gap-3">
-        <div className="h-2 flex-1 overflow-hidden rounded-full bg-dark-700">
+        <div className="bg-dark-700 h-2 flex-1 overflow-hidden rounded-full">
           <div
             className={`h-full rounded-full transition-all duration-500 ${barColor}`}
             style={{ width: `${percent}%` }}
           />
         </div>
-        <span className="text-xs font-semibold text-neutral-400">{percent}%</span>
+        <span className="text-xs font-semibold text-neutral-400">
+          {percent}%
+        </span>
       </div>
 
       {/* Contributing subjects */}
@@ -212,8 +221,8 @@ function PathwayCard({
 
       {/* Career outcomes with fit indicator */}
       {pathway.careerLinks.length > 0 && (
-        <div className="flex flex-col gap-1.5 border-t border-dark-600 pt-3">
-          <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+        <div className="border-dark-600 flex flex-col gap-1.5 border-t pt-3">
+          <span className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
             Career paths
           </span>
           <div className="flex flex-wrap gap-2">
@@ -251,10 +260,7 @@ function PathwayCardCompact({
       <h4 className="text-sm font-semibold text-neutral-200">{pathway.name}</h4>
       <div className="flex flex-wrap gap-1">
         {matchingSubjects.map((s) => (
-          <span
-            key={s.name}
-            className="text-xs text-neutral-500"
-          >
+          <span key={s.name} className="text-xs text-neutral-500">
             via {s.name}
           </span>
         ))}

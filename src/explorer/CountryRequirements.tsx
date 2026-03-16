@@ -18,19 +18,18 @@ interface Check {
 const NATURAL_SCIENCES = ["Biology", "Chemistry", "Physics"];
 
 const GROUP_3_SOCIAL = [
-  "History", "Economics", "Psychology", "Business Management", "Global Politics",
-];
-
-const RECOGNISED_SUBJECTS = [
-  // Groups 1-5 all subjects are recognised. Group 6 recognised list:
-  "Visual Arts", "Music", "Theatre", "Film", "Dance",
-  "Computer Science", "Design Technology",
-  "Environmental Systems and Societies",
-  "Sports, Exercise and Health Science",
+  "History",
+  "Economics",
+  "Psychology",
+  "Business Management",
+  "Global Politics",
 ];
 
 function isLanguageA(name: string): boolean {
-  return name.includes("A: Literature") || name.includes("A: Language and Literature");
+  return (
+    name.includes("A: Literature") ||
+    name.includes("A: Language and Literature")
+  );
 }
 
 function isLanguageB(name: string): boolean {
@@ -53,9 +52,7 @@ function evaluateGermany(
   const allNames = [...hlNames, ...slNames];
 
   // 1. Two languages from groups 1 & 2 (A or B level, not Ab Initio)
-  const langAorB = allNames.filter(
-    (n) => isLanguageA(n) || isLanguageB(n),
-  );
+  const langAorB = allNames.filter((n) => isLanguageA(n) || isLanguageB(n));
   const hasAbInitio = allNames.some(isLanguageAbInitio);
   checks.push({
     label: "Two languages (A or B level)",
@@ -67,9 +64,7 @@ function evaluateGermany(
   });
 
   // 2. At least one foreign language at HL (Language A or B HL)
-  const foreignLangHL = hlNames.filter(
-    (n) => isLanguageA(n) || isLanguageB(n),
-  );
+  const foreignLangHL = hlNames.filter((n) => isLanguageA(n) || isLanguageB(n));
   checks.push({
     label: "Foreign language at HL",
     passed: foreignLangHL.length >= 1,
@@ -101,22 +96,28 @@ function evaluateGermany(
 
   // 5. Mathematics requirement
   const hasMathsAA = allNames.includes("Mathematics: Analysis and Approaches");
-  const hasMathsAI = allNames.includes("Mathematics: Applications and Interpretation");
+  const hasMathsAI = allNames.includes(
+    "Mathematics: Applications and Interpretation",
+  );
   const mathsHLAA = hlNames.includes("Mathematics: Analysis and Approaches");
-  const mathsHLAI = hlNames.includes("Mathematics: Applications and Interpretation");
+  const mathsHLAI = hlNames.includes(
+    "Mathematics: Applications and Interpretation",
+  );
   const mathsHL = mathsHLAA || mathsHLAI;
 
   if (mathsHL) {
     checks.push({
       label: "Mathematics",
       passed: true,
-      detail: "Maths at HL grants unrestricted university access for all subjects in Germany.",
+      detail:
+        "Maths at HL grants unrestricted university access for all subjects in Germany.",
     });
   } else if (hasMathsAA || hasMathsAI) {
     checks.push({
       label: "Mathematics",
       passed: true,
-      detail: "Maths at SL is accepted, but access may be restricted — STEM fields typically require HL. Check your school's listing in the KMK agreement for full access.",
+      detail:
+        "Maths at SL is accepted, but access may be restricted — STEM fields typically require HL. Check your school's listing in the KMK agreement for full access.",
     });
   } else {
     checks.push({
@@ -146,7 +147,8 @@ function evaluateGermany(
   checks.push({
     label: "Minimum 24 IB points",
     passed: true, // Can't verify, assume student aims for this
-    detail: "All subjects must score at least 4/7. A score of 3 can be compensated by a 5 in another subject at the same or higher level.",
+    detail:
+      "All subjects must score at least 4/7. A score of 3 can be compensated by a 5 in another subject at the same or higher level.",
   });
 
   return checks;
@@ -154,9 +156,7 @@ function evaluateGermany(
 
 /* ── Component ── */
 
-const COUNTRIES = [
-  { code: "DE", name: "Germany", flag: "🇩🇪" },
-] as const;
+const COUNTRIES = [{ code: "DE", name: "Germany", flag: "🇩🇪" }] as const;
 
 export function CountryRequirements({
   subjects,
@@ -204,7 +204,8 @@ export function CountryRequirements({
       </div>
 
       <p className="mb-4 text-sm text-neutral-400">
-        Does your IB diploma meet {COUNTRIES.find((c) => c.code === selectedCountry)?.name}'s
+        Does your IB diploma meet{" "}
+        {COUNTRIES.find((c) => c.code === selectedCountry)?.name}&apos;s
         university admission requirements?
       </p>
 
@@ -230,23 +231,41 @@ export function CountryRequirements({
             key={i}
             className={`flex gap-3 rounded-lg px-3 py-2.5 ${
               check.passed
-                ? "bg-emerald-500/5 border border-emerald-500/15"
-                : "bg-red-500/5 border border-red-500/15"
+                ? "border border-emerald-500/15 bg-emerald-500/5"
+                : "border border-red-500/15 bg-red-500/5"
             }`}
           >
             <span className="mt-0.5 shrink-0 text-sm">
               {check.passed ? (
-                <svg className="h-4 w-4 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                <svg
+                  className="h-4 w-4 text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               ) : (
-                <svg className="h-4 w-4 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                <svg
+                  className="h-4 w-4 text-red-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               )}
             </span>
             <div>
-              <span className={`text-sm font-medium ${check.passed ? "text-emerald-300" : "text-red-300"}`}>
+              <span
+                className={`text-sm font-medium ${check.passed ? "text-emerald-300" : "text-red-300"}`}
+              >
                 {check.label}
               </span>
               <p className="mt-0.5 text-xs text-neutral-400">{check.detail}</p>
@@ -256,7 +275,8 @@ export function CountryRequirements({
       </div>
 
       <p className="mt-3 text-xs text-neutral-500">
-        Source: DAAD / KMK resolution (2025 onwards). This is for guidance only — verify with your target university.
+        Source: DAAD / KMK resolution (2025 onwards). This is for guidance only
+        — verify with your target university.
       </p>
     </section>
   );

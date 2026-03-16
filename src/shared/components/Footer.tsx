@@ -1,15 +1,15 @@
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-dark-600 bg-dark-900/80">
+    <footer className="border-dark-600 bg-dark-900/80 mt-auto border-t">
       <div className="mx-auto flex w-full max-w-(--breakpoint-lg) flex-col gap-4 px-12 py-8">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🔮</span>
-          <span className="text-lg font-bold text-primary-500">IB Prophet</span>
+          <span className="text-primary-500 text-lg font-bold">IB Prophet</span>
         </div>
 
         <div className="grid gap-6 text-xs text-neutral-500 sm:grid-cols-2 lg:grid-cols-3">
           <div className="flex flex-col gap-2">
-            <h4 className="font-semibold uppercase tracking-wider text-neutral-400">
+            <h4 className="font-semibold tracking-wider text-neutral-400 uppercase">
               Disclaimer
             </h4>
             <p>
@@ -26,7 +26,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h4 className="font-semibold uppercase tracking-wider text-neutral-400">
+            <h4 className="font-semibold tracking-wider text-neutral-400 uppercase">
               Accuracy
             </h4>
             <p>
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h4 className="font-semibold uppercase tracking-wider text-neutral-400">
+            <h4 className="font-semibold tracking-wider text-neutral-400 uppercase">
               About
             </h4>
             <p>
@@ -65,9 +65,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-dark-700 pt-4 text-center text-xs text-neutral-600">
-          &copy; {new Date().getFullYear()} IB Prophet. All rights reserved.
-          Not affiliated with the IB Organisation or any university listed.
+        <div className="border-dark-700 border-t pt-4 text-center text-xs text-neutral-600">
+          &copy; {new Date().getFullYear()} IB Prophet. All rights reserved. Not
+          affiliated with the IB Organisation or any university listed.
         </div>
       </div>
     </footer>

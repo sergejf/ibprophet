@@ -42,10 +42,17 @@ const ESSAY_HEAVY = [ENG_LL, ENG_LIT, HIST, GP, PSYCH, ECON];
 const ARTS = [VIS_ARTS, THEATRE, FILM, MUSIC, DANCE];
 const QUANTITATIVE = [MATHS_AA, MATHS_AI, PHYS, CS, ECON];
 const GROUP_A_LANGS = [
-  ENG_LL, ENG_LIT,
-  "French A: Literature", "Italian A: Literature", "German A: Literature",
-  "Japanese A: Literature", "Russian A: Literature", "Chinese A: Literature",
-  "Turkish A: Literature", "Vietnamese A: Literature", "Hebrew A: Literature",
+  ENG_LL,
+  ENG_LIT,
+  "French A: Literature",
+  "Italian A: Literature",
+  "German A: Literature",
+  "Japanese A: Literature",
+  "Russian A: Literature",
+  "Chinese A: Literature",
+  "Turkish A: Literature",
+  "Vietnamese A: Literature",
+  "Hebrew A: Literature",
 ];
 
 function has(names: string[], name: string): boolean {
@@ -152,7 +159,6 @@ export function analyseSubjects(
 
   // Law
   const essayHLCount = count(hlNames, ESSAY_HEAVY);
-  const hasLangA = allNames.some((n) => GROUP_A_LANGS.includes(n));
   const hasHLLangA = hlNames.some((n) => GROUP_A_LANGS.includes(n));
   const hasHLHist = isHL(hlNames, HIST);
   const hasHLGP = isHL(hlNames, GP);
@@ -213,7 +219,12 @@ export function analyseSubjects(
 
   // No science at all
   const scienceCount = count(allNames, SCIENCES);
-  if (allNames.length >= 4 && scienceCount === 0 && !hasMathsAA && !hasMathsAI) {
+  if (
+    allNames.length >= 4 &&
+    scienceCount === 0 &&
+    !hasMathsAA &&
+    !hasMathsAI
+  ) {
     cons.push(
       "No science or maths — this severely narrows your university options. Even humanities-oriented students benefit from at least one science or maths at SL.",
     );
@@ -247,7 +258,15 @@ export function analyseSubjects(
 
   // Arts in Group 6 when STEM-oriented
   const artsCount = count(allNames, ARTS);
-  const stemSubjectCount = count(allNames, [MATHS_AA, MATHS_AI, PHYS, CHEM, BIO, CS, DT]);
+  const stemSubjectCount = count(allNames, [
+    MATHS_AA,
+    MATHS_AI,
+    PHYS,
+    CHEM,
+    BIO,
+    CS,
+    DT,
+  ]);
   if (artsCount >= 1 && stemSubjectCount >= 3) {
     recommendations.push(
       "You have a STEM-heavy profile but include an arts subject. If aiming for science or engineering degrees, consider replacing it with a second science or humanities subject — many universities prefer applicants with two sciences.",
@@ -268,10 +287,14 @@ export function analyseSubjects(
   }
 
   // Good breadth
-  const groupsRepresented = new Set(allNames.map((n) => {
-    const subj = subjects.find((s) => s.name === n);
-    return subj?.group;
-  }).filter(Boolean));
+  const groupsRepresented = new Set(
+    allNames
+      .map((n) => {
+        const subj = subjects.find((s) => s.name === n);
+        return subj?.group;
+      })
+      .filter(Boolean),
+  );
   if (groupsRepresented.size >= 5 && hlCount === 3 && slCount === 3) {
     pros.push(
       "Good subject breadth — your combination spans multiple IB groups, giving you the diverse skill set universities look for.",
@@ -280,7 +303,8 @@ export function analyseSubjects(
 
   // Maths AI vs AA awareness
   if (hasMathsAI && !hasMathsAA) {
-    const hasSTEMambition = has(allNames, PHYS) || has(allNames, CS) || has(allNames, CHEM);
+    const hasSTEMambition =
+      has(allNames, PHYS) || has(allNames, CS) || has(allNames, CHEM);
     if (hasSTEMambition) {
       cons.push(
         "Maths AI with STEM subjects — some top universities do not accept Maths AI for science, engineering, or computer science degrees. Maths AA is strongly preferred.",
@@ -363,23 +387,43 @@ export function analyseSubjects(
 
 function CheckIcon() {
   return (
-    <svg className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
-      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+    <svg
+      className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+        clipRule="evenodd"
+      />
     </svg>
   );
 }
 
 function AlertIcon() {
   return (
-    <svg className="mt-0.5 h-4 w-4 shrink-0 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-      <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+    <svg
+      className="mt-0.5 h-4 w-4 shrink-0 text-red-400"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+        clipRule="evenodd"
+      />
     </svg>
   );
 }
 
 function LightbulbIcon() {
   return (
-    <svg className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+    <svg
+      className="mt-0.5 h-4 w-4 shrink-0 text-amber-400"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
       <path d="M10 2a6 6 0 00-4 10.472V14a1 1 0 001 1h6a1 1 0 001-1v-1.528A6 6 0 0010 2zm-2 15a1 1 0 001 1h2a1 1 0 001-1v-1H8v1z" />
     </svg>
   );
@@ -394,7 +438,8 @@ export function SubjectReport({ subjects, hlIds, slIds }: SubjectReportProps) {
   );
 
   const { pros, cons, recommendations } = feedback;
-  const hasContent = pros.length > 0 || cons.length > 0 || recommendations.length > 0;
+  const hasContent =
+    pros.length > 0 || cons.length > 0 || recommendations.length > 0;
 
   if (!hasContent) return null;
 
@@ -458,7 +503,8 @@ export function SubjectReport({ subjects, hlIds, slIds }: SubjectReportProps) {
       </div>
 
       <p className="mt-3 text-xs text-neutral-500">
-        Based on UK university entry requirements and IB subject guidance. Always verify with your target universities.
+        Based on UK university entry requirements and IB subject guidance.
+        Always verify with your target universities.
       </p>
     </section>
   );

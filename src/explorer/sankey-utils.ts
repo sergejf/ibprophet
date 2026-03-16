@@ -59,9 +59,9 @@ const GROUP_COLORS: Record<number, string> = {
 
 const PATHWAY_COLOR = "#f59e0b";
 const CAREER_COLORS: Record<MatchTier, string> = {
-  strong: "#22c55e",   // green-500 — strong fit
+  strong: "#22c55e", // green-500 — strong fit
   moderate: "#eab308", // yellow-500 — possible
-  stretch: "#6b7280",  // gray-500 — stretch
+  stretch: "#6b7280", // gray-500 — stretch
 };
 
 export function truncateLabel(name: string, max = 28): string {

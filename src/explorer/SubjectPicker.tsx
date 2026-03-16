@@ -62,7 +62,7 @@ export function SubjectPicker({
             </span>
           </div>
         </div>
-        <div className="flex h-2 overflow-hidden rounded-full bg-dark-700">
+        <div className="bg-dark-700 flex h-2 overflow-hidden rounded-full">
           <div
             className="bg-orange-500 transition-all duration-300"
             style={{ width: `${(hlIds.length / 6) * 100}%` }}

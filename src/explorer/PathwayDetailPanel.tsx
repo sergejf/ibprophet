@@ -60,9 +60,23 @@ function scorePathway(
 }
 
 const strengthLabel = (percent: number) => {
-  if (percent >= 70) return { text: "Strong match", color: "text-green-400", bar: "bg-green-500" };
-  if (percent >= 40) return { text: "Good match", color: "text-yellow-400", bar: "bg-yellow-500" };
-  return { text: "Partial match", color: "text-neutral-400", bar: "bg-neutral-500" };
+  if (percent >= 70)
+    return {
+      text: "Strong match",
+      color: "text-green-400",
+      bar: "bg-green-500",
+    };
+  if (percent >= 40)
+    return {
+      text: "Good match",
+      color: "text-yellow-400",
+      bar: "bg-yellow-500",
+    };
+  return {
+    text: "Partial match",
+    color: "text-neutral-400",
+    bar: "bg-neutral-500",
+  };
 };
 
 export function PathwayDetailPanel({
@@ -96,7 +110,7 @@ export function PathwayDetailPanel({
 
         {/* Match bar */}
         <div className="flex items-center gap-3">
-          <div className="h-2 flex-1 overflow-hidden rounded-full bg-dark-700">
+          <div className="bg-dark-700 h-2 flex-1 overflow-hidden rounded-full">
             <div
               className={`h-full rounded-full transition-all duration-500 ${strength.bar}`}
               style={{ width: `${percent}%` }}
@@ -109,7 +123,7 @@ export function PathwayDetailPanel({
 
         {/* Contributing subjects */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+          <h3 className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
             Your matching subjects
           </h3>
           <div className="flex flex-wrap gap-1.5">
@@ -133,8 +147,8 @@ export function PathwayDetailPanel({
 
         {/* Career outcomes */}
         {pathway.careerLinks.length > 0 && (
-          <div className="flex flex-col gap-2 border-t border-dark-600 pt-4">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
+          <div className="border-dark-600 flex flex-col gap-2 border-t pt-4">
+            <h3 className="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
               Career paths
             </h3>
             <div className="flex flex-wrap gap-2">
