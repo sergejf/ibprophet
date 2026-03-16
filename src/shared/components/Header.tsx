@@ -9,7 +9,17 @@ export function Header() {
           <h1 className="text-2xl font-bold text-primary-500">IB Prophet</h1>
         </Link>
         <nav>
-          <ul className="flex gap-4 font-semibold">
+          <ul className="flex items-center gap-4 font-semibold">
+            <li>
+              <a
+                href="https://tally.so/r/aQG4gW"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-md border border-primary-500/40 px-3 py-1.5 text-sm text-primary-400 transition-colors hover:border-primary-400 hover:bg-primary-500/10 hover:text-primary-300"
+              >
+                Give feedback
+              </a>
+            </li>
             <li>
               <span
                 className="cursor-not-allowed rounded-md px-3 py-1.5 text-sm text-neutral-600"
