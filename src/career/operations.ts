@@ -16,12 +16,12 @@ type CareerResult = Career & {
   })[];
 };
 
-export const getCareer: GetCareer<{ careerId: string }, CareerResult> = async (
+export const getCareer: GetCareer<{ slug: string }, CareerResult> = async (
   args,
   context,
 ) => {
   const career = await context.entities.Career.findUnique({
-    where: { id: args.careerId },
+    where: { slug: args.slug },
     include: {
       pathwayLinks: {
         include: {
@@ -37,6 +37,6 @@ export const getCareer: GetCareer<{ careerId: string }, CareerResult> = async (
     },
   });
 
-  if (!career) throw new Error(msg(CAREER_NOT_FOUND, { id: args.careerId }));
+  if (!career) throw new Error(msg(CAREER_NOT_FOUND, { slug: args.slug }));
   return career;
 };

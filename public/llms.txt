@@ -1,0 +1,86 @@
+# IB Prophet
+
+> Pick your IB Diploma subjects and discover the university pathways and careers they unlock.
+
+IB Prophet is a free tool for International Baccalaureate (IB) Diploma students. Students select their 3 Higher Level (HL) and 3 Standard Level (SL) subjects, and the app shows which university degree pathways match and which careers those pathways lead to — with salary data (US & UK), AI resilience ratings, and 10-year growth outlooks.
+
+Website: https://ibprophet-client.fly.dev
+
+## How it works
+
+1. Pick 3 HL and 3 SL subjects from the IB Diploma curriculum.
+2. See matching university pathways ranked by fit.
+3. Explore career outcomes for each pathway — including salary ranges, growth outlook, AI resilience, and pros/cons.
+
+## Careers covered (29)
+
+Each career page includes entry and mid-career salaries (US & UK), 10-year job growth %, AI resilience rating (Green/Yellow/Red), pros, cons, and the university pathways that lead there.
+
+- [Software Engineer](https://ibprophet-client.fly.dev/career/software-engineer) — Design, build, and maintain software applications and systems.
+- [Doctor (General Practitioner)](https://ibprophet-client.fly.dev/career/doctor-general-practitioner) — Diagnose and treat illnesses, provide preventive care, and manage patient health.
+- [Investment Banker](https://ibprophet-client.fly.dev/career/investment-banker) — Advise corporations on mergers, acquisitions, and capital raising.
+- [Mechanical Engineer](https://ibprophet-client.fly.dev/career/mechanical-engineer) — Design and develop mechanical systems, from engines to robotics.
+- [Lawyer](https://ibprophet-client.fly.dev/career/lawyer) — Represent clients in legal matters, draft contracts, and argue cases in court.
+- [Clinical Psychologist](https://ibprophet-client.fly.dev/career/clinical-psychologist) — Assess, diagnose, and treat mental health conditions through therapy and research.
+- [Management Consultant](https://ibprophet-client.fly.dev/career/management-consultant) — Advise organisations on strategy, operations, and organisational improvement.
+- [Architect](https://ibprophet-client.fly.dev/career/architect) — Design buildings and spaces that are functional, safe, and aesthetically compelling.
+- [Diplomat](https://ibprophet-client.fly.dev/career/diplomat) — Represent a country's interests abroad, negotiate treaties, and manage international relations.
+- [Environmental Scientist](https://ibprophet-client.fly.dev/career/environmental-scientist) — Research and advise on environmental issues including pollution, conservation, and climate change.
+- [Film Director / Producer](https://ibprophet-client.fly.dev/career/film-director-producer) — Lead creative vision for film and media projects, managing teams and production.
+- [Product Manager](https://ibprophet-client.fly.dev/career/product-manager) — Define product strategy, prioritise features, and coordinate engineering and design teams.
+- [Data Analyst](https://ibprophet-client.fly.dev/career/data-analyst) — Collect, process, and analyse data to help organisations make informed decisions.
+- [Accountant](https://ibprophet-client.fly.dev/career/accountant) — Prepare and examine financial records, ensure compliance, and advise on tax strategy.
+- [Secondary School Teacher](https://ibprophet-client.fly.dev/career/secondary-school-teacher) — Teach specialist subjects to students aged 11-18 in secondary schools.
+- [Primary School Teacher](https://ibprophet-client.fly.dev/career/primary-school-teacher) — Teach core subjects and support holistic development of children aged 4-11.
+- [HR Professional](https://ibprophet-client.fly.dev/career/hr-professional) — Manage recruitment, employee relations, training, and workplace policy.
+- [Marketing & PR Professional](https://ibprophet-client.fly.dev/career/marketing-pr-professional) — Develop campaigns, manage brand reputation, and communicate with target audiences.
+- [Graphic & Multimedia Designer](https://ibprophet-client.fly.dev/career/graphic-multimedia-designer) — Create visual content for print, digital, and interactive media using design software.
+- [Journalist / Writer](https://ibprophet-client.fly.dev/career/journalist-writer) — Research, write, and publish stories for newspapers, magazines, websites, or broadcast media.
+- [Police Officer](https://ibprophet-client.fly.dev/career/police-officer) — Maintain public safety, investigate crimes, and enforce the law within communities.
+- [Social Worker](https://ibprophet-client.fly.dev/career/social-worker) — Support vulnerable individuals and families, safeguard children, and connect people with services.
+- [Civil Engineer](https://ibprophet-client.fly.dev/career/civil-engineer) — Design and oversee construction of infrastructure — roads, bridges, buildings, and water systems.
+- [Actuary](https://ibprophet-client.fly.dev/career/actuary) — Use mathematics, statistics, and financial theory to assess risk for insurance and pensions.
+- [Cyber Security Professional](https://ibprophet-client.fly.dev/career/cyber-security-professional) — Protect organisations from cyber threats by designing, monitoring, and responding to security incidents.
+- [Biologist / Lab Scientist](https://ibprophet-client.fly.dev/career/biologist-lab-scientist) — Conduct research in genetics, microbiology, ecology, or biomedical science in labs and the field.
+- [Physiotherapist](https://ibprophet-client.fly.dev/career/physiotherapist) — Help patients recover movement and manage pain through exercise, manual therapy, and education.
+- [Events Manager](https://ibprophet-client.fly.dev/career/events-manager) — Plan, coordinate, and deliver events from conferences to festivals and corporate functions.
+- [Quantity Surveyor](https://ibprophet-client.fly.dev/career/quantity-surveyor) — Manage costs on construction projects from initial estimates through to final accounts.
+
+## University pathways covered (20)
+
+These are the degree pathways that connect IB subjects to careers:
+
+- Computer Science (STEM)
+- Medicine (STEM)
+- Economics & Finance (Social Sciences)
+- Engineering (STEM)
+- Law (Humanities)
+- Psychology (Social Sciences)
+- Business & Management (Social Sciences)
+- Architecture (STEM)
+- International Relations (Humanities)
+- Environmental Science (STEM)
+- Film & Media Studies (Arts)
+- Music Performance & Production (Arts)
+- Education (Social Sciences)
+- Marketing & Communications (Social Sciences)
+- English & Creative Writing (Humanities)
+- History & Politics (Humanities)
+- Biology & Life Sciences (STEM)
+- Sociology & Social Work (Social Sciences)
+- Sports Science (STEM)
+- Design & Visual Arts (Arts)
+
+## IB subjects supported (39)
+
+Group 1 (Language & Literature): English A: Language and Literature, English A: Literature, French A: Literature, Italian A: Literature, German A: Literature, Japanese A: Literature, Russian A: Literature, Chinese A: Literature, Turkish A: Literature, Vietnamese A: Literature, Hebrew A: Literature
+
+Group 2 (Language Acquisition): English B, Spanish B, French B, German B, Italian B, Chinese B, Russian B, Spanish Ab Initio, French Ab Initio, Mandarin Ab Initio
+
+Group 3 (Individuals & Societies): Economics, History, Business Management, Psychology, Global Politics
+
+Group 4 (Sciences): Environmental Systems and Societies, Sports Exercise and Health Science, Biology, Chemistry, Physics, Computer Science, Design Technology
+
+Group 5 (Mathematics): Mathematics: Analysis and Approaches, Mathematics: Applications and Interpretation
+
+Group 6 (The Arts): Visual Arts, Music, Theatre, Film, Dance

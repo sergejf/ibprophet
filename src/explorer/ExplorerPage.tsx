@@ -31,6 +31,12 @@ function storeIds(hl: string[], sl: string[]) {
 }
 
 export function ExplorerPage() {
+  useEffect(() => {
+    document.title = "IB Prophet — IB Subject to Career Explorer";
+    return () => {
+      document.title = "IB Prophet";
+    };
+  }, []);
   const stored = readStoredIds();
   const [hlIds, setHlIds] = useState<string[]>(stored.hl);
   const [slIds, setSlIds] = useState<string[]>(stored.sl);

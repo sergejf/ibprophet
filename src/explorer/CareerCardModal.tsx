@@ -122,8 +122,8 @@ export function CareerCardModal({
         </div>
 
         <Link
-          to="/career/:careerId"
-          params={{ careerId: career.id }}
+          to="/career/:slug"
+          params={{ slug: career.slug }}
           className="text-primary-500 hover:text-primary-400 text-center text-sm"
         >
           View full details →

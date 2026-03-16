@@ -36,6 +36,7 @@ model UniversityPathway {
 model Career {
   id              String       @id @default(uuid())
   name            String       @unique
+  slug            String       @unique
   description     String
   salaryStartUS   Int
   salaryMidUS     Int

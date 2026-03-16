@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useQuery, getCareer } from "wasp/client/operations";
 import { Link } from "wasp/client/router";
@@ -14,12 +15,56 @@ const aiLabels: Record<
 };
 
 export function CareerPage() {
-  const { careerId } = useParams<{ careerId: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const {
     data: career,
     isLoading,
     error,
-  } = useQuery(getCareer, { careerId: careerId! }, { enabled: !!careerId });
+  } = useQuery(getCareer, { slug: slug! }, { enabled: !!slug });
+
+  // Dynamic page title
+  useEffect(() => {
+    if (career) {
+      document.title = `${career.name} — IB Career Guide · IB Prophet`;
+    }
+    return () => {
+      document.title = "IB Prophet";
+    };
+  }, [career]);
+
+  // Occupation JSON-LD structured data
+  useEffect(() => {
+    if (!career) return;
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Occupation",
+      name: career.name,
+      description: career.description,
+      estimatedSalary: [
+        {
+          "@type": "MonetaryAmountDistribution",
+          name: "US",
+          currency: "USD",
+          percentile10: career.salaryStartUS,
+          median: career.salaryMidUS,
+        },
+        {
+          "@type": "MonetaryAmountDistribution",
+          name: "UK",
+          currency: "GBP",
+          percentile10: career.salaryStartUK,
+          median: career.salaryMidUK,
+        },
+      ],
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.textContent = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [career]);
 
   if (isLoading) {
     return (

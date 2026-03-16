@@ -10,4 +10,4 @@ export function msg(
 }
 
 export const AUTH_NOT_AUTHENTICATED = "Not authenticated. Please log in.";
-export const CAREER_NOT_FOUND = "Career not found (id: {id}).";
+export const CAREER_NOT_FOUND = "Career not found (slug: {slug}).";

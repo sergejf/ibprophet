@@ -1,6 +1,10 @@
 {
   "subjects": [
-    { "name": "English A: Language and Literature", "group": 1, "category": "BOTH" },
+    {
+      "name": "English A: Language and Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
     { "name": "English A: Literature", "group": 1, "category": "BOTH" },
     { "name": "French A: Literature", "group": 1, "category": "BOTH" },
     { "name": "Italian A: Literature", "group": 1, "category": "BOTH" },
@@ -26,15 +30,31 @@
     { "name": "Business Management", "group": 3, "category": "BOTH" },
     { "name": "Psychology", "group": 3, "category": "BOTH" },
     { "name": "Global Politics", "group": 3, "category": "BOTH" },
-    { "name": "Environmental Systems and Societies", "group": 4, "category": "BOTH" },
-    { "name": "Sports, Exercise and Health Science", "group": 4, "category": "BOTH" },
+    {
+      "name": "Environmental Systems and Societies",
+      "group": 4,
+      "category": "BOTH"
+    },
+    {
+      "name": "Sports, Exercise and Health Science",
+      "group": 4,
+      "category": "BOTH"
+    },
     { "name": "Biology", "group": 4, "category": "BOTH" },
     { "name": "Chemistry", "group": 4, "category": "BOTH" },
     { "name": "Physics", "group": 4, "category": "BOTH" },
     { "name": "Computer Science", "group": 4, "category": "BOTH" },
     { "name": "Design Technology", "group": 4, "category": "BOTH" },
-    { "name": "Mathematics: Analysis and Approaches", "group": 5, "category": "BOTH" },
-    { "name": "Mathematics: Applications and Interpretation", "group": 5, "category": "BOTH" },
+    {
+      "name": "Mathematics: Analysis and Approaches",
+      "group": 5,
+      "category": "BOTH"
+    },
+    {
+      "name": "Mathematics: Applications and Interpretation",
+      "group": 5,
+      "category": "BOTH"
+    },
     { "name": "Visual Arts", "group": 6, "category": "BOTH" },
     { "name": "Music", "group": 6, "category": "BOTH" },
     { "name": "Theatre", "group": 6, "category": "BOTH" },
@@ -42,30 +62,111 @@
     { "name": "Dance", "group": 6, "category": "BOTH" }
   ],
   "pathways": [
-    { "name": "Computer Science", "description": "Study of computation, algorithms, and software systems.", "field": "STEM" },
-    { "name": "Medicine", "description": "Study of human health, disease diagnosis, and treatment.", "field": "STEM" },
-    { "name": "Economics & Finance", "description": "Study of markets, financial systems, and economic policy.", "field": "Social Sciences" },
-    { "name": "Engineering", "description": "Application of science and mathematics to design and build systems.", "field": "STEM" },
-    { "name": "Law", "description": "Study of legal systems, rights, and justice.", "field": "Humanities" },
-    { "name": "Psychology", "description": "Study of human behaviour, cognition, and mental health.", "field": "Social Sciences" },
-    { "name": "Business & Management", "description": "Study of organisational leadership, strategy, and operations.", "field": "Social Sciences" },
-    { "name": "Architecture", "description": "Design of buildings and physical environments.", "field": "STEM" },
-    { "name": "International Relations", "description": "Study of global governance, diplomacy, and geopolitics.", "field": "Humanities" },
-    { "name": "Environmental Science", "description": "Study of ecosystems, sustainability, and environmental policy.", "field": "STEM" },
-    { "name": "Film & Media Studies", "description": "Study of film production, media theory, and visual storytelling.", "field": "Arts" },
-    { "name": "Music Performance & Production", "description": "Study of musical performance, composition, and audio production.", "field": "Arts" },
-    { "name": "Education", "description": "Study of teaching methods, learning theory, and child development.", "field": "Social Sciences" },
-    { "name": "Marketing & Communications", "description": "Study of branding, consumer behaviour, digital marketing, and public relations.", "field": "Social Sciences" },
-    { "name": "English & Creative Writing", "description": "Study of literature, language, and creative and professional writing.", "field": "Humanities" },
-    { "name": "History & Politics", "description": "Study of historical events, political thought, and governance systems.", "field": "Humanities" },
-    { "name": "Biology & Life Sciences", "description": "Study of living organisms, genetics, ecology, and biomedical research.", "field": "STEM" },
-    { "name": "Sociology & Social Work", "description": "Study of society, social inequality, and community support systems.", "field": "Social Sciences" },
-    { "name": "Sports Science", "description": "Study of human performance, exercise physiology, and sports coaching.", "field": "STEM" },
-    { "name": "Design & Visual Arts", "description": "Study of graphic design, illustration, visual communication, and fine art.", "field": "Arts" }
+    {
+      "name": "Computer Science",
+      "description": "Study of computation, algorithms, and software systems.",
+      "field": "STEM"
+    },
+    {
+      "name": "Medicine",
+      "description": "Study of human health, disease diagnosis, and treatment.",
+      "field": "STEM"
+    },
+    {
+      "name": "Economics & Finance",
+      "description": "Study of markets, financial systems, and economic policy.",
+      "field": "Social Sciences"
+    },
+    {
+      "name": "Engineering",
+      "description": "Application of science and mathematics to design and build systems.",
+      "field": "STEM"
+    },
+    {
+      "name": "Law",
+      "description": "Study of legal systems, rights, and justice.",
+      "field": "Humanities"
+    },
+    {
+      "name": "Psychology",
+      "description": "Study of human behaviour, cognition, and mental health.",
+      "field": "Social Sciences"
+    },
+    {
+      "name": "Business & Management",
+      "description": "Study of organisational leadership, strategy, and operations.",
+      "field": "Social Sciences"
+    },
+    {
+      "name": "Architecture",
+      "description": "Design of buildings and physical environments.",
+      "field": "STEM"
+    },
+    {
+      "name": "International Relations",
+      "description": "Study of global governance, diplomacy, and geopolitics.",
+      "field": "Humanities"
+    },
+    {
+      "name": "Environmental Science",
+      "description": "Study of ecosystems, sustainability, and environmental policy.",
+      "field": "STEM"
+    },
+    {
+      "name": "Film & Media Studies",
+      "description": "Study of film production, media theory, and visual storytelling.",
+      "field": "Arts"
+    },
+    {
+      "name": "Music Performance & Production",
+      "description": "Study of musical performance, composition, and audio production.",
+      "field": "Arts"
+    },
+    {
+      "name": "Education",
+      "description": "Study of teaching methods, learning theory, and child development.",
+      "field": "Social Sciences"
+    },
+    {
+      "name": "Marketing & Communications",
+      "description": "Study of branding, consumer behaviour, digital marketing, and public relations.",
+      "field": "Social Sciences"
+    },
+    {
+      "name": "English & Creative Writing",
+      "description": "Study of literature, language, and creative and professional writing.",
+      "field": "Humanities"
+    },
+    {
+      "name": "History & Politics",
+      "description": "Study of historical events, political thought, and governance systems.",
+      "field": "Humanities"
+    },
+    {
+      "name": "Biology & Life Sciences",
+      "description": "Study of living organisms, genetics, ecology, and biomedical research.",
+      "field": "STEM"
+    },
+    {
+      "name": "Sociology & Social Work",
+      "description": "Study of society, social inequality, and community support systems.",
+      "field": "Social Sciences"
+    },
+    {
+      "name": "Sports Science",
+      "description": "Study of human performance, exercise physiology, and sports coaching.",
+      "field": "STEM"
+    },
+    {
+      "name": "Design & Visual Arts",
+      "description": "Study of graphic design, illustration, visual communication, and fine art.",
+      "field": "Arts"
+    }
   ],
   "careers": [
     {
       "name": "Software Engineer",
+      "slug": "software-engineer",
       "description": "Design, build, and maintain software applications and systems.",
       "salaryStartUS": 85000,
       "salaryMidUS": 145000,
@@ -73,11 +174,20 @@
       "salaryMidUK": 70000,
       "growthPercent10Y": 25,
       "aiResilience": "YELLOW",
-      "pros": ["High demand globally", "Remote work opportunities", "Creative problem-solving"],
-      "cons": ["Rapid skill obsolescence", "Can involve long debugging sessions", "Sedentary work"]
+      "pros": [
+        "High demand globally",
+        "Remote work opportunities",
+        "Creative problem-solving"
+      ],
+      "cons": [
+        "Rapid skill obsolescence",
+        "Can involve long debugging sessions",
+        "Sedentary work"
+      ]
     },
     {
       "name": "Doctor (General Practitioner)",
+      "slug": "doctor-general-practitioner",
       "description": "Diagnose and treat illnesses, provide preventive care, and manage patient health.",
       "salaryStartUS": 65000,
       "salaryMidUS": 220000,
@@ -85,11 +195,20 @@
       "salaryMidUK": 85000,
       "growthPercent10Y": 3,
       "aiResilience": "GREEN",
-      "pros": ["Highly respected profession", "Direct impact on people's lives", "Job security"],
-      "cons": ["Very long training (7-12 years)", "Emotionally demanding", "High burnout rates"]
+      "pros": [
+        "Highly respected profession",
+        "Direct impact on people's lives",
+        "Job security"
+      ],
+      "cons": [
+        "Very long training (7-12 years)",
+        "Emotionally demanding",
+        "High burnout rates"
+      ]
     },
     {
       "name": "Investment Banker",
+      "slug": "investment-banker",
       "description": "Advise corporations on mergers, acquisitions, and capital raising.",
       "salaryStartUS": 100000,
       "salaryMidUS": 200000,
@@ -97,11 +216,20 @@
       "salaryMidUK": 120000,
       "growthPercent10Y": 7,
       "aiResilience": "YELLOW",
-      "pros": ["Very high earning potential", "Intellectually stimulating", "Prestigious career path"],
-      "cons": ["Extreme working hours (80-100/week)", "High stress environment", "Poor work-life balance"]
+      "pros": [
+        "Very high earning potential",
+        "Intellectually stimulating",
+        "Prestigious career path"
+      ],
+      "cons": [
+        "Extreme working hours (80-100/week)",
+        "High stress environment",
+        "Poor work-life balance"
+      ]
     },
     {
       "name": "Mechanical Engineer",
+      "slug": "mechanical-engineer",
       "description": "Design and develop mechanical systems, from engines to robotics.",
       "salaryStartUS": 70000,
       "salaryMidUS": 110000,
@@ -109,11 +237,20 @@
       "salaryMidUK": 55000,
       "growthPercent10Y": 10,
       "aiResilience": "GREEN",
-      "pros": ["Diverse industry options", "Tangible impact — you build real things", "Stable demand"],
-      "cons": ["Can be slow career progression", "Sometimes repetitive work", "Licensing requirements"]
+      "pros": [
+        "Diverse industry options",
+        "Tangible impact — you build real things",
+        "Stable demand"
+      ],
+      "cons": [
+        "Can be slow career progression",
+        "Sometimes repetitive work",
+        "Licensing requirements"
+      ]
     },
     {
       "name": "Lawyer",
+      "slug": "lawyer",
       "description": "Represent clients in legal matters, draft contracts, and argue cases in court.",
       "salaryStartUS": 70000,
       "salaryMidUS": 160000,
@@ -121,11 +258,20 @@
       "salaryMidUK": 80000,
       "growthPercent10Y": 8,
       "aiResilience": "YELLOW",
-      "pros": ["High earning potential", "Intellectually challenging", "Many specialization options"],
-      "cons": ["Long training path", "High stress and long hours", "Competitive job market"]
+      "pros": [
+        "High earning potential",
+        "Intellectually challenging",
+        "Many specialization options"
+      ],
+      "cons": [
+        "Long training path",
+        "High stress and long hours",
+        "Competitive job market"
+      ]
     },
     {
       "name": "Clinical Psychologist",
+      "slug": "clinical-psychologist",
       "description": "Assess, diagnose, and treat mental health conditions through therapy and research.",
       "salaryStartUS": 55000,
       "salaryMidUS": 105000,
@@ -133,11 +279,20 @@
       "salaryMidUK": 60000,
       "growthPercent10Y": 11,
       "aiResilience": "GREEN",
-      "pros": ["Meaningful impact on people's lives", "Growing demand", "Flexible work settings"],
-      "cons": ["Long training (doctoral level)", "Emotionally taxing", "Can be lower pay vs. other doctoral professions"]
+      "pros": [
+        "Meaningful impact on people's lives",
+        "Growing demand",
+        "Flexible work settings"
+      ],
+      "cons": [
+        "Long training (doctoral level)",
+        "Emotionally taxing",
+        "Can be lower pay vs. other doctoral professions"
+      ]
     },
     {
       "name": "Management Consultant",
+      "slug": "management-consultant",
       "description": "Advise organisations on strategy, operations, and organisational improvement.",
       "salaryStartUS": 83000,
       "salaryMidUS": 160000,
@@ -145,11 +300,16 @@
       "salaryMidUK": 85000,
       "growthPercent10Y": 11,
       "aiResilience": "YELLOW",
-      "pros": ["High earning potential", "Varied projects and industries", "Fast career progression"],
+      "pros": [
+        "High earning potential",
+        "Varied projects and industries",
+        "Fast career progression"
+      ],
       "cons": ["Heavy travel", "Long working hours", "Up-or-out culture"]
     },
     {
       "name": "Architect",
+      "slug": "architect",
       "description": "Design buildings and spaces that are functional, safe, and aesthetically compelling.",
       "salaryStartUS": 55000,
       "salaryMidUS": 95000,
@@ -157,11 +317,20 @@
       "salaryMidUK": 50000,
       "growthPercent10Y": 5,
       "aiResilience": "GREEN",
-      "pros": ["Creative and technical blend", "Tangible lasting impact", "Respected profession"],
-      "cons": ["Long qualification path (7+ years)", "Moderate pay relative to training", "Deadline pressure"]
+      "pros": [
+        "Creative and technical blend",
+        "Tangible lasting impact",
+        "Respected profession"
+      ],
+      "cons": [
+        "Long qualification path (7+ years)",
+        "Moderate pay relative to training",
+        "Deadline pressure"
+      ]
     },
     {
       "name": "Diplomat",
+      "slug": "diplomat",
       "description": "Represent a country's interests abroad, negotiate treaties, and manage international relations.",
       "salaryStartUS": 60000,
       "salaryMidUS": 110000,
@@ -169,11 +338,20 @@
       "salaryMidUK": 65000,
       "growthPercent10Y": 4,
       "aiResilience": "GREEN",
-      "pros": ["Travel and cultural immersion", "Meaningful geopolitical impact", "Strong job security"],
-      "cons": ["Highly competitive entry", "Frequent relocations", "Bureaucratic environment"]
+      "pros": [
+        "Travel and cultural immersion",
+        "Meaningful geopolitical impact",
+        "Strong job security"
+      ],
+      "cons": [
+        "Highly competitive entry",
+        "Frequent relocations",
+        "Bureaucratic environment"
+      ]
     },
     {
       "name": "Environmental Scientist",
+      "slug": "environmental-scientist",
       "description": "Research and advise on environmental issues including pollution, conservation, and climate change.",
       "salaryStartUS": 50000,
       "salaryMidUS": 80000,
@@ -181,11 +359,20 @@
       "salaryMidUK": 45000,
       "growthPercent10Y": 6,
       "aiResilience": "GREEN",
-      "pros": ["Purpose-driven work", "Growing field due to climate focus", "Fieldwork variety"],
-      "cons": ["Lower pay compared to other sciences", "Grant/funding dependency", "Can be slow policy impact"]
+      "pros": [
+        "Purpose-driven work",
+        "Growing field due to climate focus",
+        "Fieldwork variety"
+      ],
+      "cons": [
+        "Lower pay compared to other sciences",
+        "Grant/funding dependency",
+        "Can be slow policy impact"
+      ]
     },
     {
       "name": "Film Director / Producer",
+      "slug": "film-director-producer",
       "description": "Lead creative vision for film and media projects, managing teams and production.",
       "salaryStartUS": 40000,
       "salaryMidUS": 95000,
@@ -193,11 +380,20 @@
       "salaryMidUK": 50000,
       "growthPercent10Y": 8,
       "aiResilience": "GREEN",
-      "pros": ["Highly creative work", "Potential for global recognition", "Diverse projects"],
-      "cons": ["Irregular income early on", "Extremely competitive", "Long and unpredictable hours"]
+      "pros": [
+        "Highly creative work",
+        "Potential for global recognition",
+        "Diverse projects"
+      ],
+      "cons": [
+        "Irregular income early on",
+        "Extremely competitive",
+        "Long and unpredictable hours"
+      ]
     },
     {
       "name": "Product Manager",
+      "slug": "product-manager",
       "description": "Define product strategy, prioritise features, and coordinate engineering and design teams.",
       "salaryStartUS": 80000,
       "salaryMidUS": 150000,
@@ -205,11 +401,20 @@
       "salaryMidUK": 80000,
       "growthPercent10Y": 10,
       "aiResilience": "YELLOW",
-      "pros": ["High impact role", "Cross-functional collaboration", "Strong demand in tech"],
-      "cons": ["Accountability without authority", "Constant context-switching", "Can be stressful"]
+      "pros": [
+        "High impact role",
+        "Cross-functional collaboration",
+        "Strong demand in tech"
+      ],
+      "cons": [
+        "Accountability without authority",
+        "Constant context-switching",
+        "Can be stressful"
+      ]
     },
     {
       "name": "Data Analyst",
+      "slug": "data-analyst",
       "description": "Collect, process, and analyse data to help organisations make informed decisions.",
       "salaryStartUS": 55000,
       "salaryMidUS": 95000,
@@ -217,11 +422,20 @@
       "salaryMidUK": 50000,
       "growthPercent10Y": 23,
       "aiResilience": "YELLOW",
-      "pros": ["High demand across all industries", "Clear career progression to data science", "Flexible work options"],
-      "cons": ["Can be repetitive data cleaning", "Stakeholders may ignore your findings", "Rapid tooling changes"]
+      "pros": [
+        "High demand across all industries",
+        "Clear career progression to data science",
+        "Flexible work options"
+      ],
+      "cons": [
+        "Can be repetitive data cleaning",
+        "Stakeholders may ignore your findings",
+        "Rapid tooling changes"
+      ]
     },
     {
       "name": "Accountant",
+      "slug": "accountant",
       "description": "Prepare and examine financial records, ensure compliance, and advise on tax strategy.",
       "salaryStartUS": 55000,
       "salaryMidUS": 85000,
@@ -229,11 +443,20 @@
       "salaryMidUK": 52000,
       "growthPercent10Y": 6,
       "aiResilience": "YELLOW",
-      "pros": ["Strong job security", "Clear professional qualifications", "Every organisation needs one"],
-      "cons": ["Can be repetitive", "Busy season pressure", "Perception as unglamorous"]
+      "pros": [
+        "Strong job security",
+        "Clear professional qualifications",
+        "Every organisation needs one"
+      ],
+      "cons": [
+        "Can be repetitive",
+        "Busy season pressure",
+        "Perception as unglamorous"
+      ]
     },
     {
       "name": "Secondary School Teacher",
+      "slug": "secondary-school-teacher",
       "description": "Teach specialist subjects to students aged 11-18 in secondary schools.",
       "salaryStartUS": 45000,
       "salaryMidUS": 65000,
@@ -241,11 +464,20 @@
       "salaryMidUK": 43000,
       "growthPercent10Y": 4,
       "aiResilience": "GREEN",
-      "pros": ["Meaningful impact on young people", "Good holidays", "Job security and pension"],
-      "cons": ["High workload outside class hours", "Challenging behaviour management", "Moderate pay ceiling"]
+      "pros": [
+        "Meaningful impact on young people",
+        "Good holidays",
+        "Job security and pension"
+      ],
+      "cons": [
+        "High workload outside class hours",
+        "Challenging behaviour management",
+        "Moderate pay ceiling"
+      ]
     },
     {
       "name": "Primary School Teacher",
+      "slug": "primary-school-teacher",
       "description": "Teach core subjects and support holistic development of children aged 4-11.",
       "salaryStartUS": 42000,
       "salaryMidUS": 60000,
@@ -253,11 +485,20 @@
       "salaryMidUK": 40000,
       "growthPercent10Y": 4,
       "aiResilience": "GREEN",
-      "pros": ["Deeply rewarding work with children", "Good holidays", "Creative freedom in teaching"],
-      "cons": ["Emotionally demanding", "Heavy admin and planning load", "Lower pay than secondary"]
+      "pros": [
+        "Deeply rewarding work with children",
+        "Good holidays",
+        "Creative freedom in teaching"
+      ],
+      "cons": [
+        "Emotionally demanding",
+        "Heavy admin and planning load",
+        "Lower pay than secondary"
+      ]
     },
     {
       "name": "HR Professional",
+      "slug": "hr-professional",
       "description": "Manage recruitment, employee relations, training, and workplace policy.",
       "salaryStartUS": 50000,
       "salaryMidUS": 85000,
@@ -265,11 +506,20 @@
       "salaryMidUK": 48000,
       "growthPercent10Y": 8,
       "aiResilience": "YELLOW",
-      "pros": ["People-focused work", "Present in every industry", "Good work-life balance"],
-      "cons": ["Can be caught between management and staff", "Dealing with difficult situations", "Sometimes seen as bureaucratic"]
+      "pros": [
+        "People-focused work",
+        "Present in every industry",
+        "Good work-life balance"
+      ],
+      "cons": [
+        "Can be caught between management and staff",
+        "Dealing with difficult situations",
+        "Sometimes seen as bureaucratic"
+      ]
     },
     {
       "name": "Marketing & PR Professional",
+      "slug": "marketing-pr-professional",
       "description": "Develop campaigns, manage brand reputation, and communicate with target audiences.",
       "salaryStartUS": 48000,
       "salaryMidUS": 80000,
@@ -277,11 +527,20 @@
       "salaryMidUK": 45000,
       "growthPercent10Y": 10,
       "aiResilience": "YELLOW",
-      "pros": ["Creative and strategic blend", "Fast-paced and varied", "Growing digital opportunities"],
-      "cons": ["Can be high-pressure with tight deadlines", "Results constantly measured", "Agency culture can mean long hours"]
+      "pros": [
+        "Creative and strategic blend",
+        "Fast-paced and varied",
+        "Growing digital opportunities"
+      ],
+      "cons": [
+        "Can be high-pressure with tight deadlines",
+        "Results constantly measured",
+        "Agency culture can mean long hours"
+      ]
     },
     {
       "name": "Graphic & Multimedia Designer",
+      "slug": "graphic-multimedia-designer",
       "description": "Create visual content for print, digital, and interactive media using design software.",
       "salaryStartUS": 42000,
       "salaryMidUS": 72000,
@@ -289,11 +548,20 @@
       "salaryMidUK": 40000,
       "growthPercent10Y": 6,
       "aiResilience": "GREEN",
-      "pros": ["Highly creative daily work", "Freelance potential", "Portfolio-based — your work speaks for itself"],
-      "cons": ["Subjective feedback from clients", "Can be lower pay early on", "AI tools changing the landscape"]
+      "pros": [
+        "Highly creative daily work",
+        "Freelance potential",
+        "Portfolio-based — your work speaks for itself"
+      ],
+      "cons": [
+        "Subjective feedback from clients",
+        "Can be lower pay early on",
+        "AI tools changing the landscape"
+      ]
     },
     {
       "name": "Journalist / Writer",
+      "slug": "journalist-writer",
       "description": "Research, write, and publish stories for newspapers, magazines, websites, or broadcast media.",
       "salaryStartUS": 38000,
       "salaryMidUS": 65000,
@@ -301,11 +569,20 @@
       "salaryMidUK": 40000,
       "growthPercent10Y": -3,
       "aiResilience": "GREEN",
-      "pros": ["Intellectually stimulating", "Varied daily work", "Platform to influence public discourse"],
-      "cons": ["Declining traditional media jobs", "Tight deadlines and pressure", "Often lower pay"]
+      "pros": [
+        "Intellectually stimulating",
+        "Varied daily work",
+        "Platform to influence public discourse"
+      ],
+      "cons": [
+        "Declining traditional media jobs",
+        "Tight deadlines and pressure",
+        "Often lower pay"
+      ]
     },
     {
       "name": "Police Officer",
+      "slug": "police-officer",
       "description": "Maintain public safety, investigate crimes, and enforce the law within communities.",
       "salaryStartUS": 45000,
       "salaryMidUS": 70000,
@@ -313,11 +590,20 @@
       "salaryMidUK": 45000,
       "growthPercent10Y": 3,
       "aiResilience": "GREEN",
-      "pros": ["Direct community impact", "Strong pension and benefits", "Varied and active work"],
-      "cons": ["Can be dangerous", "Shift work and unsocial hours", "Emotionally taxing situations"]
+      "pros": [
+        "Direct community impact",
+        "Strong pension and benefits",
+        "Varied and active work"
+      ],
+      "cons": [
+        "Can be dangerous",
+        "Shift work and unsocial hours",
+        "Emotionally taxing situations"
+      ]
     },
     {
       "name": "Social Worker",
+      "slug": "social-worker",
       "description": "Support vulnerable individuals and families, safeguard children, and connect people with services.",
       "salaryStartUS": 42000,
       "salaryMidUS": 62000,
@@ -325,11 +611,20 @@
       "salaryMidUK": 40000,
       "growthPercent10Y": 9,
       "aiResilience": "GREEN",
-      "pros": ["Deeply meaningful work", "Growing demand", "Variety of specialisations"],
-      "cons": ["Emotionally draining", "High caseloads", "Bureaucratic processes"]
+      "pros": [
+        "Deeply meaningful work",
+        "Growing demand",
+        "Variety of specialisations"
+      ],
+      "cons": [
+        "Emotionally draining",
+        "High caseloads",
+        "Bureaucratic processes"
+      ]
     },
     {
       "name": "Civil Engineer",
+      "slug": "civil-engineer",
       "description": "Design and oversee construction of infrastructure — roads, bridges, buildings, and water systems.",
       "salaryStartUS": 65000,
       "salaryMidUS": 100000,
@@ -337,11 +632,20 @@
       "salaryMidUK": 50000,
       "growthPercent10Y": 7,
       "aiResilience": "GREEN",
-      "pros": ["Tangible, lasting impact on communities", "Strong global demand", "Clear professional pathway"],
-      "cons": ["Site visits in all weather", "Regulatory complexity", "Can be slow project timelines"]
+      "pros": [
+        "Tangible, lasting impact on communities",
+        "Strong global demand",
+        "Clear professional pathway"
+      ],
+      "cons": [
+        "Site visits in all weather",
+        "Regulatory complexity",
+        "Can be slow project timelines"
+      ]
     },
     {
       "name": "Actuary",
+      "slug": "actuary",
       "description": "Use mathematics, statistics, and financial theory to assess risk for insurance and pensions.",
       "salaryStartUS": 70000,
       "salaryMidUS": 130000,
@@ -349,11 +653,20 @@
       "salaryMidUK": 70000,
       "growthPercent10Y": 21,
       "aiResilience": "YELLOW",
-      "pros": ["Excellent salary and progression", "Intellectually stimulating", "Strong work-life balance"],
-      "cons": ["Difficult professional exams (5-10 years)", "Can be niche and isolating", "Heavy spreadsheet work"]
+      "pros": [
+        "Excellent salary and progression",
+        "Intellectually stimulating",
+        "Strong work-life balance"
+      ],
+      "cons": [
+        "Difficult professional exams (5-10 years)",
+        "Can be niche and isolating",
+        "Heavy spreadsheet work"
+      ]
     },
     {
       "name": "Cyber Security Professional",
+      "slug": "cyber-security-professional",
       "description": "Protect organisations from cyber threats by designing, monitoring, and responding to security incidents.",
       "salaryStartUS": 75000,
       "salaryMidUS": 125000,
@@ -361,11 +674,20 @@
       "salaryMidUK": 65000,
       "growthPercent10Y": 32,
       "aiResilience": "GREEN",
-      "pros": ["Massive and growing demand", "High salaries", "Intellectually challenging cat-and-mouse work"],
-      "cons": ["On-call and incident pressure", "Constant learning required", "Can be stressful during breaches"]
+      "pros": [
+        "Massive and growing demand",
+        "High salaries",
+        "Intellectually challenging cat-and-mouse work"
+      ],
+      "cons": [
+        "On-call and incident pressure",
+        "Constant learning required",
+        "Can be stressful during breaches"
+      ]
     },
     {
       "name": "Biologist / Lab Scientist",
+      "slug": "biologist-lab-scientist",
       "description": "Conduct research in genetics, microbiology, ecology, or biomedical science in labs and the field.",
       "salaryStartUS": 48000,
       "salaryMidUS": 80000,
@@ -373,11 +695,20 @@
       "salaryMidUK": 42000,
       "growthPercent10Y": 5,
       "aiResilience": "GREEN",
-      "pros": ["Contribute to scientific discovery", "Varied research areas", "Growing biotech sector"],
-      "cons": ["Academic path can be precarious", "Lab work can be repetitive", "Grant funding uncertainty"]
+      "pros": [
+        "Contribute to scientific discovery",
+        "Varied research areas",
+        "Growing biotech sector"
+      ],
+      "cons": [
+        "Academic path can be precarious",
+        "Lab work can be repetitive",
+        "Grant funding uncertainty"
+      ]
     },
     {
       "name": "Physiotherapist",
+      "slug": "physiotherapist",
       "description": "Help patients recover movement and manage pain through exercise, manual therapy, and education.",
       "salaryStartUS": 60000,
       "salaryMidUS": 95000,
@@ -385,11 +716,20 @@
       "salaryMidUK": 44000,
       "growthPercent10Y": 15,
       "aiResilience": "GREEN",
-      "pros": ["Hands-on patient care", "Growing demand (ageing population)", "Can work privately or in NHS/hospitals"],
-      "cons": ["Physically demanding", "Moderate pay ceiling", "Repetitive injury types"]
+      "pros": [
+        "Hands-on patient care",
+        "Growing demand (ageing population)",
+        "Can work privately or in NHS/hospitals"
+      ],
+      "cons": [
+        "Physically demanding",
+        "Moderate pay ceiling",
+        "Repetitive injury types"
+      ]
     },
     {
       "name": "Events Manager",
+      "slug": "events-manager",
       "description": "Plan, coordinate, and deliver events from conferences to festivals and corporate functions.",
       "salaryStartUS": 40000,
       "salaryMidUS": 65000,
@@ -397,11 +737,20 @@
       "salaryMidUK": 38000,
       "growthPercent10Y": 8,
       "aiResilience": "GREEN",
-      "pros": ["Creative and social work", "Variety — no two events alike", "Sense of accomplishment"],
-      "cons": ["Irregular and long hours", "High-pressure deadlines", "Can be physically exhausting"]
+      "pros": [
+        "Creative and social work",
+        "Variety — no two events alike",
+        "Sense of accomplishment"
+      ],
+      "cons": [
+        "Irregular and long hours",
+        "High-pressure deadlines",
+        "Can be physically exhausting"
+      ]
     },
     {
       "name": "Quantity Surveyor",
+      "slug": "quantity-surveyor",
       "description": "Manage costs on construction projects from initial estimates through to final accounts.",
       "salaryStartUS": 55000,
       "salaryMidUS": 90000,
@@ -409,177 +758,854 @@
       "salaryMidUK": 52000,
       "growthPercent10Y": 6,
       "aiResilience": "GREEN",
-      "pros": ["Strong earning potential", "Clear chartered pathway", "Always in demand in construction"],
-      "cons": ["Heavy documentation", "Site visits required", "Can be adversarial negotiations"]
+      "pros": [
+        "Strong earning potential",
+        "Clear chartered pathway",
+        "Always in demand in construction"
+      ],
+      "cons": [
+        "Heavy documentation",
+        "Site visits required",
+        "Can be adversarial negotiations"
+      ]
     }
   ],
   "subjectPathwayLinks": [
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Computer Science", "weight": 3, "hlRequired": true },
-    { "subject": "Computer Science", "pathway": "Computer Science", "weight": 3, "hlRequired": false },
-    { "subject": "Physics", "pathway": "Computer Science", "weight": 1, "hlRequired": false },
-    { "subject": "Mathematics: Applications and Interpretation", "pathway": "Computer Science", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Computer Science",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Computer Science",
+      "pathway": "Computer Science",
+      "weight": 3,
+      "hlRequired": false
+    },
+    {
+      "subject": "Physics",
+      "pathway": "Computer Science",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Applications and Interpretation",
+      "pathway": "Computer Science",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Chemistry", "pathway": "Medicine", "weight": 3, "hlRequired": true },
-    { "subject": "Biology", "pathway": "Medicine", "weight": 3, "hlRequired": true },
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Medicine", "weight": 2, "hlRequired": false },
-    { "subject": "Psychology", "pathway": "Medicine", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Chemistry",
+      "pathway": "Medicine",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Biology",
+      "pathway": "Medicine",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Medicine",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Psychology",
+      "pathway": "Medicine",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Economics", "pathway": "Economics & Finance", "weight": 3, "hlRequired": true },
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Economics & Finance", "weight": 3, "hlRequired": true },
-    { "subject": "English A: Language and Literature", "pathway": "Economics & Finance", "weight": 1, "hlRequired": false },
-    { "subject": "Business Management", "pathway": "Economics & Finance", "weight": 2, "hlRequired": false },
+    {
+      "subject": "Economics",
+      "pathway": "Economics & Finance",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Economics & Finance",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Economics & Finance",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Business Management",
+      "pathway": "Economics & Finance",
+      "weight": 2,
+      "hlRequired": false
+    },
 
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Engineering", "weight": 3, "hlRequired": true },
-    { "subject": "Physics", "pathway": "Engineering", "weight": 3, "hlRequired": true },
-    { "subject": "Chemistry", "pathway": "Engineering", "weight": 1, "hlRequired": false },
-    { "subject": "Design Technology", "pathway": "Engineering", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Engineering",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Physics",
+      "pathway": "Engineering",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Chemistry",
+      "pathway": "Engineering",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Design Technology",
+      "pathway": "Engineering",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "English A: Language and Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "French A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "German A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Italian A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Russian A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Chinese A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Japanese A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Turkish A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Vietnamese A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Hebrew A: Literature", "pathway": "Law", "weight": 2, "hlRequired": false },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "French A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "German A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Italian A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Russian A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Chinese A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Japanese A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Turkish A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Vietnamese A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Hebrew A: Literature",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
     { "subject": "History", "pathway": "Law", "weight": 3, "hlRequired": true },
-    { "subject": "Economics", "pathway": "Law", "weight": 2, "hlRequired": false },
-    { "subject": "Global Politics", "pathway": "Law", "weight": 2, "hlRequired": false },
+    {
+      "subject": "Economics",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Global Politics",
+      "pathway": "Law",
+      "weight": 2,
+      "hlRequired": false
+    },
 
-    { "subject": "Psychology", "pathway": "Psychology", "weight": 3, "hlRequired": true },
-    { "subject": "Biology", "pathway": "Psychology", "weight": 2, "hlRequired": false },
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Psychology", "weight": 1, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Psychology", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Psychology",
+      "pathway": "Psychology",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Biology",
+      "pathway": "Psychology",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Psychology",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Psychology",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Business Management", "pathway": "Business & Management", "weight": 3, "hlRequired": true },
-    { "subject": "Economics", "pathway": "Business & Management", "weight": 2, "hlRequired": false },
-    { "subject": "Mathematics: Applications and Interpretation", "pathway": "Business & Management", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Business Management",
+      "pathway": "Business & Management",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Economics",
+      "pathway": "Business & Management",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Applications and Interpretation",
+      "pathway": "Business & Management",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Business & Management",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Architecture", "weight": 2, "hlRequired": false },
-    { "subject": "Physics", "pathway": "Architecture", "weight": 2, "hlRequired": false },
-    { "subject": "Visual Arts", "pathway": "Architecture", "weight": 3, "hlRequired": true },
-    { "subject": "Design Technology", "pathway": "Architecture", "weight": 2, "hlRequired": false },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Architecture",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Physics",
+      "pathway": "Architecture",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Visual Arts",
+      "pathway": "Architecture",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Design Technology",
+      "pathway": "Architecture",
+      "weight": 2,
+      "hlRequired": false
+    },
 
-    { "subject": "History", "pathway": "International Relations", "weight": 3, "hlRequired": true },
-    { "subject": "Global Politics", "pathway": "International Relations", "weight": 3, "hlRequired": true },
-    { "subject": "Economics", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "English A: Literature", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "French A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "German A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Italian A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Russian A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Chinese A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Japanese A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Turkish A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Vietnamese A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
-    { "subject": "Hebrew A: Literature", "pathway": "International Relations", "weight": 2, "hlRequired": false },
+    {
+      "subject": "History",
+      "pathway": "International Relations",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Global Politics",
+      "pathway": "International Relations",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Economics",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "French A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "German A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Italian A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Russian A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Chinese A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Japanese A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Turkish A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Vietnamese A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Hebrew A: Literature",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
 
-    { "subject": "English B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "Spanish B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "French B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "German B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "Italian B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "Chinese B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
-    { "subject": "Russian B", "pathway": "International Relations", "weight": 1, "hlRequired": false },
+    {
+      "subject": "English B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Spanish B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "French B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "German B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Italian B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Chinese B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Russian B",
+      "pathway": "International Relations",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "English B", "pathway": "Education", "weight": 1, "hlRequired": false },
-    { "subject": "Spanish B", "pathway": "Education", "weight": 1, "hlRequired": false },
-    { "subject": "French B", "pathway": "Education", "weight": 1, "hlRequired": false },
-    { "subject": "German B", "pathway": "Education", "weight": 1, "hlRequired": false },
+    {
+      "subject": "English B",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Spanish B",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "French B",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "German B",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "English B", "pathway": "Law", "weight": 1, "hlRequired": false },
-    { "subject": "Spanish B", "pathway": "Law", "weight": 1, "hlRequired": false },
-    { "subject": "French B", "pathway": "Law", "weight": 1, "hlRequired": false },
-    { "subject": "German B", "pathway": "Law", "weight": 1, "hlRequired": false },
+    {
+      "subject": "English B",
+      "pathway": "Law",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Spanish B",
+      "pathway": "Law",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "French B",
+      "pathway": "Law",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "German B",
+      "pathway": "Law",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "English B", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
-    { "subject": "Spanish B", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
-    { "subject": "French B", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
+    {
+      "subject": "English B",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Spanish B",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "French B",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "English B", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
-    { "subject": "Spanish B", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
-    { "subject": "French B", "pathway": "Business & Management", "weight": 1, "hlRequired": false },
+    {
+      "subject": "English B",
+      "pathway": "Business & Management",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Spanish B",
+      "pathway": "Business & Management",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "French B",
+      "pathway": "Business & Management",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Biology", "pathway": "Environmental Science", "weight": 2, "hlRequired": false },
-    { "subject": "Chemistry", "pathway": "Environmental Science", "weight": 2, "hlRequired": false },
-    { "subject": "Environmental Systems and Societies", "pathway": "Environmental Science", "weight": 3, "hlRequired": false },
-    { "subject": "Mathematics: Applications and Interpretation", "pathway": "Environmental Science", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Biology",
+      "pathway": "Environmental Science",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Chemistry",
+      "pathway": "Environmental Science",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Environmental Systems and Societies",
+      "pathway": "Environmental Science",
+      "weight": 3,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Applications and Interpretation",
+      "pathway": "Environmental Science",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Film", "pathway": "Film & Media Studies", "weight": 3, "hlRequired": true },
-    { "subject": "English A: Literature", "pathway": "Film & Media Studies", "weight": 2, "hlRequired": false },
-    { "subject": "Visual Arts", "pathway": "Film & Media Studies", "weight": 1, "hlRequired": false },
-    { "subject": "Theatre", "pathway": "Film & Media Studies", "weight": 1, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Film & Media Studies", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Film",
+      "pathway": "Film & Media Studies",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "Film & Media Studies",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Visual Arts",
+      "pathway": "Film & Media Studies",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Theatre",
+      "pathway": "Film & Media Studies",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Film & Media Studies",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Music", "pathway": "Music Performance & Production", "weight": 3, "hlRequired": true },
-    { "subject": "English A: Literature", "pathway": "Music Performance & Production", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Music",
+      "pathway": "Music Performance & Production",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "Music Performance & Production",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Psychology", "pathway": "Education", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Education", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Literature", "pathway": "Education", "weight": 2, "hlRequired": false },
-    { "subject": "Biology", "pathway": "Education", "weight": 1, "hlRequired": false },
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Education", "weight": 1, "hlRequired": false },
-    { "subject": "Mathematics: Applications and Interpretation", "pathway": "Education", "weight": 1, "hlRequired": false },
-    { "subject": "History", "pathway": "Education", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Psychology",
+      "pathway": "Education",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Education",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "Education",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Biology",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Applications and Interpretation",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "History",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Business Management", "pathway": "Marketing & Communications", "weight": 3, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Marketing & Communications", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Literature", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
-    { "subject": "Visual Arts", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
-    { "subject": "Economics", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
-    { "subject": "Psychology", "pathway": "Marketing & Communications", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Business Management",
+      "pathway": "Marketing & Communications",
+      "weight": 3,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Marketing & Communications",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Visual Arts",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Economics",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Psychology",
+      "pathway": "Marketing & Communications",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "English A: Literature", "pathway": "English & Creative Writing", "weight": 3, "hlRequired": true },
-    { "subject": "English A: Language and Literature", "pathway": "English & Creative Writing", "weight": 3, "hlRequired": true },
-    { "subject": "History", "pathway": "English & Creative Writing", "weight": 1, "hlRequired": false },
-    { "subject": "Theatre", "pathway": "English & Creative Writing", "weight": 1, "hlRequired": false },
-    { "subject": "Film", "pathway": "English & Creative Writing", "weight": 1, "hlRequired": false },
+    {
+      "subject": "English A: Literature",
+      "pathway": "English & Creative Writing",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "English & Creative Writing",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "History",
+      "pathway": "English & Creative Writing",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Theatre",
+      "pathway": "English & Creative Writing",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Film",
+      "pathway": "English & Creative Writing",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "History", "pathway": "History & Politics", "weight": 3, "hlRequired": true },
-    { "subject": "Global Politics", "pathway": "History & Politics", "weight": 3, "hlRequired": true },
-    { "subject": "Economics", "pathway": "History & Politics", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "History & Politics", "weight": 1, "hlRequired": false },
-    { "subject": "English A: Literature", "pathway": "History & Politics", "weight": 1, "hlRequired": false },
+    {
+      "subject": "History",
+      "pathway": "History & Politics",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Global Politics",
+      "pathway": "History & Politics",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Economics",
+      "pathway": "History & Politics",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "History & Politics",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Literature",
+      "pathway": "History & Politics",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Biology", "pathway": "Biology & Life Sciences", "weight": 3, "hlRequired": true },
-    { "subject": "Chemistry", "pathway": "Biology & Life Sciences", "weight": 3, "hlRequired": false },
-    { "subject": "Mathematics: Analysis and Approaches", "pathway": "Biology & Life Sciences", "weight": 1, "hlRequired": false },
-    { "subject": "Environmental Systems and Societies", "pathway": "Biology & Life Sciences", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Biology",
+      "pathway": "Biology & Life Sciences",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Chemistry",
+      "pathway": "Biology & Life Sciences",
+      "weight": 3,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Analysis and Approaches",
+      "pathway": "Biology & Life Sciences",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Environmental Systems and Societies",
+      "pathway": "Biology & Life Sciences",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Psychology", "pathway": "Sociology & Social Work", "weight": 2, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Sociology & Social Work", "weight": 1, "hlRequired": false },
-    { "subject": "Global Politics", "pathway": "Sociology & Social Work", "weight": 2, "hlRequired": false },
-    { "subject": "History", "pathway": "Sociology & Social Work", "weight": 1, "hlRequired": false },
-    { "subject": "Economics", "pathway": "Sociology & Social Work", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Psychology",
+      "pathway": "Sociology & Social Work",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Sociology & Social Work",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Global Politics",
+      "pathway": "Sociology & Social Work",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "History",
+      "pathway": "Sociology & Social Work",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Economics",
+      "pathway": "Sociology & Social Work",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Sports, Exercise and Health Science", "pathway": "Sports Science", "weight": 3, "hlRequired": true },
-    { "subject": "Biology", "pathway": "Sports Science", "weight": 2, "hlRequired": false },
-    { "subject": "Chemistry", "pathway": "Sports Science", "weight": 1, "hlRequired": false },
-    { "subject": "Psychology", "pathway": "Sports Science", "weight": 1, "hlRequired": false },
-    { "subject": "Mathematics: Applications and Interpretation", "pathway": "Sports Science", "weight": 1, "hlRequired": false },
+    {
+      "subject": "Sports, Exercise and Health Science",
+      "pathway": "Sports Science",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Biology",
+      "pathway": "Sports Science",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Chemistry",
+      "pathway": "Sports Science",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Psychology",
+      "pathway": "Sports Science",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Mathematics: Applications and Interpretation",
+      "pathway": "Sports Science",
+      "weight": 1,
+      "hlRequired": false
+    },
 
-    { "subject": "Visual Arts", "pathway": "Design & Visual Arts", "weight": 3, "hlRequired": true },
-    { "subject": "Design Technology", "pathway": "Design & Visual Arts", "weight": 2, "hlRequired": false },
-    { "subject": "Film", "pathway": "Design & Visual Arts", "weight": 1, "hlRequired": false },
-    { "subject": "Computer Science", "pathway": "Design & Visual Arts", "weight": 1, "hlRequired": false },
-    { "subject": "English A: Language and Literature", "pathway": "Design & Visual Arts", "weight": 1, "hlRequired": false }
+    {
+      "subject": "Visual Arts",
+      "pathway": "Design & Visual Arts",
+      "weight": 3,
+      "hlRequired": true
+    },
+    {
+      "subject": "Design Technology",
+      "pathway": "Design & Visual Arts",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Film",
+      "pathway": "Design & Visual Arts",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Computer Science",
+      "pathway": "Design & Visual Arts",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "English A: Language and Literature",
+      "pathway": "Design & Visual Arts",
+      "weight": 1,
+      "hlRequired": false
+    }
   ],
   "pathwayCareerLinks": [
-    { "pathway": "Computer Science", "career": "Software Engineer", "weight": 3 },
+    {
+      "pathway": "Computer Science",
+      "career": "Software Engineer",
+      "weight": 3
+    },
     { "pathway": "Computer Science", "career": "Product Manager", "weight": 1 },
     { "pathway": "Computer Science", "career": "Data Analyst", "weight": 2 },
-    { "pathway": "Computer Science", "career": "Cyber Security Professional", "weight": 2 },
+    {
+      "pathway": "Computer Science",
+      "career": "Cyber Security Professional",
+      "weight": 2
+    },
 
-    { "pathway": "Medicine", "career": "Doctor (General Practitioner)", "weight": 3 },
-    { "pathway": "Medicine", "career": "Biologist / Lab Scientist", "weight": 1 },
+    {
+      "pathway": "Medicine",
+      "career": "Doctor (General Practitioner)",
+      "weight": 3
+    },
+    {
+      "pathway": "Medicine",
+      "career": "Biologist / Lab Scientist",
+      "weight": 1
+    },
 
-    { "pathway": "Economics & Finance", "career": "Investment Banker", "weight": 3 },
-    { "pathway": "Economics & Finance", "career": "Management Consultant", "weight": 2 },
+    {
+      "pathway": "Economics & Finance",
+      "career": "Investment Banker",
+      "weight": 3
+    },
+    {
+      "pathway": "Economics & Finance",
+      "career": "Management Consultant",
+      "weight": 2
+    },
     { "pathway": "Economics & Finance", "career": "Accountant", "weight": 2 },
     { "pathway": "Economics & Finance", "career": "Data Analyst", "weight": 1 },
     { "pathway": "Economics & Finance", "career": "Actuary", "weight": 2 },
@@ -594,13 +1620,33 @@
     { "pathway": "Psychology", "career": "Clinical Psychologist", "weight": 3 },
     { "pathway": "Psychology", "career": "Social Worker", "weight": 1 },
     { "pathway": "Psychology", "career": "HR Professional", "weight": 1 },
-    { "pathway": "Psychology", "career": "Secondary School Teacher", "weight": 1 },
+    {
+      "pathway": "Psychology",
+      "career": "Secondary School Teacher",
+      "weight": 1
+    },
 
-    { "pathway": "Business & Management", "career": "Management Consultant", "weight": 3 },
-    { "pathway": "Business & Management", "career": "Product Manager", "weight": 2 },
-    { "pathway": "Business & Management", "career": "HR Professional", "weight": 1 },
+    {
+      "pathway": "Business & Management",
+      "career": "Management Consultant",
+      "weight": 3
+    },
+    {
+      "pathway": "Business & Management",
+      "career": "Product Manager",
+      "weight": 2
+    },
+    {
+      "pathway": "Business & Management",
+      "career": "HR Professional",
+      "weight": 1
+    },
     { "pathway": "Business & Management", "career": "Accountant", "weight": 1 },
-    { "pathway": "Business & Management", "career": "Marketing & PR Professional", "weight": 1 },
+    {
+      "pathway": "Business & Management",
+      "career": "Marketing & PR Professional",
+      "weight": 1
+    },
 
     { "pathway": "Architecture", "career": "Architect", "weight": 3 },
     { "pathway": "Architecture", "career": "Quantity Surveyor", "weight": 2 },
@@ -608,57 +1654,193 @@
 
     { "pathway": "International Relations", "career": "Diplomat", "weight": 3 },
     { "pathway": "International Relations", "career": "Lawyer", "weight": 1 },
-    { "pathway": "International Relations", "career": "Journalist / Writer", "weight": 1 },
+    {
+      "pathway": "International Relations",
+      "career": "Journalist / Writer",
+      "weight": 1
+    },
 
-    { "pathway": "Environmental Science", "career": "Environmental Scientist", "weight": 3 },
-    { "pathway": "Environmental Science", "career": "Data Analyst", "weight": 1 },
-    { "pathway": "Environmental Science", "career": "Secondary School Teacher", "weight": 1 },
+    {
+      "pathway": "Environmental Science",
+      "career": "Environmental Scientist",
+      "weight": 3
+    },
+    {
+      "pathway": "Environmental Science",
+      "career": "Data Analyst",
+      "weight": 1
+    },
+    {
+      "pathway": "Environmental Science",
+      "career": "Secondary School Teacher",
+      "weight": 1
+    },
 
-    { "pathway": "Film & Media Studies", "career": "Film Director / Producer", "weight": 3 },
-    { "pathway": "Film & Media Studies", "career": "Graphic & Multimedia Designer", "weight": 1 },
-    { "pathway": "Film & Media Studies", "career": "Journalist / Writer", "weight": 1 },
-    { "pathway": "Film & Media Studies", "career": "Marketing & PR Professional", "weight": 1 },
+    {
+      "pathway": "Film & Media Studies",
+      "career": "Film Director / Producer",
+      "weight": 3
+    },
+    {
+      "pathway": "Film & Media Studies",
+      "career": "Graphic & Multimedia Designer",
+      "weight": 1
+    },
+    {
+      "pathway": "Film & Media Studies",
+      "career": "Journalist / Writer",
+      "weight": 1
+    },
+    {
+      "pathway": "Film & Media Studies",
+      "career": "Marketing & PR Professional",
+      "weight": 1
+    },
 
-    { "pathway": "Music Performance & Production", "career": "Film Director / Producer", "weight": 1 },
-    { "pathway": "Music Performance & Production", "career": "Events Manager", "weight": 1 },
-    { "pathway": "Music Performance & Production", "career": "Secondary School Teacher", "weight": 1 },
+    {
+      "pathway": "Music Performance & Production",
+      "career": "Film Director / Producer",
+      "weight": 1
+    },
+    {
+      "pathway": "Music Performance & Production",
+      "career": "Events Manager",
+      "weight": 1
+    },
+    {
+      "pathway": "Music Performance & Production",
+      "career": "Secondary School Teacher",
+      "weight": 1
+    },
 
-    { "pathway": "Education", "career": "Secondary School Teacher", "weight": 3 },
+    {
+      "pathway": "Education",
+      "career": "Secondary School Teacher",
+      "weight": 3
+    },
     { "pathway": "Education", "career": "Primary School Teacher", "weight": 3 },
     { "pathway": "Education", "career": "Social Worker", "weight": 1 },
 
-    { "pathway": "Marketing & Communications", "career": "Marketing & PR Professional", "weight": 3 },
-    { "pathway": "Marketing & Communications", "career": "Events Manager", "weight": 2 },
-    { "pathway": "Marketing & Communications", "career": "Graphic & Multimedia Designer", "weight": 1 },
-    { "pathway": "Marketing & Communications", "career": "Journalist / Writer", "weight": 1 },
+    {
+      "pathway": "Marketing & Communications",
+      "career": "Marketing & PR Professional",
+      "weight": 3
+    },
+    {
+      "pathway": "Marketing & Communications",
+      "career": "Events Manager",
+      "weight": 2
+    },
+    {
+      "pathway": "Marketing & Communications",
+      "career": "Graphic & Multimedia Designer",
+      "weight": 1
+    },
+    {
+      "pathway": "Marketing & Communications",
+      "career": "Journalist / Writer",
+      "weight": 1
+    },
 
-    { "pathway": "English & Creative Writing", "career": "Journalist / Writer", "weight": 3 },
-    { "pathway": "English & Creative Writing", "career": "Secondary School Teacher", "weight": 2 },
-    { "pathway": "English & Creative Writing", "career": "Marketing & PR Professional", "weight": 1 },
+    {
+      "pathway": "English & Creative Writing",
+      "career": "Journalist / Writer",
+      "weight": 3
+    },
+    {
+      "pathway": "English & Creative Writing",
+      "career": "Secondary School Teacher",
+      "weight": 2
+    },
+    {
+      "pathway": "English & Creative Writing",
+      "career": "Marketing & PR Professional",
+      "weight": 1
+    },
 
-    { "pathway": "History & Politics", "career": "Secondary School Teacher", "weight": 2 },
+    {
+      "pathway": "History & Politics",
+      "career": "Secondary School Teacher",
+      "weight": 2
+    },
     { "pathway": "History & Politics", "career": "Diplomat", "weight": 1 },
     { "pathway": "History & Politics", "career": "Lawyer", "weight": 1 },
-    { "pathway": "History & Politics", "career": "Journalist / Writer", "weight": 1 },
-    { "pathway": "History & Politics", "career": "Police Officer", "weight": 1 },
+    {
+      "pathway": "History & Politics",
+      "career": "Journalist / Writer",
+      "weight": 1
+    },
+    {
+      "pathway": "History & Politics",
+      "career": "Police Officer",
+      "weight": 1
+    },
 
-    { "pathway": "Biology & Life Sciences", "career": "Biologist / Lab Scientist", "weight": 3 },
-    { "pathway": "Biology & Life Sciences", "career": "Doctor (General Practitioner)", "weight": 1 },
-    { "pathway": "Biology & Life Sciences", "career": "Environmental Scientist", "weight": 1 },
-    { "pathway": "Biology & Life Sciences", "career": "Secondary School Teacher", "weight": 1 },
+    {
+      "pathway": "Biology & Life Sciences",
+      "career": "Biologist / Lab Scientist",
+      "weight": 3
+    },
+    {
+      "pathway": "Biology & Life Sciences",
+      "career": "Doctor (General Practitioner)",
+      "weight": 1
+    },
+    {
+      "pathway": "Biology & Life Sciences",
+      "career": "Environmental Scientist",
+      "weight": 1
+    },
+    {
+      "pathway": "Biology & Life Sciences",
+      "career": "Secondary School Teacher",
+      "weight": 1
+    },
 
-    { "pathway": "Sociology & Social Work", "career": "Social Worker", "weight": 3 },
-    { "pathway": "Sociology & Social Work", "career": "Police Officer", "weight": 2 },
-    { "pathway": "Sociology & Social Work", "career": "HR Professional", "weight": 1 },
-    { "pathway": "Sociology & Social Work", "career": "Secondary School Teacher", "weight": 1 },
+    {
+      "pathway": "Sociology & Social Work",
+      "career": "Social Worker",
+      "weight": 3
+    },
+    {
+      "pathway": "Sociology & Social Work",
+      "career": "Police Officer",
+      "weight": 2
+    },
+    {
+      "pathway": "Sociology & Social Work",
+      "career": "HR Professional",
+      "weight": 1
+    },
+    {
+      "pathway": "Sociology & Social Work",
+      "career": "Secondary School Teacher",
+      "weight": 1
+    },
 
     { "pathway": "Sports Science", "career": "Physiotherapist", "weight": 3 },
-    { "pathway": "Sports Science", "career": "Secondary School Teacher", "weight": 2 },
+    {
+      "pathway": "Sports Science",
+      "career": "Secondary School Teacher",
+      "weight": 2
+    },
     { "pathway": "Sports Science", "career": "Events Manager", "weight": 1 },
 
-    { "pathway": "Design & Visual Arts", "career": "Graphic & Multimedia Designer", "weight": 3 },
+    {
+      "pathway": "Design & Visual Arts",
+      "career": "Graphic & Multimedia Designer",
+      "weight": 3
+    },
     { "pathway": "Design & Visual Arts", "career": "Architect", "weight": 1 },
-    { "pathway": "Design & Visual Arts", "career": "Film Director / Producer", "weight": 1 },
-    { "pathway": "Design & Visual Arts", "career": "Secondary School Teacher", "weight": 1 }
+    {
+      "pathway": "Design & Visual Arts",
+      "career": "Film Director / Producer",
+      "weight": 1
+    },
+    {
+      "pathway": "Design & Visual Arts",
+      "career": "Secondary School Teacher",
+      "weight": 1
+    }
   ]
 }
