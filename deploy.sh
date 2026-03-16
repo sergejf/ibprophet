@@ -42,7 +42,7 @@ preflight() {
   echo ""
   echo "--- Database ($APP_DB) ---"
   local db_state
-  db_state=$($FLY machines list -a "$APP_DB" --json 2>/dev/null | grep -o '"state":"[^"]*"' | head -1 | cut -d'"' -f4)
+  db_state=$($FLY machines list -a "$APP_DB" --json 2>/dev/null | grep -o '"state": *"[^"]*"' | head -1 | sed 's/.*"\([^"]*\)"$/\1/')
 
   if [[ "$db_state" != "started" ]]; then
     warn "Database machine state: ${db_state:-unknown}"
@@ -50,7 +50,7 @@ preflight() {
     read -rp "Database is not running. Start it? [y/N] " yn
     if [[ "$yn" =~ ^[Yy]$ ]]; then
       local db_id
-      db_id=$($FLY machines list -a "$APP_DB" --json 2>/dev/null | grep -o '"id":"[^"]*"' | head -1 | cut -d'"' -f4)
+      db_id=$($FLY machines list -a "$APP_DB" --json 2>/dev/null | grep -o '"id": *"[^"]*"' | head -1 | sed 's/.*"\([^"]*\)"$/\1/')
       $FLY machines start "$db_id" -a "$APP_DB"
       echo "Waiting 10s for Postgres to initialize..."
       sleep 10
@@ -78,9 +78,9 @@ preflight() {
   local server_json
   server_json=$($FLY machines list -a "$APP_SERVER" --json 2>/dev/null)
   local stuck_count
-  stuck_count=$(echo "$server_json" | grep -c '"state":"stopped"' || true)
+  stuck_count=$(echo "$server_json" | grep -c '"state": *"stopped"' || true)
   local total_count
-  total_count=$(echo "$server_json" | grep -c '"id"' || true)
+  total_count=$(echo "$server_json" | grep -c '"id":' || true)
 
   if [[ "$stuck_count" -eq "$total_count" && "$total_count" -gt 0 ]]; then
     warn "All $total_count server machines are stopped (likely from crash loop)."
@@ -93,7 +93,7 @@ preflight() {
   echo ""
   echo "--- Client ($APP_CLIENT) ---"
   local client_state
-  client_state=$($FLY machines list -a "$APP_CLIENT" --json 2>/dev/null | grep -o '"state":"[^"]*"' | head -1 | cut -d'"' -f4)
+  client_state=$($FLY machines list -a "$APP_CLIENT" --json 2>/dev/null | grep -o '"state": *"[^"]*"' | head -1 | sed 's/.*"\([^"]*\)"$/\1/')
   info "Client machine state: ${client_state:-unknown}"
 
   echo ""
