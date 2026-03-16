@@ -1,13 +1,13 @@
 # IB Prophet
 
-IB Prophet helps IB Diploma students explore how their subject choices connect to university pathways and careers. Pick your HL and SL subjects, and instantly see which degrees and professions open up — with salary data, growth projections, and AI resilience ratings.
+IB Prophet helps IB Diploma students explore how their subject choices connect to university pathways and careers. Pick your HL and SL subjects, and instantly see which degrees and professions open up — with AI exposure scores, salary data, growth projections, and BLS labor market stats.
 
 **Live:** https://ibprophet-client.fly.dev
 
 ## Features
 
 - **Subject Explorer** — select up to 6 IB subjects (3 HL + 3 SL) and see matching university pathways via an interactive Sankey flow diagram
-- **Career Cards** — 29 careers with UK/US salary ranges, 10-year growth outlook, and AI resilience tier (green/yellow/red)
+- **Career Cards** — 29 careers with AI exposure scores (1-9 with rationales), UK/US salary ranges, BLS labor market data, 10-year growth outlook, and AI resilience tier (green/yellow/red)
 - **Pathway Detail** — drill into any of the 20 university pathways to see required subjects and HL grade expectations
 - **Subject Analysis** — 23 heuristics flag issues like essay overload, missing Maths HL for STEM, and BM+Econ overlap
 - **University Benchmark** — Russell Group HL grade requirements with tier visualisation and predicted points input
@@ -19,7 +19,7 @@ IB Prophet helps IB Diploma students explore how their subject choices connect t
 
 - **39 IB subjects** across all 6 groups
 - **20 university pathways** (STEM, Humanities, Social Sciences, Arts)
-- **29 careers** with salary data (US & UK), growth outlook, AI resilience rating, pros/cons
+- **29 careers** with AI exposure scores (1-9, sourced from Karpathy's jobs analysis), BLS labor market stats (median salary, employment, growth outlook, education), salary data (US & UK), AI resilience rating, pros/cons
 
 ## Tech Stack
 

@@ -1,18 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useQuery, getCareer } from "wasp/client/operations";
 import { Link } from "wasp/client/router";
 import { Badge } from "../shared/components/Badge";
 import { SalaryBar } from "../shared/components/SalaryBar";
+import { AIExposureGauge } from "../shared/components/AIExposureGauge";
+import { aiResilienceLabels } from "../shared/ai-exposure";
 
-const aiLabels: Record<
-  string,
-  { text: string; color: "green" | "yellow" | "red" }
-> = {
-  GREEN: { text: "AI-Resilient", color: "green" },
-  YELLOW: { text: "AI-Augmented", color: "yellow" },
-  RED: { text: "AI-Exposed", color: "red" },
-};
+function formatNumber(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+  return n.toString();
+}
 
 export function CareerPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +20,7 @@ export function CareerPage() {
     isLoading,
     error,
   } = useQuery(getCareer, { slug: slug! }, { enabled: !!slug });
+  const [rationaleOpen, setRationaleOpen] = useState(false);
 
   // Dynamic page title
   useEffect(() => {
@@ -35,7 +35,7 @@ export function CareerPage() {
   // Occupation JSON-LD structured data
   useEffect(() => {
     if (!career) return;
-    const jsonLd = {
+    const jsonLd: Record<string, unknown> = {
       "@context": "https://schema.org",
       "@type": "Occupation",
       name: career.name,
@@ -57,6 +57,12 @@ export function CareerPage() {
         },
       ],
     };
+    if (career.educationRequired) {
+      jsonLd.educationRequirements = {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: career.educationRequired,
+      };
+    }
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.textContent = JSON.stringify(jsonLd);
@@ -87,7 +93,7 @@ export function CareerPage() {
 
   const pros: string[] = JSON.parse(career.pros);
   const cons: string[] = JSON.parse(career.cons);
-  const ai = aiLabels[career.aiResilience];
+  const ai = aiResilienceLabels[career.aiResilience];
   const maxSalary = Math.max(career.salaryMidUS, career.salaryMidUK);
   const growthColor =
     career.growthPercent10Y > 10
@@ -110,11 +116,103 @@ export function CareerPage() {
 
         <p className="mt-3 text-neutral-300">{career.description}</p>
 
+        {/* AI & Automation */}
+        {career.aiExposure != null && (
+          <div className="mt-6 flex flex-col gap-3">
+            <h2 className="text-sm font-semibold tracking-wider text-neutral-400 uppercase">
+              AI & Automation
+            </h2>
+            <AIExposureGauge score={career.aiExposure} />
+            {career.aiExposureRationale && (
+              <div>
+                <button
+                  onClick={() => setRationaleOpen(!rationaleOpen)}
+                  className="text-sm text-neutral-400 hover:text-neutral-300"
+                >
+                  {rationaleOpen ? "Hide analysis" : "Read analysis"}{" "}
+                  {rationaleOpen ? "\u25BE" : "\u25B8"}
+                </button>
+                {rationaleOpen && (
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-300">
+                    {career.aiExposureRationale}
+                  </p>
+                )}
+              </div>
+            )}
+            <p className="text-xs text-neutral-500">
+              Score measures how AI changes the work, not job loss risk.
+            </p>
+          </div>
+        )}
+
+        {/* US Labor Market */}
+        {career.blsMedianSalaryUS != null && (
+          <div className="mt-6 flex flex-col gap-3">
+            <h2 className="text-sm font-semibold tracking-wider text-neutral-400 uppercase">
+              US Labor Market (BLS)
+            </h2>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="bg-dark-700 rounded-lg p-3">
+                <div className="text-lg font-bold text-neutral-100">
+                  ${formatNumber(career.blsMedianSalaryUS)}
+                </div>
+                <div className="text-xs text-neutral-500">Median salary</div>
+              </div>
+              {career.employmentUS != null && (
+                <div className="bg-dark-700 rounded-lg p-3">
+                  <div className="text-lg font-bold text-neutral-100">
+                    {formatNumber(career.employmentUS)}
+                  </div>
+                  <div className="text-xs text-neutral-500">US jobs</div>
+                </div>
+              )}
+              {career.projectedGrowthUS && (
+                <div className="bg-dark-700 rounded-lg p-3">
+                  <div className="text-lg font-bold text-neutral-100">
+                    {career.projectedGrowthUS}
+                  </div>
+                  <div className="text-xs text-neutral-500">Growth outlook</div>
+                </div>
+              )}
+              {career.educationRequired && (
+                <div className="bg-dark-700 rounded-lg p-3">
+                  <div className="text-lg font-bold text-neutral-100">
+                    {career.educationRequired}
+                  </div>
+                  <div className="text-xs text-neutral-500">
+                    Education required
+                  </div>
+                </div>
+              )}
+            </div>
+            {career.blsUrl && (
+              <p className="text-xs text-neutral-500">
+                Source:{" "}
+                <a
+                  href={career.blsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-500 hover:text-primary-400 underline"
+                >
+                  BLS Occupational Outlook Handbook
+                </a>
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Salary */}
         <div className="mt-6 flex flex-col gap-3">
           <h2 className="text-sm font-semibold tracking-wider text-neutral-400 uppercase">
-            Salary Comparison
+            Entry & Mid-Career Salary
           </h2>
+          {career.blsMedianSalaryUS != null && (
+            <p className="text-xs text-neutral-500">
+              Hand-researched estimates for this specific career path. May
+              differ from the BLS median above, which covers the broader
+              occupation category across all experience levels.
+            </p>
+          )}
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
             <SalaryBar
               label="US Entry"

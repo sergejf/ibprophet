@@ -1,5 +1,6 @@
 import type { Career } from "wasp/entities";
 import { Dialog } from "../shared/components/Dialog";
+import { exposureColor } from "../shared/ai-exposure";
 
 interface SubjectLink {
   subjectId: string;
@@ -152,15 +153,28 @@ export function PathwayDetailPanel({
               Career paths
             </h3>
             <div className="flex flex-wrap gap-2">
-              {pathway.careerLinks.map((cl) => (
-                <button
-                  key={cl.careerId}
-                  onClick={() => onCareerClick(cl.career)}
-                  className="rounded-lg bg-green-500/10 px-3 py-1.5 text-sm font-medium text-green-400 transition-colors hover:bg-green-500/20"
-                >
-                  {cl.career.name} →
-                </button>
-              ))}
+              {pathway.careerLinks.map((cl) => {
+                const dotColor =
+                  cl.career.aiExposure != null
+                    ? {
+                        green: "bg-green-500",
+                        yellow: "bg-yellow-500",
+                        red: "bg-red-500",
+                      }[exposureColor(cl.career.aiExposure)]
+                    : "bg-neutral-500";
+                return (
+                  <button
+                    key={cl.careerId}
+                    onClick={() => onCareerClick(cl.career)}
+                    className="flex items-center gap-1.5 rounded-lg bg-green-500/10 px-3 py-1.5 text-sm font-medium text-green-400 transition-colors hover:bg-green-500/20"
+                  >
+                    <span
+                      className={`inline-block h-1.5 w-1.5 shrink-0 rounded-full ${dotColor}`}
+                    />
+                    {cl.career.name} →
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}

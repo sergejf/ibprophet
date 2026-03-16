@@ -3,21 +3,13 @@ import { Link } from "wasp/client/router";
 import { Dialog } from "../shared/components/Dialog";
 import { Badge } from "../shared/components/Badge";
 import { SalaryBar } from "../shared/components/SalaryBar";
+import { aiResilienceLabels } from "../shared/ai-exposure";
 
 interface CareerCardModalProps {
   career: Career | null;
   open: boolean;
   onClose: () => void;
 }
-
-const aiLabels: Record<
-  string,
-  { text: string; color: "green" | "yellow" | "red" }
-> = {
-  GREEN: { text: "AI-Resilient", color: "green" },
-  YELLOW: { text: "AI-Augmented", color: "yellow" },
-  RED: { text: "AI-Exposed", color: "red" },
-};
 
 export function CareerCardModal({
   career,
@@ -28,7 +20,9 @@ export function CareerCardModal({
 
   const pros: string[] = JSON.parse(career.pros);
   const cons: string[] = JSON.parse(career.cons);
-  const ai = aiLabels[career.aiResilience];
+  const ai = aiResilienceLabels[career.aiResilience];
+  const badgeText =
+    career.aiExposure != null ? `${ai.text} (${career.aiExposure}/9)` : ai.text;
   const maxSalary = Math.max(career.salaryMidUS, career.salaryMidUK);
   const growthColor =
     career.growthPercent10Y > 10
@@ -37,15 +31,30 @@ export function CareerCardModal({
         ? "text-yellow-400"
         : "text-red-400";
 
+  const rationaleTeaser =
+    career.aiExposureRationale && career.aiExposureRationale.length > 100
+      ? career.aiExposureRationale.slice(0, 100) + "..."
+      : career.aiExposureRationale;
+
   return (
     <Dialog open={open} onClose={onClose}>
       <div className="flex w-full flex-col gap-4 overflow-y-auto p-6">
         <div className="flex items-start justify-between">
           <h2 className="text-primary-500 text-xl font-bold">{career.name}</h2>
-          <Badge color={ai.color}>{ai.text}</Badge>
+          <Badge color={ai.color}>{badgeText}</Badge>
         </div>
 
         <p className="text-sm text-neutral-300">{career.description}</p>
+
+        {rationaleTeaser && (
+          <p className="text-xs leading-relaxed text-neutral-400 italic">
+            {rationaleTeaser}
+          </p>
+        )}
+
+        {career.educationRequired && (
+          <Badge color="blue">{career.educationRequired}</Badge>
+        )}
 
         {/* Salary bars */}
         <div className="flex flex-col gap-2">

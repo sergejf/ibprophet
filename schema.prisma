@@ -44,6 +44,13 @@ model Career {
   salaryMidUK     Int
   growthPercent10Y Float
   aiResilience    AIResilience
+  aiExposure            Int?
+  aiExposureRationale   String?
+  blsMedianSalaryUS     Int?
+  employmentUS          Int?
+  projectedGrowthUS     String?
+  educationRequired     String?
+  blsUrl                String?
   pros            String
   cons            String
 
