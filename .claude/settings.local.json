@@ -50,7 +50,15 @@
       "Bash(ls:*)",
       "Bash(gh auth:*)",
       "Bash(git push:*)",
-      "Bash(wasp version:*)"
+      "Bash(wasp version:*)",
+      "WebFetch(domain:wasp.sh)",
+      "Bash(wasp deploy:*)",
+      "Bash(~/.fly/bin/flyctl machines:*)",
+      "Bash(~/.fly/bin/flyctl status:*)",
+      "Bash(~/.fly/bin/flyctl logs:*)",
+      "Bash(chmod:*)",
+      "Bash(./deploy.sh --client)",
+      "Bash(./deploy.sh --check 2>&1 | tail -20)"
     ]
   }
 }

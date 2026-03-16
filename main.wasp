@@ -5,6 +5,7 @@ app ibprophet {
   title: "IB Prophet",
   head: [
     "<link rel='icon' type='image/svg+xml' href='/favicon.svg?v=2' />",
+    "<script src='/posthog-init.js'></script>",
   ],
   auth: {
     userEntity: User,
