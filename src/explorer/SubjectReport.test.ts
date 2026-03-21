@@ -25,6 +25,12 @@ const subjects: IBSubject[] = [
   makeSubject("15", "Global Politics", 3),
   makeSubject("16", "English A: Language and Literature", 1),
   makeSubject("17", "French A: Literature", 1),
+  makeSubject("18", "Geography", 3),
+  makeSubject("19", "Design Technology", 4),
+  makeSubject("20", "Dance", 6),
+  makeSubject("21", "Sports, Exercise and Health Science", 4),
+  makeSubject("22", "Environmental Systems and Societies", 4),
+  makeSubject("23", "French B", 2),
 ];
 
 describe("analyseSubjects", () => {
@@ -123,6 +129,137 @@ describe("analyseSubjects", () => {
       result.recommendations.some(
         (r) => r.includes("psychology") || r.includes("Psychology"),
       ),
+    ).toBe(true);
+  });
+
+  /* ═══ FACILITATING SUBJECT TESTS ═══ */
+
+  it("warns when no facilitating subjects are chosen", () => {
+    // HL: Visual Arts, Theatre, Film; SL: Dance, DT, SEHS — 0 facilitating
+    const result = analyseSubjects(
+      subjects,
+      ["11", "12", "13"],
+      ["20", "19", "21"],
+    );
+    expect(result.cons.some((c) => c.includes("facilitating"))).toBe(true);
+  });
+
+  it("recommends adding a second facilitating subject when only 1 chosen", () => {
+    // HL: History (facilitating), Theatre, Film; SL: Dance, DT, SEHS
+    const result = analyseSubjects(
+      subjects,
+      ["7", "12", "13"],
+      ["20", "19", "21"],
+    );
+    expect(
+      result.recommendations.some((r) => r.includes("second facilitating")),
+    ).toBe(true);
+  });
+
+  it("praises 2+ facilitating subjects at HL", () => {
+    // HL: Chem, Bio, Maths AA (all facilitating); SL: Psych, English, French A
+    const result = analyseSubjects(subjects, ["1", "2", "3"], ["5", "6", "17"]);
+    expect(
+      result.pros.some((p) => p.includes("facilitating subjects at HL")),
+    ).toBe(true);
+  });
+
+  /* ═══ ARCHETYPE DETECTION TESTS ═══ */
+
+  it("detects classic science combination (Chem + Bio + Physics)", () => {
+    // HL: Chem, Bio, Physics; SL: Maths AA, English, French A
+    const result = analyseSubjects(subjects, ["1", "2", "4"], ["3", "6", "17"]);
+    expect(
+      result.pros.some((p) => p.includes("Classic science combination")),
+    ).toBe(true);
+  });
+
+  it("detects bio/life sciences focus (Chem + Bio without Physics)", () => {
+    // HL: Chem, Bio, History; SL: Maths AI, English, French A
+    const result = analyseSubjects(
+      subjects,
+      ["1", "2", "7"],
+      ["14", "6", "17"],
+    );
+    expect(result.pros.some((p) => p.includes("Life Sciences"))).toBe(true);
+  });
+
+  /* ═══ GEOGRAPHY TESTS ═══ */
+
+  it("detects Geography + science combo", () => {
+    // HL: Geography, Biology, English; SL: Maths AI, Film, French A
+    const result = analyseSubjects(
+      subjects,
+      ["18", "2", "6"],
+      ["14", "13", "17"],
+    );
+    expect(
+      result.pros.some((p) => p.includes("Geography") && p.includes("science")),
+    ).toBe(true);
+  });
+
+  /* ═══ NON-FACILITATING WARNING ═══ */
+
+  it("warns when all 3 HLs are non-facilitating niche subjects", () => {
+    // HL: Visual Arts, Theatre, Film (all arts, no facilitating)
+    // SL: DT, ESS, SEHS
+    const result = analyseSubjects(
+      subjects,
+      ["11", "12", "13"],
+      ["19", "22", "21"],
+    );
+    expect(result.cons.some((c) => c.includes("non-facilitating"))).toBe(true);
+  });
+
+  /* ═══ TRADE-OFF WEAKNESS TESTS ═══ */
+
+  it("warns STEM-heavy combo with no essay subjects", () => {
+    // HL: Maths AA, Physics, Chemistry; SL: Bio, CS, DT — 0 essay subjects
+    const result = analyseSubjects(
+      subjects,
+      ["3", "4", "1"],
+      ["2", "10", "19"],
+    );
+    expect(result.cons.some((c) => c.includes("no essay subjects"))).toBe(true);
+  });
+
+  it("warns humanities-heavy combo with no science or maths", () => {
+    // HL: English Lit, History, Global Politics; SL: Theatre, Film, French A
+    const result = analyseSubjects(
+      subjects,
+      ["6", "7", "15"],
+      ["12", "13", "17"],
+    );
+    expect(result.cons.some((c) => c.includes("Heavy humanities focus"))).toBe(
+      true,
+    );
+  });
+
+  it("warns when ESS is the sole science", () => {
+    // HL: History, English Lit, Psych; SL: ESS, Maths AI, French A
+    const result = analyseSubjects(
+      subjects,
+      ["7", "6", "5"],
+      ["22", "14", "17"],
+    );
+    expect(
+      result.cons.some(
+        (c) =>
+          c.includes("Environmental Systems and Societies") &&
+          c.includes("not accepted"),
+      ),
+    ).toBe(true);
+  });
+
+  it("warns Medicine combo without essay HL", () => {
+    // HL: Chem, Bio, Maths AA; SL: Physics, CS, DT — no essay HL
+    const result = analyseSubjects(
+      subjects,
+      ["1", "2", "3"],
+      ["4", "10", "19"],
+    );
+    expect(
+      result.cons.some((c) => c.includes("Medicine") && c.includes("essay")),
     ).toBe(true);
   });
 });

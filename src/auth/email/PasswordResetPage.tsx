@@ -1,19 +1,19 @@
 import { Link } from "react-router";
-import { ResetPasswordForm } from "wasp/client/auth";
 import { AuthLayout } from "../AuthLayout";
 
 export function PasswordResetPage() {
   return (
     <AuthLayout>
-      <ResetPasswordForm />
-      <br />
-      <span className="text-sm font-medium text-neutral-900">
-        If everything is okay,{" "}
-        <Link to="/login" className="font-semibold underline">
-          go to login
-        </Link>
-        .
-      </span>
+      <h2 className="text-xl font-bold text-neutral-100">Reset password</h2>
+      <p className="mt-3 text-sm text-neutral-400">
+        Accounts are coming soon. No password to reset yet.
+      </p>
+      <Link
+        to="/"
+        className="text-primary-400 hover:text-primary-300 mt-4 inline-block text-sm font-medium underline"
+      >
+        Back to explorer
+      </Link>
     </AuthLayout>
   );
 }

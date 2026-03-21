@@ -54,7 +54,7 @@ export function Dialog({
     <dialog
       ref={dialogRef}
       className={twJoin(
-        "top-[10vh] my-0 flex max-h-[75vh] w-full max-w-lg",
+        "top-[10vh] mx-auto my-0 flex max-h-[75vh] w-full max-w-lg",
         "border-dark-600 bg-dark-800 rounded-xl border text-neutral-100 shadow-2xl",
         "backdrop:bg-black/60 backdrop:backdrop-blur-xs",
       )}

@@ -1,13 +1,48 @@
 export function Footer() {
   return (
     <footer className="border-dark-600 bg-dark-900/80 mt-auto border-t">
-      <div className="mx-auto flex w-full max-w-(--breakpoint-lg) flex-col gap-4 px-12 py-8">
+      <div className="mx-auto flex w-full max-w-(--breakpoint-lg) flex-col gap-4 px-4 py-8 sm:px-12">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🔮</span>
           <span className="text-primary-500 text-lg font-bold">IB Prophet</span>
         </div>
 
-        <div className="grid gap-6 text-xs text-neutral-500 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 text-xs text-neutral-500 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col gap-2">
+            <h4 className="font-semibold tracking-wider text-neutral-400 uppercase">
+              Sources
+            </h4>
+            <ul className="flex flex-col gap-1.5">
+              {[
+                [
+                  "https://www.informedchoices.ac.uk/",
+                  "Russell Group Informed Choices",
+                ],
+                [
+                  "https://www.ibo.org/programmes/diploma-programme/curriculum/",
+                  "IBO Diploma Programme",
+                ],
+                ["https://www.bls.gov/ooh/", "US Bureau of Labor Statistics"],
+                ["https://www.daad.de/", "DAAD / KMK (Germany)"],
+                [
+                  "https://github.com/karpathy/jobs",
+                  "karpathy/jobs (AI exposure)",
+                ],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-400 hover:text-primary-300 underline"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="flex flex-col gap-2">
             <h4 className="font-semibold tracking-wider text-neutral-400 uppercase">
               Disclaimer

@@ -9,10 +9,13 @@ export interface SankeyNode {
   matchTier?: MatchTier;
 }
 
+export type LinkType = "essential" | "recommended" | "useful";
+
 export interface SankeyLink {
   source: string;
   target: string;
   value: number;
+  linkType?: LinkType;
 }
 
 export interface SankeyData {
@@ -64,7 +67,7 @@ const CAREER_COLORS: Record<MatchTier, string> = {
   stretch: "#6b7280", // gray-500 — stretch
 };
 
-export function truncateLabel(name: string, max = 28): string {
+export function truncateLabel(name: string, max = 48): string {
   if (name.length <= max) return name;
   return name.slice(0, max - 1).trimEnd() + "…";
 }
@@ -116,10 +119,17 @@ export function buildSankeyData(input: BuildSankeyInput): SankeyData {
           entityId: sl.subjectId,
         });
       }
+      const lt: LinkType =
+        sl.weight === 3 && sl.hlRequired
+          ? "essential"
+          : sl.weight === 3
+            ? "recommended"
+            : "useful";
       links.push({
         source: subjectNodeId,
         target: pathwayNodeId,
         value: Math.round(sl.weight * comboMultiplier),
+        linkType: lt,
       });
     }
 

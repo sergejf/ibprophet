@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ibprophet-client.fly.dev/sitemap.xml
+Sitemap: https://ibprophet.app/sitemap.xml

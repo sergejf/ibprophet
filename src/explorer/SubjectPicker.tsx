@@ -1,5 +1,9 @@
 import type { IBSubject } from "wasp/entities";
 import { SubjectCard, groupNames } from "./SubjectCard";
+import {
+  ALWAYS_FACILITATING,
+  FACILITATING_AT_HL,
+} from "../shared/facilitating";
 
 interface SubjectPickerProps {
   subjects: IBSubject[];
@@ -7,6 +11,7 @@ interface SubjectPickerProps {
   slIds: string[];
   onSelect: (subjectId: string, level: "hl" | "sl") => void;
   onDeselect: (subjectId: string) => void;
+  onReset: () => void;
 }
 
 const groupColorDot: Record<number, string> = {
@@ -24,6 +29,7 @@ export function SubjectPicker({
   slIds,
   onSelect,
   onDeselect,
+  onReset,
 }: SubjectPickerProps) {
   const groups = new Map<number, IBSubject[]>();
   for (const s of subjects) {
@@ -46,7 +52,7 @@ export function SubjectPicker({
     <div className="flex flex-col gap-6">
       {/* Progress bar */}
       <div className="flex flex-col gap-3">
-        <div className="flex items-center gap-6 text-sm">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
           <div className="flex items-center gap-2">
             <span className="inline-block h-3 w-3 rounded-full bg-orange-500" />
             <span className="text-neutral-400">
@@ -61,6 +67,26 @@ export function SubjectPicker({
               <strong className="text-sky-400">{slIds.length}/3</strong>
             </span>
           </div>
+          {totalSelected > 0 && (
+            <button
+              onClick={onReset}
+              className="ml-auto flex items-center gap-1.5 rounded-md border border-neutral-700 px-2.5 py-1 text-xs font-medium text-neutral-400 transition-colors hover:border-red-500/40 hover:text-red-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-3.5 w-3.5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3.28 2.22a.75.75 0 0 0-1.06 1.06L6.94 8l-4.72 4.72a.75.75 0 1 0 1.06 1.06L8 9.06l4.72 4.72a.75.75 0 1 0 1.06-1.06L9.06 8l4.72-4.72a.75.75 0 0 0-1.06-1.06L8 6.94 3.28 2.22Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              Reset selection
+            </button>
+          )}
         </div>
         <div className="bg-dark-700 flex h-2 overflow-hidden rounded-full">
           <div
@@ -77,6 +103,11 @@ export function SubjectPicker({
             All 6 subjects selected — scroll down to see your Pathway Map
           </p>
         )}
+        <p className="text-xs text-neutral-500">
+          <span className="text-amber-400">★ Facilitating</span> subjects keep
+          the widest range of university degrees open. The Russell Group
+          recommends choosing at least two.
+        </p>
       </div>
 
       {/* Subjects grouped by IB group with headers */}
@@ -93,17 +124,25 @@ export function SubjectPicker({
               </h3>
             </div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {groupSubjects.map((subject) => (
-                <SubjectCard
-                  key={subject.id}
-                  subject={subject}
-                  selectionState={getSelectionState(subject.id)}
-                  hlFull={hlFull}
-                  slFull={slFull}
-                  onSelect={(level) => onSelect(subject.id, level)}
-                  onDeselect={() => onDeselect(subject.id)}
-                />
-              ))}
+              {groupSubjects.map((subject) => {
+                const fac = ALWAYS_FACILITATING.has(subject.name)
+                  ? ("always" as const)
+                  : FACILITATING_AT_HL.has(subject.name)
+                    ? ("hl-only" as const)
+                    : undefined;
+                return (
+                  <SubjectCard
+                    key={subject.id}
+                    subject={subject}
+                    selectionState={getSelectionState(subject.id)}
+                    hlFull={hlFull}
+                    slFull={slFull}
+                    facilitating={fac}
+                    onSelect={(level) => onSelect(subject.id, level)}
+                    onDeselect={() => onDeselect(subject.id)}
+                  />
+                );
+              })}
             </div>
           </div>
         ))}

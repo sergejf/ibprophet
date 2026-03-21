@@ -30,6 +30,7 @@
     { "name": "Business Management", "group": 3, "category": "BOTH" },
     { "name": "Psychology", "group": 3, "category": "BOTH" },
     { "name": "Global Politics", "group": 3, "category": "BOTH" },
+    { "name": "Geography", "group": 3, "category": "BOTH" },
     {
       "name": "Environmental Systems and Societies",
       "group": 4,
@@ -1760,6 +1761,31 @@
     {
       "subject": "English A: Language and Literature",
       "pathway": "Design & Visual Arts",
+      "weight": 1,
+      "hlRequired": false
+    },
+
+    {
+      "subject": "Geography",
+      "pathway": "Environmental Science",
+      "weight": 3,
+      "hlRequired": false
+    },
+    {
+      "subject": "Geography",
+      "pathway": "International Relations",
+      "weight": 2,
+      "hlRequired": false
+    },
+    {
+      "subject": "Geography",
+      "pathway": "Education",
+      "weight": 1,
+      "hlRequired": false
+    },
+    {
+      "subject": "Geography",
+      "pathway": "Sociology & Social Work",
       "weight": 1,
       "hlRequired": false
     }

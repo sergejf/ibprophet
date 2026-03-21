@@ -154,9 +154,157 @@ function evaluateGermany(
   return checks;
 }
 
+/* ── UK IB admission rules (source: UCAS / Russell Group guidance) ── */
+
+function evaluateUK(
+  subjects: IBSubject[],
+  hlIds: string[],
+  slIds: string[],
+): Check[] {
+  const checks: Check[] = [];
+  const byId = new Map(subjects.map((s) => [s.id, s]));
+  const hlNames = hlIds.map((id) => byId.get(id)?.name ?? "").filter(Boolean);
+  const slNames = slIds.map((id) => byId.get(id)?.name ?? "").filter(Boolean);
+  const allNames = [...hlNames, ...slNames];
+
+  // 1. Typical IB score range (informational)
+  checks.push({
+    label: "Minimum 24 IB points (diploma requirement)",
+    passed: true,
+    detail:
+      "Most UK universities require 24-36 points overall. Competitive courses at Russell Group universities typically ask for 36-40+.",
+  });
+
+  // 2. English language
+  const hasEnglish = allNames.some(
+    (n) => n.includes("English A") || n.includes("English B"),
+  );
+  checks.push({
+    label: "English language",
+    passed: hasEnglish,
+    detail: hasEnglish
+      ? "Your selection includes English, satisfying the language requirement for UK universities."
+      : "Most UK universities require English. Include English A or B to meet this requirement.",
+  });
+
+  // 3. HL subject requirements (universities look at HL grades)
+  checks.push({
+    label: "Higher Level subjects (HL grades matter most)",
+    passed: hlIds.length === 3,
+    detail:
+      hlIds.length === 3
+        ? `Your 3 HL subjects: ${hlNames.join(", ")}. UK universities set offers based on HL grades (e.g. 6,6,5 at HL).`
+        : "Select 3 HL subjects. UK university offers are primarily based on your Higher Level grades.",
+  });
+
+  // 4. Mathematics for STEM
+  const hasMaths = allNames.some((n) => n.includes("Mathematics"));
+  const mathsHL = hlNames.some((n) => n.includes("Mathematics"));
+  const wantsSTEM = hlNames.some((n) =>
+    [...NATURAL_SCIENCES, "Computer Science"].includes(n),
+  );
+  if (wantsSTEM) {
+    checks.push({
+      label: "Mathematics for STEM courses",
+      passed: hasMaths,
+      detail: mathsHL
+        ? "Maths at HL — meets requirements for Engineering, Sciences, and Economics at most UK universities."
+        : hasMaths
+          ? "Maths at SL is accepted for some courses, but competitive STEM programmes often require HL. Check specific course requirements."
+          : "Most STEM courses at UK universities require Mathematics. Consider adding Maths AA or AI.",
+    });
+  }
+
+  // 5. Facilitating subjects at HL
+  const facilitatingHL = hlNames.filter(
+    (n) =>
+      n.includes("Mathematics: Analysis") ||
+      n.includes("English A") ||
+      NATURAL_SCIENCES.includes(n) ||
+      n === "History" ||
+      n === "Geography" ||
+      isLanguageA(n),
+  );
+  checks.push({
+    label: "Facilitating subjects at HL",
+    passed: facilitatingHL.length >= 2,
+    detail:
+      facilitatingHL.length >= 2
+        ? `${facilitatingHL.length} of your HL subjects are Russell Group facilitating subjects — this keeps the widest range of degree courses open.`
+        : "The Russell Group recommends at least 2 facilitating subjects at HL (Maths, Sciences, English, History, Geography, Languages) for the broadest university options.",
+  });
+
+  return checks;
+}
+
+/* ── Netherlands IB admission rules (source: Nuffic / DUO) ── */
+
+function evaluateNetherlands(
+  subjects: IBSubject[],
+  hlIds: string[],
+  slIds: string[],
+): Check[] {
+  const checks: Check[] = [];
+  const byId = new Map(subjects.map((s) => [s.id, s]));
+  const hlNames = hlIds.map((id) => byId.get(id)?.name ?? "").filter(Boolean);
+  const slNms = slIds.map((id) => byId.get(id)?.name ?? "").filter(Boolean);
+  const allNames = [...hlNames, ...slNms];
+
+  // 1. IB Diploma is accepted
+  checks.push({
+    label: "IB Diploma recognised",
+    passed: true,
+    detail:
+      "The IB Diploma is fully recognised in the Netherlands as equivalent to a VWO diploma for university (WO) admission.",
+  });
+
+  // 2. Mathematics requirement
+  const hasMaths = allNames.some((n) => n.includes("Mathematics"));
+  checks.push({
+    label: "Mathematics",
+    passed: hasMaths,
+    detail: hasMaths
+      ? "You have a mathematics subject. Many Dutch programmes require Maths — check whether AA or AI is specified."
+      : "Most Dutch university programmes require Mathematics. Include Maths AA or AI.",
+  });
+
+  // 3. English proficiency
+  const hasEnglish = allNames.some(
+    (n) => n.includes("English A") || n.includes("English B"),
+  );
+  checks.push({
+    label: "English proficiency",
+    passed: hasEnglish,
+    detail: hasEnglish
+      ? "English in your IB typically satisfies the English language requirement for Dutch universities."
+      : "Dutch universities offering English-taught programmes require proof of English proficiency.",
+  });
+
+  // 4. Subject-specific requirements (informational)
+  const hasNatScience = allNames.some((n) => NATURAL_SCIENCES.includes(n));
+  checks.push({
+    label: "Subject-specific prerequisites",
+    passed: hasNatScience || !allNames.some((n) => n.includes("Medicine")),
+    detail:
+      "Dutch universities set subject prerequisites per programme (e.g. Medicine requires Chemistry + Biology/Physics). Check Studielink for programme-specific requirements.",
+  });
+
+  return checks;
+}
+
 /* ── Component ── */
 
-const COUNTRIES = [{ code: "DE", name: "Germany", flag: "🇩🇪" }] as const;
+const COUNTRIES = [
+  { code: "DE", name: "Germany", flag: "🇩🇪" },
+  { code: "GB", name: "United Kingdom", flag: "🇬🇧" },
+  { code: "NL", name: "Netherlands", flag: "🇳🇱" },
+];
+
+const COUNTRY_SOURCES: Record<string, string> = {
+  DE: "Source: DAAD / KMK resolution (2025 onwards). This is for guidance only — verify with your target university.",
+  GB: "Source: UCAS / Russell Group guidance. Entry requirements vary by university and course — always check directly.",
+  NL: "Source: Nuffic / Studielink. Programme-specific requirements apply — check with the university directly.",
+};
 
 export function CountryRequirements({
   subjects,
@@ -172,6 +320,12 @@ export function CountryRequirements({
     if (selectedCountry === "DE") {
       return evaluateGermany(subjects, hlIds, slIds);
     }
+    if (selectedCountry === "GB") {
+      return evaluateUK(subjects, hlIds, slIds);
+    }
+    if (selectedCountry === "NL") {
+      return evaluateNetherlands(subjects, hlIds, slIds);
+    }
     return [];
   }, [subjects, hlIds, slIds, selectedCountry, isComplete]);
 
@@ -179,10 +333,11 @@ export function CountryRequirements({
 
   const passCount = checks.filter((c) => c.passed).length;
   const allPassed = passCount === checks.length;
+  const country = COUNTRIES.find((c) => c.code === selectedCountry);
 
   return (
     <section className="card p-5">
-      <div className="mb-3 flex items-center justify-between">
+      <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h3 className="text-lg font-bold text-neutral-100">
           Country Requirements
         </h3>
@@ -191,21 +346,21 @@ export function CountryRequirements({
             <button
               key={c.code}
               onClick={() => setSelectedCountry(c.code)}
-              className={`rounded-lg px-3 py-1 text-sm transition-colors ${
+              className={`rounded-lg px-2.5 py-1 text-sm transition-colors sm:px-3 ${
                 selectedCountry === c.code
                   ? "bg-primary-500/20 text-primary-500"
                   : "bg-dark-700 text-neutral-400 hover:text-neutral-200"
               }`}
             >
-              {c.flag} {c.name}
+              {c.flag} <span className="hidden sm:inline">{c.name}</span>
+              <span className="sm:hidden">{c.code}</span>
             </button>
           ))}
         </div>
       </div>
 
       <p className="mb-4 text-sm text-neutral-400">
-        Does your IB diploma meet{" "}
-        {COUNTRIES.find((c) => c.code === selectedCountry)?.name}&apos;s
+        Does your IB diploma meet {country?.flag} {country?.name}&apos;s
         university admission requirements?
       </p>
 
@@ -275,8 +430,7 @@ export function CountryRequirements({
       </div>
 
       <p className="mt-3 text-xs text-neutral-500">
-        Source: DAAD / KMK resolution (2025 onwards). This is for guidance only
-        — verify with your target university.
+        {COUNTRY_SOURCES[selectedCountry]}
       </p>
     </section>
   );

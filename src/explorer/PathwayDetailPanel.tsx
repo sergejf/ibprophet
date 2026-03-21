@@ -128,21 +128,40 @@ export function PathwayDetailPanel({
             Your matching subjects
           </h3>
           <div className="flex flex-wrap gap-1.5">
-            {validLinks.map((sl) => (
-              <span
-                key={sl.subjectId}
-                className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                  hlSubjectIds.includes(sl.subjectId)
-                    ? "bg-orange-500/15 text-orange-400"
-                    : "bg-sky-500/15 text-sky-400"
-                }`}
-              >
-                {sl.subject.name}
-                <span className="ml-1 text-neutral-500">
-                  {hlSubjectIds.includes(sl.subjectId) ? "HL" : "SL"}
+            {validLinks.map((sl) => {
+              const tag =
+                sl.weight === 3 && sl.hlRequired
+                  ? "Essential"
+                  : sl.weight <= 2
+                    ? "Useful"
+                    : null;
+              return (
+                <span
+                  key={sl.subjectId}
+                  className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                    hlSubjectIds.includes(sl.subjectId)
+                      ? "bg-orange-500/15 text-orange-400"
+                      : "bg-sky-500/15 text-sky-400"
+                  }`}
+                >
+                  {sl.subject.name}
+                  <span className="ml-1 text-neutral-500">
+                    {hlSubjectIds.includes(sl.subjectId) ? "HL" : "SL"}
+                  </span>
+                  {tag && (
+                    <span
+                      className={`ml-1.5 rounded px-1 py-px text-[10px] font-semibold ${
+                        tag === "Essential"
+                          ? "bg-red-500/10 text-red-400"
+                          : "bg-blue-500/10 text-blue-400"
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  )}
                 </span>
-              </span>
-            ))}
+              );
+            })}
           </div>
         </div>
 

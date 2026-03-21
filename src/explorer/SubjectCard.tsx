@@ -26,8 +26,21 @@ interface SubjectCardProps {
   selectionState: SelectionState;
   hlFull: boolean;
   slFull: boolean;
+  /** "always" = always facilitating, "hl-only" = facilitating only at HL */
+  facilitating?: "always" | "hl-only";
   onSelect: (level: "hl" | "sl") => void;
   onDeselect: () => void;
+}
+
+function FacilitatingBadge({ hlOnly }: { hlOnly?: boolean }) {
+  return (
+    <span
+      className="inline-flex items-center gap-0.5 rounded-full bg-amber-500/10 px-1.5 py-px text-[10px] font-medium text-amber-400"
+      title="Facilitating subject — choosing 2+ keeps the widest range of university degrees open (Russell Group Informed Choices)"
+    >
+      ★ {hlOnly ? "Facilitating at HL" : "Facilitating"}
+    </span>
+  );
 }
 
 export function SubjectCard({
@@ -35,6 +48,7 @@ export function SubjectCard({
   selectionState,
   hlFull,
   slFull,
+  facilitating,
   onSelect,
   onDeselect,
 }: SubjectCardProps) {
@@ -52,8 +66,11 @@ export function SubjectCard({
         )}
       >
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold text-neutral-100">
+          <span className="flex items-center gap-1.5 text-sm font-semibold text-neutral-100">
             {subject.name}
+            {facilitating && (
+              <FacilitatingBadge hlOnly={facilitating === "hl-only"} />
+            )}
           </span>
           <span
             className={twJoin(
@@ -83,8 +100,11 @@ export function SubjectCard({
         groupColors[subject.group],
       )}
     >
-      <span className="text-sm font-semibold text-neutral-100">
+      <span className="flex items-center gap-1.5 text-sm font-semibold text-neutral-100">
         {subject.name}
+        {facilitating && (
+          <FacilitatingBadge hlOnly={facilitating === "hl-only"} />
+        )}
       </span>
       <div className="flex gap-2">
         {!isSLOnly && (

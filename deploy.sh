@@ -163,6 +163,6 @@ case "$MODE" in
     deploy_server
     deploy_client
     echo ""
-    info "Full deploy complete. Site: https://ibprophet-client.fly.dev/"
+    info "Full deploy complete. Site: https://ibprophet.app/"
     ;;
 esac

@@ -23,7 +23,12 @@ interface Pathway {
 
 interface PathwayScore {
   pathway: Pathway;
-  matchingSubjects: { name: string; weight: number; isHl: boolean }[];
+  matchingSubjects: {
+    name: string;
+    weight: number;
+    isHl: boolean;
+    hlRequired: boolean;
+  }[];
   score: number;
   maxPossibleScore: number;
   percent: number;
@@ -53,6 +58,7 @@ function scorePathways(
         name: sl.subject.name,
         weight: sl.weight,
         isHl: hlSubjectIds.includes(sl.subjectId),
+        hlRequired: sl.hlRequired,
       }));
 
       // Score: sum of weights, with HL subjects counting 1.5x
@@ -205,18 +211,37 @@ function PathwayCard({
 
       {/* Contributing subjects */}
       <div className="flex flex-wrap gap-1.5">
-        {matchingSubjects.map((s) => (
-          <span
-            key={s.name}
-            className={`rounded-full px-2 py-0.5 text-xs font-medium ${
-              s.isHl
-                ? "bg-orange-500/15 text-orange-400"
-                : "bg-sky-500/15 text-sky-400"
-            }`}
-          >
-            {s.name}
-          </span>
-        ))}
+        {matchingSubjects.map((s) => {
+          const tag =
+            s.weight === 3 && s.hlRequired
+              ? "Essential"
+              : s.weight <= 2
+                ? "Useful"
+                : null;
+          return (
+            <span
+              key={s.name}
+              className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                s.isHl
+                  ? "bg-orange-500/15 text-orange-400"
+                  : "bg-sky-500/15 text-sky-400"
+              }`}
+            >
+              {s.name}
+              {tag && (
+                <span
+                  className={`ml-1 rounded px-1 py-px text-[10px] font-semibold ${
+                    tag === "Essential"
+                      ? "bg-red-500/10 text-red-400"
+                      : "bg-blue-500/10 text-blue-400"
+                  }`}
+                >
+                  {tag}
+                </span>
+              )}
+            </span>
+          );
+        })}
       </div>
 
       {/* Career outcomes with fit indicator */}

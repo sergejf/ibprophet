@@ -1,5 +1,9 @@
 import { useMemo } from "react";
 import type { IBSubject } from "wasp/entities";
+import {
+  ALWAYS_FACILITATING,
+  FACILITATING_AT_HL,
+} from "../shared/facilitating";
 
 interface SubjectReportProps {
   subjects: IBSubject[];
@@ -36,6 +40,7 @@ const DANCE = "Dance";
 const DT = "Design Technology";
 const ESS = "Environmental Systems and Societies";
 const SEHS = "Sports, Exercise and Health Science";
+const GEOG = "Geography";
 
 const SCIENCES = [CHEM, BIO, PHYS, CS, ESS, SEHS, DT];
 const ESSAY_HEAVY = [ENG_LL, ENG_LIT, HIST, GP, PSYCH, ECON];
@@ -87,14 +92,81 @@ export function analyseSubjects(
   // Need at least some selection to give feedback
   if (hlCount === 0 && slCount === 0) return { pros, cons, recommendations };
 
-  /* ═══ PATHWAY-SPECIFIC CHECKS ═══ */
-
-  // Medicine
+  /* ── Common subject checks ── */
   const hasHLChem = isHL(hlNames, CHEM);
   const hasHLBio = isHL(hlNames, BIO);
   const hasChem = has(allNames, CHEM);
   const hasBio = has(allNames, BIO);
+  const hasHLMathsAA = isHL(hlNames, MATHS_AA);
+  const hasHLPhys = isHL(hlNames, PHYS);
+  const hasMathsAA = has(allNames, MATHS_AA);
+  const hasMathsAI = has(allNames, MATHS_AI);
+  const hasPhys = has(allNames, PHYS);
 
+  /* ═══ FACILITATING SUBJECTS (Russell Group "Informed Choices") ═══ */
+
+  const facilitatingHL = hlNames.filter(
+    (n) => ALWAYS_FACILITATING.has(n) || FACILITATING_AT_HL.has(n),
+  );
+  const facilitatingSL = slNames.filter((n) => ALWAYS_FACILITATING.has(n));
+  const facilitatingCount = facilitatingHL.length + facilitatingSL.length;
+
+  if (facilitatingCount === 0 && allNames.length >= 3) {
+    cons.push(
+      "You haven't chosen any facilitating subjects. The Russell Group recommends at least two to keep the widest range of degree courses open.",
+    );
+  } else if (facilitatingCount === 1) {
+    recommendations.push(
+      "Adding a second facilitating subject significantly widens your university options.",
+    );
+  } else if (facilitatingHL.length >= 2) {
+    pros.push(
+      `You have ${facilitatingHL.length} facilitating subjects at HL, giving you strong access to selective university courses.`,
+    );
+  }
+
+  /* ═══ CLASSIC ARCHETYPE DETECTION ═══ */
+
+  if (
+    has(allNames, CHEM) &&
+    has(allNames, BIO) &&
+    (has(allNames, PHYS) || has(allNames, MATHS_AA))
+  ) {
+    pros.push(
+      "Classic science combination — opens Medicine, Biomedical Sciences, Pharmacy, and Veterinary Science.",
+    );
+  } else if (
+    has(allNames, CHEM) &&
+    has(allNames, BIO) &&
+    !has(allNames, PHYS)
+  ) {
+    pros.push(
+      "Biological/Life Sciences focus — ideal for Medicine, Dentistry, Veterinary, and Biochemistry degrees.",
+    );
+  }
+
+  if (
+    hasHLMathsAA &&
+    hasHLPhys &&
+    !has(allNames, CHEM) &&
+    !has(allNames, BIO)
+  ) {
+    pros.push(
+      "Physical Sciences focus — strong for Engineering, Physics, and Mathematics degrees.",
+    );
+  }
+
+  /* ═══ GEOGRAPHY COMBOS ═══ */
+
+  if (has(allNames, GEOG) && (hasBio || hasChem)) {
+    pros.push(
+      "Geography with a science subject opens pathways in Environmental Science and Geography degrees.",
+    );
+  }
+
+  /* ═══ PATHWAY-SPECIFIC CHECKS ═══ */
+
+  // Medicine
   if (hasHLChem && hasHLBio) {
     pros.push(
       "Strong foundation for Medicine — HL Chemistry and HL Biology meet the entry requirements for most medical schools.",
@@ -113,12 +185,6 @@ export function analyseSubjects(
   }
 
   // Engineering
-  const hasHLMathsAA = isHL(hlNames, MATHS_AA);
-  const hasHLPhys = isHL(hlNames, PHYS);
-  const hasMathsAA = has(allNames, MATHS_AA);
-  const hasMathsAI = has(allNames, MATHS_AI);
-  const hasPhys = has(allNames, PHYS);
-
   if (hasHLMathsAA && hasHLPhys) {
     pros.push(
       "Excellent for Engineering — HL Maths AA and HL Physics is exactly what top engineering programmes require.",
@@ -315,6 +381,103 @@ export function analyseSubjects(
     }
   }
 
+  // Non-facilitating HL warning
+  if (hlCount === 3 && facilitatingHL.length === 0) {
+    const hlHasOnlyArtsOrNiche = hlNames.every(
+      (n) => ARTS.includes(n) || n === ESS || n === SEHS || n === DT,
+    );
+    if (hlHasOnlyArtsOrNiche) {
+      cons.push(
+        "All three HL subjects are non-facilitating — selective universities may not accept this combination for many degree courses.",
+      );
+    }
+  }
+
+  /* ═══ TRADE-OFF WEAKNESSES ═══ */
+
+  // STEM-heavy with no essay subjects
+  const coreSTEM = [MATHS_AA, MATHS_AI, PHYS, CHEM, BIO, CS];
+  const stemHLs = count(hlNames, coreSTEM);
+  if (stemHLs >= 2 && essayCount === 0 && allNames.length >= 4) {
+    cons.push(
+      "All STEM, no essay subjects — strong for science degrees, but leaves you without the essay and critical analysis skills that broaden your university options. Some medical schools also value evidence of written communication.",
+    );
+  }
+
+  // Humanities-heavy with no science or maths
+  if (
+    essayHLCount >= 2 &&
+    scienceCount === 0 &&
+    !hasMathsAA &&
+    !hasMathsAI &&
+    allNames.length >= 4
+  ) {
+    cons.push(
+      "Heavy humanities focus — excellent for arts and social science degrees, but you lack the scientific or mathematical foundation needed for any STEM pivot.",
+    );
+  }
+
+  // ESS as sole science
+  if (
+    has(allNames, ESS) &&
+    !hasChem &&
+    !hasBio &&
+    !hasPhys &&
+    !hasCS &&
+    allNames.length >= 4
+  ) {
+    cons.push(
+      "Environmental Systems and Societies is not accepted as a standalone science by most Russell Group universities. If you're aiming for science degrees, you'll need Biology, Chemistry, or Physics alongside it.",
+    );
+  }
+
+  // SEHS as sole science
+  if (
+    has(allNames, SEHS) &&
+    !hasChem &&
+    !hasBio &&
+    !hasPhys &&
+    !hasCS &&
+    !has(allNames, ESS) &&
+    allNames.length >= 4
+  ) {
+    cons.push(
+      "Sports, Exercise and Health Science is viewed as a supporting subject, not a core science, by selective universities. Consider adding Biology, Chemistry, or Physics for broader access to science degrees.",
+    );
+  }
+
+  // Maths AI SL limitations (broader than just STEM)
+  if (
+    hasMathsAI &&
+    !hasMathsAA &&
+    !has(allNames, PHYS) &&
+    !hasCS &&
+    !has(allNames, CHEM)
+  ) {
+    if (has(allNames, PSYCH) || has(allNames, ECON) || has(allNames, BM)) {
+      cons.push(
+        "Mathematics: Applications and Interpretation at SL is the minimum mathematical preparation — it may limit options for degrees with quantitative components such as Psychology, Economics, and Architecture.",
+      );
+    }
+  }
+
+  // Two Group 3 subjects at HL (potential overlap)
+  const group3Subjects = [ECON, HIST, BM, PSYCH, GP, GEOG];
+  const group3HLCount = count(hlNames, group3Subjects);
+  if (group3HLCount >= 2 && !(isHL(hlNames, BM) && isHL(hlNames, ECON))) {
+    // BM+Econ overlap already handled separately above
+    cons.push(
+      "Two Individuals & Societies subjects at HL — some universities prefer one Group 3 subject paired with a contrasting discipline to demonstrate intellectual breadth.",
+    );
+  }
+
+  // Strong science combo but no essay HL — specific Medicine trade-off
+  if (hasHLChem && hasHLBio && !hasHLLangA && essayHLCount === 0) {
+    cons.push(
+      "Your science HLs are excellent for Medicine, but no essay-based HL may weaken applications at universities that value evidence of written communication and critical thinking skills.",
+    );
+  }
+
   /* ═══ POSITIVE COMBO PATTERNS ═══ */
 
   // Arts + English combo
@@ -444,18 +607,18 @@ export function SubjectReport({ subjects, hlIds, slIds }: SubjectReportProps) {
   if (!hasContent) return null;
 
   return (
-    <section className="card p-5">
+    <div>
       <h3 className="mb-4 text-lg font-bold text-neutral-100">
         Combination Analysis
       </h3>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Pros */}
-        {pros.length > 0 && (
-          <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
-            <h4 className="mb-2 text-sm font-semibold text-emerald-400">
-              Strengths
-            </h4>
+        {/* Strengths */}
+        <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-4">
+          <h4 className="mb-2 text-sm font-semibold text-emerald-400">
+            Strengths
+          </h4>
+          {pros.length > 0 ? (
             <ul className="flex flex-col gap-2">
               {pros.map((p, i) => (
                 <li key={i} className="flex gap-2 text-sm text-neutral-300">
@@ -464,15 +627,20 @@ export function SubjectReport({ subjects, hlIds, slIds }: SubjectReportProps) {
                 </li>
               ))}
             </ul>
-          </div>
-        )}
+          ) : (
+            <p className="text-sm text-neutral-500">
+              No specific strengths identified yet. Select more subjects to see
+              how your combination performs.
+            </p>
+          )}
+        </div>
 
-        {/* Cons */}
-        {cons.length > 0 && (
-          <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4">
-            <h4 className="mb-2 text-sm font-semibold text-red-400">
-              Watch Out
-            </h4>
+        {/* Limitations */}
+        <div className="rounded-lg border border-red-500/20 bg-red-500/5 p-4">
+          <h4 className="mb-2 text-sm font-semibold text-red-400">
+            Limitations
+          </h4>
+          {cons.length > 0 ? (
             <ul className="flex flex-col gap-2">
               {cons.map((c, i) => (
                 <li key={i} className="flex gap-2 text-sm text-neutral-300">
@@ -481,15 +649,19 @@ export function SubjectReport({ subjects, hlIds, slIds }: SubjectReportProps) {
                 </li>
               ))}
             </ul>
-          </div>
-        )}
+          ) : (
+            <p className="text-sm text-neutral-500">
+              No significant limitations found with your current selection.
+            </p>
+          )}
+        </div>
 
         {/* Recommendations */}
-        {recommendations.length > 0 && (
-          <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
-            <h4 className="mb-2 text-sm font-semibold text-amber-400">
-              Recommendations
-            </h4>
+        <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
+          <h4 className="mb-2 text-sm font-semibold text-amber-400">
+            Recommendations
+          </h4>
+          {recommendations.length > 0 ? (
             <ul className="flex flex-col gap-2">
               {recommendations.map((r, i) => (
                 <li key={i} className="flex gap-2 text-sm text-neutral-300">
@@ -498,14 +670,15 @@ export function SubjectReport({ subjects, hlIds, slIds }: SubjectReportProps) {
                 </li>
               ))}
             </ul>
-          </div>
-        )}
+          ) : (
+            <p className="text-sm text-neutral-500">
+              No additional recommendations at this time.
+            </p>
+          )}
+        </div>
       </div>
 
-      <p className="mt-3 text-xs text-neutral-500">
-        Based on UK university entry requirements and IB subject guidance.
-        Always verify with your target universities.
-      </p>
-    </section>
+      {/* Source attribution moved to shared card footer in ExplorerPage */}
+    </div>
   );
 }

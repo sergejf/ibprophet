@@ -34,7 +34,7 @@ export function SankeyDiagram({
       {/* Column headings */}
       <div
         className="flex items-center px-1"
-        style={{ marginLeft: 180, marginRight: 180 }}
+        style={{ marginLeft: 260, marginRight: 180 }}
       >
         <span className="text-xs font-semibold tracking-wider text-neutral-400 uppercase">
           Your IB Subjects
@@ -53,23 +53,28 @@ export function SankeyDiagram({
         </span>
       </div>
 
-      {/* Career fit legend */}
+      {/* Unified legend */}
       <div
-        className="flex justify-end gap-3 px-1 pb-1"
-        style={{ marginRight: 180 }}
+        className="flex items-center justify-between px-1 pb-1"
+        style={{ marginLeft: 260, marginRight: 180 }}
       >
-        <span className="flex items-center gap-1 text-[10px] text-neutral-500">
-          <span className="inline-block h-2 w-2 rounded-full bg-green-500" />{" "}
-          Strong fit
+        <span className="text-[10px] text-neutral-500">
+          Band thickness = subject importance
         </span>
-        <span className="flex items-center gap-1 text-[10px] text-neutral-500">
-          <span className="inline-block h-2 w-2 rounded-full bg-yellow-500" />{" "}
-          Possible
-        </span>
-        <span className="flex items-center gap-1 text-[10px] text-neutral-500">
-          <span className="inline-block h-2 w-2 rounded-full bg-gray-500" />{" "}
-          Stretch
-        </span>
+        <div className="flex gap-3">
+          <span className="flex items-center gap-1 text-[10px] text-neutral-500">
+            <span className="inline-block h-2 w-2 rounded-full bg-green-500" />{" "}
+            Strong fit
+          </span>
+          <span className="flex items-center gap-1 text-[10px] text-neutral-500">
+            <span className="inline-block h-2 w-2 rounded-full bg-yellow-500" />{" "}
+            Possible
+          </span>
+          <span className="flex items-center gap-1 text-[10px] text-neutral-500">
+            <span className="inline-block h-2 w-2 rounded-full bg-gray-500" />{" "}
+            Stretch
+          </span>
+        </div>
       </div>
 
       <div className="w-full" style={{ height }}>
@@ -85,7 +90,7 @@ export function SankeyDiagram({
             })),
             links: data.links,
           }}
-          margin={{ top: 10, right: 180, bottom: 30, left: 180 }}
+          margin={{ top: 10, right: 180, bottom: 30, left: 260 }}
           align="justify"
           colors={(node: any) => node.nodeColor || "#666"}
           nodeOpacity={1}
@@ -139,12 +144,20 @@ export function SankeyDiagram({
             );
           }}
           linkTooltip={({ link }: any) => {
-            const strength =
-              link.value >= 6
-                ? "Strong"
-                : link.value >= 3
-                  ? "Moderate"
-                  : "Weak";
+            // For subject→pathway links, use linkType from data
+            const lt = link.linkType;
+            const label =
+              lt === "essential"
+                ? "Essential"
+                : lt === "recommended"
+                  ? "Recommended"
+                  : lt === "useful"
+                    ? "Useful"
+                    : link.value >= 6
+                      ? "Strong"
+                      : link.value >= 3
+                        ? "Moderate"
+                        : "Weak";
             return (
               <div className="border-dark-600 bg-dark-800 rounded-lg border px-3 py-2 text-sm text-neutral-100 shadow-xl">
                 <span style={{ color: link.source.color }}>
@@ -154,9 +167,7 @@ export function SankeyDiagram({
                 <span style={{ color: link.target.color }}>
                   {link.target.label}
                 </span>
-                <span className="ml-2 text-xs text-neutral-400">
-                  ({strength})
-                </span>
+                <span className="ml-2 text-xs text-neutral-400">({label})</span>
               </div>
             );
           }}
