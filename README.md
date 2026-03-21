@@ -7,6 +7,7 @@ IB Prophet helps International Baccalaureate Diploma students explore how their 
 ## Features
 
 - **Subject Explorer** — select 6 IB subjects (3 HL + 3 SL) and see matching university pathways via an interactive Sankey flow diagram or list view
+- **Subject Info Panels** — click any subject name for an official IBO-sourced description and direct link to the IB curriculum page on ibo.org
 - **Facilitating Subject Badges** — amber badges on subjects that the Russell Group identifies as keeping the widest range of university degrees open; Language B subjects show "Facilitating at HL"
 - **Essential / Recommended / Useful Labels** — Sankey tooltips and pathway detail panels show whether a subject is essential, recommended, or useful for each pathway (derived from weight + hlRequired data)
 - **Career Cards** — 29 careers with AI exposure scores (1-9 with rationales, inspired by [karpathy/jobs](https://github.com/karpathy/jobs)), UK/US salary ranges, BLS labor market data, 10-year growth outlook, and AI resilience tier (green/yellow/red)
@@ -24,7 +25,7 @@ IB Prophet helps International Baccalaureate Diploma students explore how their 
 ## Data Sources
 
 - [Russell Group _Informed Choices_](https://www.informedchoices.ac.uk/) — facilitating subjects, subject combination guidance
-- [IB Diploma Programme](https://www.ibo.org/programmes/diploma-programme/curriculum/) — subject groups, HL/SL structure
+- [IB Diploma Programme](https://www.ibo.org/programmes/diploma-programme/curriculum/) — subject groups, HL/SL structure, subject descriptions
 - [US Bureau of Labor Statistics](https://www.bls.gov/ooh/) — median salary, employment, growth projections, education requirements
 - [DAAD / KMK](https://www.daad.de/) — German university admission rules for IB diploma holders
 - [karpathy/jobs](https://github.com/karpathy/jobs) — AI career impact analysis (exposure scores 1-9)
