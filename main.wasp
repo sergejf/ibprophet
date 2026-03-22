@@ -48,6 +48,9 @@ app ibprophet {
     seeds: [
       import { seedData } from "@src/shared/seed"
     ]
+  },
+  server: {
+    middlewareConfigFn: import { serverMiddlewareFn } from "@src/server/middleware"
   }
 }
 

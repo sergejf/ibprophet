@@ -13,7 +13,11 @@ Wasp knowledge can be found at @.claude/wasp/knowledge/general-wasp-knowledge.md
 ./deploy.sh --client # Client only
 ```
 
-Never run `wasp deploy fly deploy` directly — the deploy script checks that the database is healthy before deploying, preventing server crash loops.
+Never run `wasp deploy fly deploy` directly — the deploy script checks that the database is healthy before deploying (preventing server crash loops) and auto-resizes machines back to 256MB after deploy (Wasp's generated fly.toml defaults to 1GB).
+
+### Custom Domain & CORS
+
+The app runs on `ibprophet.app` (primary) and `ibprophet-client.fly.dev` (legacy). Server middleware at `src/server/middleware.ts` allows CORS from both origins. If adding more domains, update the allowed origins there.
 
 ### Why This Matters
 

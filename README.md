@@ -81,7 +81,7 @@ The app runs at `http://localhost:3000`.
 ./deploy.sh --client # Client only
 ```
 
-Always use `deploy.sh` — never run `wasp deploy fly deploy` directly. The script checks database health before deploying to prevent server crash loops.
+Always use `deploy.sh` — never run `wasp deploy fly deploy` directly. The script checks database health before deploying to prevent server crash loops, and auto-resizes machines back to 256MB (Wasp defaults to 1GB).
 
 ## License
 

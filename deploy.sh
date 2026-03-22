@@ -13,6 +13,7 @@ FLY="${FLYCTL:-flyctl}"
 APP_SERVER="ibprophet-server"
 APP_CLIENT="ibprophet-client"
 APP_DB="ibprophet-db"
+VM_MEMORY=256  # Wasp defaults to 1GB; enforce 256MB after deploy
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -103,6 +104,18 @@ preflight() {
 
 # ---------- Deploy ----------
 
+resize_machines() {
+  local app=$1
+  local machine_ids
+  machine_ids=$($FLY machines list -a "$app" --json 2>/dev/null \
+    | python3 -c "import json,sys; [print(m['id']) for m in json.load(sys.stdin) if m['config']['guest'].get('memory_mb',0) != $VM_MEMORY]" 2>/dev/null)
+
+  for id in $machine_ids; do
+    warn "Resizing $app machine $id to ${VM_MEMORY}MB (Wasp overrode it)"
+    $FLY machines update "$id" -a "$app" --vm-memory "$VM_MEMORY" --yes
+  done
+}
+
 deploy_server() {
   echo "=== Deploying server ==="
   wasp deploy fly deploy --skip-client
@@ -110,6 +123,7 @@ deploy_server() {
   echo ""
   echo "Verifying server..."
   sleep 5
+  resize_machines "$APP_SERVER"
   $FLY status -a "$APP_SERVER"
   echo ""
   info "Server deployed."
@@ -122,6 +136,7 @@ deploy_client() {
   echo ""
   echo "Verifying client..."
   sleep 3
+  resize_machines "$APP_CLIENT"
   $FLY status -a "$APP_CLIENT"
   echo ""
   info "Client deployed."
