@@ -8,6 +8,7 @@ node_modules/
 .env
 .env.*
 !.env.example
+!.env.*.example
 
 # OS files
 .DS_Store
@@ -18,3 +19,17 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Local research material & screenshots (root only — docs/ and public/ stay committable)
+/*.pdf
+/*.png
+
+# Test artifacts
+test-results/
+playwright-report/
+
+# Session notes
+.remember/
+
+# Claude local (machine-specific permissions — not for sharing)
+.claude/settings.local.json

@@ -18,7 +18,7 @@ IB Prophet helps International Baccalaureate Diploma students explore how their 
 - **Country Requirements** — admission rules checker for Germany (KMK), United Kingdom (UCAS/Russell Group), and Netherlands (Nuffic), with flag emoji country selector
 - **Guided UX** — step indicator (1-4) with checkmarks, section headers with step numbers, "Try an example" button, "Reset selection" button, and session persistence
 - **Mobile Responsive** — Sankey auto-switches to list view on mobile, header/footer/picker adapt to narrow screens
-- **Security** — auth pages (/login, /signup, etc.) show "Coming soon" with no forms exposed
+- **Accounts — not yet shipped** — `/login` and `/signup` render a "Coming soon" placeholder. Auth is not merely hidden in the UI: the `auth` and `emailSender` blocks are absent from `main.wasp`, so no `/auth/*` endpoints are mounted at all.
 - **SEO-friendly URLs** — human-readable slugs (`/career/software-engineer`), not UUIDs
 - **Zero friction** — no signup required; all reference data is public
 

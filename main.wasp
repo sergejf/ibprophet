@@ -18,29 +18,12 @@ app ibprophet {
     "<meta name='twitter:description' content='Pick your IB Diploma subjects and discover the university pathways and careers they unlock. AI exposure scores, salary data, and growth outlooks for 29 careers.' />",
     "<script type='application/ld+json'>{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"IB Prophet\",\"url\":\"https://ibprophet.app/\",\"description\":\"Pick your IB Diploma subjects and discover the university pathways and careers they unlock.\"}</script>",
   ],
-  auth: {
-    userEntity: User,
-    methods: {
-      email: {
-        fromField: {
-          name: "IB Prophet",
-          email: "hello@example.com"
-        },
-        userSignupFields: import { userSignupFields } from "@src/auth/email/userSignupFields",
-        emailVerification: {
-          clientRoute: EmailVerificationRoute,
-        },
-        passwordReset: {
-          clientRoute: PasswordResetRoute,
-        }
-      },
-    },
-    onAuthSucceededRedirectTo: "/",
-    onAuthFailedRedirectTo: "/login",
-  },
-  emailSender: {
-    provider: SMTP,
-  },
+  // NOTE: Accounts are not shipped yet. The `auth` and `emailSender` blocks are
+  // intentionally absent — declaring them makes Wasp mount live /auth/* endpoints
+  // (signup, login, password reset) even when the UI only renders a "coming soon"
+  // stub. That would allow open registration and let anyone trigger transactional
+  // email to arbitrary addresses via our SMTP credentials. Restore this block, the
+  // SavedLoadout operations, and the auth page forms together when accounts ship.
   client: {
     rootComponent: import { App } from "@src/App",
   },
@@ -100,16 +83,6 @@ query getSubjects {
 query getPathwaysForSubjects {
   fn: import { getPathwaysForSubjects } from "@src/explorer/operations",
   entities: [IBSubject, UniversityPathway, Career, SubjectPathwayLink, PathwayCareerLink]
-}
-
-query getSavedLoadouts {
-  fn: import { getSavedLoadouts } from "@src/explorer/operations",
-  entities: [SavedLoadout]
-}
-
-action saveLoadout {
-  fn: import { saveLoadout } from "@src/explorer/operations",
-  entities: [SavedLoadout]
 }
 
 query getCareer {

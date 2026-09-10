@@ -1,8 +1,6 @@
 import type {
   GetSubjects,
   GetPathwaysForSubjects,
-  GetSavedLoadouts,
-  SaveLoadout,
 } from "wasp/server/operations";
 import type {
   IBSubject,
@@ -10,9 +8,7 @@ import type {
   Career,
   SubjectPathwayLink,
   PathwayCareerLink,
-  SavedLoadout,
 } from "wasp/entities";
-import { AUTH_NOT_AUTHENTICATED } from "../shared/errors";
 
 export const getSubjects: GetSubjects<void, IBSubject[]> = async (
   _args,
@@ -84,32 +80,6 @@ export const getPathwaysForSubjects: GetPathwaysForSubjects<
   return { pathways };
 };
 
-export const getSavedLoadouts: GetSavedLoadouts<void, SavedLoadout[]> = async (
-  _args,
-  context,
-) => {
-  if (!context.user) throw new Error(AUTH_NOT_AUTHENTICATED);
-  return context.entities.SavedLoadout.findMany({
-    where: { userId: context.user.id },
-    orderBy: { createdAt: "desc" },
-  });
-};
-
-type SaveLoadoutInput = {
-  name: string;
-  subjectConfig: { hl: string[]; sl: string[] };
-};
-
-export const saveLoadout: SaveLoadout<SaveLoadoutInput, SavedLoadout> = async (
-  args,
-  context,
-) => {
-  if (!context.user) throw new Error(AUTH_NOT_AUTHENTICATED);
-  return context.entities.SavedLoadout.create({
-    data: {
-      name: args.name,
-      subjectConfig: JSON.stringify(args.subjectConfig),
-      userId: context.user.id,
-    },
-  });
-};
+// NOTE: getSavedLoadouts / saveLoadout removed alongside the `auth` block in
+// main.wasp — they required `context.user`. Restore them with auth when
+// accounts ship, and bound `name` / `subjectConfig` length before persisting.
