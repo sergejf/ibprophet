@@ -148,11 +148,8 @@ What this deliberately gives up: there is no autoscaling, so a real traffic
 spike degrades latency instead of inflating the bill. For a tool serving a few
 hundred students, that is the right way round.
 
-The honest remaining exposure is bandwidth. Egress is metered, and there is no
-rate limiting on the query endpoints — sustained hammering would show up as
-egress and machine-hours, not as storage or scaled-out compute. At this traffic
-level it is immaterial, but it is the one line that could move, and it is worth
-naming rather than claiming the cost is bulletproof.
+Bandwidth is the one line the above does not fix, though it is immaterial at
+this traffic.
 
 ## Development
 
