@@ -121,6 +121,39 @@ Wasp SDK — the interesting logic never touches the DOM.
   The script health-checks the database first and re-pins VM memory to 256MB
   afterwards, which Wasp's generated `fly.toml` otherwise resets to 1GB.
 
+### Operating cost
+
+The app is built to a fixed cost ceiling rather than for scale. Observed
+running cost has stayed under $5/month on Fly.io. Three properties hold that
+ceiling, and they are design decisions rather than defaults.
+
+**Compute is fixed, not elastic.** One `shared-cpu-1x` 256MB machine per app —
+client, server, database — in a single region with no redundancy.
+`auto_stop_machines` idles them when there is no traffic, and the client runs
+`min_machines_running = 0`, so it scales to zero. `deploy.sh` re-pins memory to
+256MB after every deploy, because Wasp's generated `fly.toml` resets it to 1GB.
+
+**Storage cannot grow.** The app has no write path. All three operations are
+queries, and there is no `create`, `update` or `delete` outside the seed
+script. The database holds a read-only reference dataset, seeded at deploy
+time. No accounts, no uploads, no user-generated rows — so no amount of traffic
+increases what is stored. This is also why the unshipped auth was removed
+rather than left mounted: an open signup endpoint is an unbounded write path.
+
+**Inputs are bounded before they reach the database.** `getPathwaysForSubjects`
+rejects a subject list longer than 6 before issuing a query, so a crafted
+request cannot fan out into an expensive one.
+
+What this deliberately gives up: there is no autoscaling, so a real traffic
+spike degrades latency instead of inflating the bill. For a tool serving a few
+hundred students, that is the right way round.
+
+The honest remaining exposure is bandwidth. Egress is metered, and there is no
+rate limiting on the query endpoints — sustained hammering would show up as
+egress and machine-hours, not as storage or scaled-out compute. At this traffic
+level it is immaterial, but it is the one line that could move, and it is worth
+naming rather than claiming the cost is bulletproof.
+
 ## Development
 
 ### Prerequisites
