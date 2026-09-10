@@ -72,6 +72,24 @@ wasp start
 
 The app runs at `http://localhost:3000`.
 
+### Configuration
+
+No environment variables are required for local development — `wasp start db`
+provisions a Docker-managed Postgres and injects `DATABASE_URL` for you. See
+`.env.server.example` for the optional overrides and the production variables.
+
+### Checks
+
+```bash
+npm test          # vitest (34 tests)
+npm run lint      # eslint, zero warnings tolerated
+npm run format    # prettier --write
+```
+
+These run on every push and pull request via GitHub Actions
+([`.github/workflows/ci.yml`](.github/workflows/ci.yml)), and on every commit
+via a Husky pre-commit hook that also runs `gitleaks`.
+
 ### Deployment
 
 ```bash
