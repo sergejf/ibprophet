@@ -5,32 +5,136 @@
       "group": 1,
       "category": "BOTH"
     },
-    { "name": "English A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "French A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Italian A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "German A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Japanese A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Russian A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Chinese A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Turkish A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Vietnamese A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "Hebrew A: Literature", "group": 1, "category": "BOTH" },
-    { "name": "English B", "group": 2, "category": "BOTH" },
-    { "name": "Spanish B", "group": 2, "category": "BOTH" },
-    { "name": "French B", "group": 2, "category": "BOTH" },
-    { "name": "German B", "group": 2, "category": "BOTH" },
-    { "name": "Italian B", "group": 2, "category": "BOTH" },
-    { "name": "Chinese B", "group": 2, "category": "BOTH" },
-    { "name": "Russian B", "group": 2, "category": "BOTH" },
-    { "name": "Spanish Ab Initio", "group": 2, "category": "SL_ONLY" },
-    { "name": "French Ab Initio", "group": 2, "category": "SL_ONLY" },
-    { "name": "Mandarin Ab Initio", "group": 2, "category": "SL_ONLY" },
-    { "name": "Economics", "group": 3, "category": "BOTH" },
-    { "name": "History", "group": 3, "category": "BOTH" },
-    { "name": "Business Management", "group": 3, "category": "BOTH" },
-    { "name": "Psychology", "group": 3, "category": "BOTH" },
-    { "name": "Global Politics", "group": 3, "category": "BOTH" },
-    { "name": "Geography", "group": 3, "category": "BOTH" },
+    {
+      "name": "English A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "French A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Italian A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "German A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Japanese A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Russian A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Chinese A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Turkish A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Vietnamese A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "Hebrew A: Literature",
+      "group": 1,
+      "category": "BOTH"
+    },
+    {
+      "name": "English B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "Spanish B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "French B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "German B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "Italian B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "Chinese B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "Russian B",
+      "group": 2,
+      "category": "BOTH"
+    },
+    {
+      "name": "Spanish Ab Initio",
+      "group": 2,
+      "category": "SL_ONLY"
+    },
+    {
+      "name": "French Ab Initio",
+      "group": 2,
+      "category": "SL_ONLY"
+    },
+    {
+      "name": "Mandarin Ab Initio",
+      "group": 2,
+      "category": "SL_ONLY"
+    },
+    {
+      "name": "Economics",
+      "group": 3,
+      "category": "BOTH"
+    },
+    {
+      "name": "History",
+      "group": 3,
+      "category": "BOTH"
+    },
+    {
+      "name": "Business Management",
+      "group": 3,
+      "category": "BOTH"
+    },
+    {
+      "name": "Psychology",
+      "group": 3,
+      "category": "BOTH"
+    },
+    {
+      "name": "Global Politics",
+      "group": 3,
+      "category": "BOTH"
+    },
+    {
+      "name": "Geography",
+      "group": 3,
+      "category": "BOTH"
+    },
     {
       "name": "Environmental Systems and Societies",
       "group": 4,
@@ -41,11 +145,31 @@
       "group": 4,
       "category": "BOTH"
     },
-    { "name": "Biology", "group": 4, "category": "BOTH" },
-    { "name": "Chemistry", "group": 4, "category": "BOTH" },
-    { "name": "Physics", "group": 4, "category": "BOTH" },
-    { "name": "Computer Science", "group": 4, "category": "BOTH" },
-    { "name": "Design Technology", "group": 4, "category": "BOTH" },
+    {
+      "name": "Biology",
+      "group": 4,
+      "category": "BOTH"
+    },
+    {
+      "name": "Chemistry",
+      "group": 4,
+      "category": "BOTH"
+    },
+    {
+      "name": "Physics",
+      "group": 4,
+      "category": "BOTH"
+    },
+    {
+      "name": "Computer Science",
+      "group": 4,
+      "category": "BOTH"
+    },
+    {
+      "name": "Design Technology",
+      "group": 4,
+      "category": "BOTH"
+    },
     {
       "name": "Mathematics: Analysis and Approaches",
       "group": 5,
@@ -56,11 +180,31 @@
       "group": 5,
       "category": "BOTH"
     },
-    { "name": "Visual Arts", "group": 6, "category": "BOTH" },
-    { "name": "Music", "group": 6, "category": "BOTH" },
-    { "name": "Theatre", "group": 6, "category": "BOTH" },
-    { "name": "Film", "group": 6, "category": "BOTH" },
-    { "name": "Dance", "group": 6, "category": "BOTH" }
+    {
+      "name": "Visual Arts",
+      "group": 6,
+      "category": "BOTH"
+    },
+    {
+      "name": "Music",
+      "group": 6,
+      "category": "BOTH"
+    },
+    {
+      "name": "Theatre",
+      "group": 6,
+      "category": "BOTH"
+    },
+    {
+      "name": "Film",
+      "group": 6,
+      "category": "BOTH"
+    },
+    {
+      "name": "Dance",
+      "group": 6,
+      "category": "BOTH"
+    }
   ],
   "pathways": [
     {
@@ -176,7 +320,8 @@
       "growthPercent10Y": 25,
       "aiResilience": "RED",
       "aiExposure": 9,
-      "aiExposureRationale": "Software development is entirely digital work focused on coding, architecture, and algorithm design\u2014core domains where LLMs are achieving human-level proficiency. Large Language Models can now write functional code, debug programs, and generate documentation at scale, significantly increasing individual productivity and potentially reducing headcount despite strong demand.",
+      "aiExposureRationale": "Software development is entirely digital work focused on coding, architecture, and algorithm design—core domains where LLMs are achieving human-level proficiency. Large Language Models can now write functional code, debug programs, and generate documentation at scale, significantly increasing individual productivity and potentially reducing headcount despite strong demand.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 127350,
       "employmentUS": 1865100,
       "projectedGrowthUS": "Much faster than average",
@@ -205,6 +350,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 4,
       "aiExposureRationale": "Medicine involves a significant amount of digital knowledge work, including diagnosis through image analysis and treatment planning, where AI is rapidly advancing. However, the core requirement for physical patient examination, real-time clinical judgment in emergencies, surgical intervention, and the legal/ethical accountability of a medical license creates a strong barrier to full automation despite major productivity gains in diagnostic and administrative tasks.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 260790,
       "employmentUS": 1081200,
       "projectedGrowthUS": "Faster than average",
@@ -232,7 +378,8 @@
       "growthPercent10Y": 7,
       "aiResilience": "RED",
       "aiExposure": 8,
-      "aiExposureRationale": "The core work involves analyzing market data, researching investments, and generating reports\u2014all digital tasks where AI excels. While client relationships and complex advisory roles provide some insulation, algorithmic trading, robo-advisors, and AI-driven portfolio management are already reducing the need for human intermediaries in securities sales.",
+      "aiExposureRationale": "The core work involves analyzing market data, researching investments, and generating reports—all digital tasks where AI excels. While client relationships and complex advisory roles provide some insulation, algorithmic trading, robo-advisors, and AI-driven portfolio management are already reducing the need for human intermediaries in securities sales.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 79140,
       "employmentUS": 380300,
       "projectedGrowthUS": "Decline",
@@ -261,6 +408,7 @@
       "aiResilience": "RED",
       "aiExposure": 7,
       "aiExposureRationale": "The core work of designing mechanical systems, performing simulations, and drafting technical specifications is increasingly performed using digital CAD and simulation software that is highly susceptible to AI-driven optimization and automation. While physical prototyping and manufacturing oversight provide a buffer, the heavy reliance on computer-aided design and complex data analysis makes the occupation highly exposed to AI-driven productivity gains and task automation.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 107170,
       "employmentUS": 304200,
       "projectedGrowthUS": "Faster than average",
@@ -289,6 +437,7 @@
       "aiResilience": "RED",
       "aiExposure": 8,
       "aiExposureRationale": "The core tasks of legal research, document review, and contract drafting are fundamentally digital and highly susceptible to AI automation. While the role requires high-level strategic judgment, court appearances, and client relationship management, LLMs are already proficient at analyzing case law and generating legal memoranda, significantly increasing productivity and reducing routine legal work.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 148910,
       "employmentUS": 440600,
       "projectedGrowthUS": "Faster than average",
@@ -317,6 +466,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 6,
       "aiExposureRationale": "While AI can significantly assist with routine cognitive-behavioral interventions and preliminary mental health screening through chatbots, the core of clinical psychology requires deep empathy, real-time therapeutic presence, and complex interpersonal judgment in crisis situations that AI cannot replicate. The role's requirement for licensed clinical assessment and ethical accountability provides substantial protection against full automation.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 99900,
       "employmentUS": 223900,
       "projectedGrowthUS": "Faster than average",
@@ -345,6 +495,7 @@
       "aiResilience": "RED",
       "aiExposure": 8,
       "aiExposureRationale": "Management analysts perform work that is almost entirely digital, involving data analysis, process mapping, and the generation of strategic recommendations. AI is highly capable of automating the core tasks of this role, including identifying operational inefficiencies, benchmarking against industry standards, and drafting improvement proposals, though human judgment remains necessary for complex stakeholder negotiations and implementation oversight.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 94190,
       "employmentUS": 773400,
       "projectedGrowthUS": "Much faster than average",
@@ -368,7 +519,8 @@
       "growthPercent10Y": 5,
       "aiResilience": "RED",
       "aiExposure": 7,
-      "aiExposureRationale": "Architects perform high-level knowledge work that is increasingly digital, utilizing CADD and BIM software which is highly susceptible to AI-driven automation in generative design and technical documentation. While the role requires physical site visits and complex client negotiations, a significant portion of the core work\u2014drafting, specification writing, and regulatory compliance\u2014is moving toward high AI integration.",
+      "aiExposureRationale": "Architects perform high-level knowledge work that is increasingly digital, utilizing CADD and BIM software which is highly susceptible to AI-driven automation in generative design and technical documentation. While the role requires physical site visits and complex client negotiations, a significant portion of the core work—drafting, specification writing, and regulatory compliance—is moving toward high AI integration.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 96690,
       "employmentUS": 123600,
       "projectedGrowthUS": "As fast as average",
@@ -397,6 +549,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 4,
       "aiExposureRationale": "Diplomacy requires in-person negotiation, cultural sensitivity, crisis management, and real-time relationship-building across governments that AI cannot replicate. While AI enhances translation, intelligence analysis, and communication drafting, the core work of building trust, reading political dynamics, and representing sovereign interests in high-stakes settings remains fundamentally human.",
+      "rationaleSource": "OWN",
       "pros": [
         "Travel and cultural immersion",
         "Meaningful geopolitical impact",
@@ -420,6 +573,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 6,
       "aiExposureRationale": "This occupation involves a significant amount of digital knowledge work, including data analysis, report writing, and regulatory compliance, which are highly susceptible to AI augmentation. However, the role is anchored by a physical component involving fieldwork, site inspections, and laboratory sample analysis that AI cannot currently replicate. AI will likely serve as a powerful tool for modeling environmental impacts and drafting technical documents, increasing individual productivity while leaving the physical data collection and stakeholder relationship management to humans.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 80060,
       "employmentUS": 90300,
       "projectedGrowthUS": "As fast as average",
@@ -448,6 +602,7 @@
       "aiResilience": "RED",
       "aiExposure": 7,
       "aiExposureRationale": "The core work involves high-level creative decision-making and real-time on-set management, which remain fundamentally human functions. However, the occupation is increasingly exposed as AI advances in script analysis, automated editing, visual effects generation, and casting recommendations, significantly augmenting creative workflows and potentially reducing the number of decision-makers needed for large-scale productions.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 93220,
       "employmentUS": 108700,
       "projectedGrowthUS": "Much faster than average",
@@ -475,7 +630,8 @@
       "growthPercent10Y": 10,
       "aiResilience": "RED",
       "aiExposure": 7,
-      "aiExposureRationale": "Product management is heavily digital, involving requirements writing, data analysis, competitive research, and stakeholder communication\u2014all areas where AI is rapidly advancing. AI can automate roadmap generation, user research synthesis, and feature prioritization frameworks. However, the role requires cross-functional leadership, navigating organizational ambiguity, and building alignment across teams through interpersonal influence that remains fundamentally human.",
+      "aiExposureRationale": "Product management is heavily digital, involving requirements writing, data analysis, competitive research, and stakeholder communication—all areas where AI is rapidly advancing. AI can automate roadmap generation, user research synthesis, and feature prioritization frameworks. However, the role requires cross-functional leadership, navigating organizational ambiguity, and building alignment across teams through interpersonal influence that remains fundamentally human.",
+      "rationaleSource": "OWN",
       "pros": [
         "High impact role",
         "Cross-functional collaboration",
@@ -498,7 +654,8 @@
       "growthPercent10Y": 23,
       "aiResilience": "RED",
       "aiExposure": 9,
-      "aiExposureRationale": "Data science is a fully digital occupation centered on coding, statistical modeling, and data analysis\u2014all areas where AI is rapidly achieving parity or superiority. While human judgment is still needed for business context and ethical oversight, AI can now automate significant portions of the data pipeline, including cleaning raw data, generating complex code, and even suggesting optimal model architectures.",
+      "aiExposureRationale": "Data science is a fully digital occupation centered on coding, statistical modeling, and data analysis—all areas where AI is rapidly achieving parity or superiority. While human judgment is still needed for business context and ethical oversight, AI can now automate significant portions of the data pipeline, including cleaning raw data, generating complex code, and even suggesting optimal model architectures.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 112590,
       "employmentUS": 245900,
       "projectedGrowthUS": "Much faster than average",
@@ -527,6 +684,7 @@
       "aiResilience": "RED",
       "aiExposure": 8,
       "aiExposureRationale": "Accountancy is a fundamentally digital occupation centered on data analysis, regulatory compliance, and reporting, all of which are highly susceptible to AI and robotic process automation. While high-level advisory roles and complex forensic audits require human judgment and relationship management, the core tasks of data organization, tax computation, and anomaly detection are increasingly being automated, significantly increasing worker productivity and restructuring the entry-level labor market.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 81680,
       "employmentUS": 1579800,
       "projectedGrowthUS": "Faster than average",
@@ -555,6 +713,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 6,
       "aiExposureRationale": "While AI can significantly automate lesson planning, grading, and content delivery through personalized tutoring systems, the core of this occupation involves real-time classroom management, student motivation, and complex interpersonal interactions that require human presence. Teaching remains fundamentally grounded in the physical classroom and the human relationships essential to adolescent development.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 65080,
       "employmentUS": 1041400,
       "projectedGrowthUS": "As fast as average",
@@ -583,6 +742,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 5,
       "aiExposureRationale": "The core of teaching involves real-time human interaction, classroom management, and the emotional support of children, which AI cannot replicate. While AI can significantly assist with peripheral tasks like lesson planning, grading, and generating individualized learning recommendations, the fundamental requirement for physical presence, real-time behavioral intervention, and the development of meaningful relationships between teacher and student provides a strong barrier to automation.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 68030,
       "employmentUS": 1422700,
       "projectedGrowthUS": "Decline",
@@ -611,6 +771,7 @@
       "aiResilience": "RED",
       "aiExposure": 7,
       "aiExposureRationale": "Human resources is a predominantly digital and data-driven occupation involving recruitment, performance analysis, and compliance documentation that are highly susceptible to AI automation. While the role requires interpersonal skills and complex conflict resolution, AI can automate significant portions of candidate screening, benefits administration, and policy compliance monitoring, leading to major restructuring and productivity gains.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 71540,
       "employmentUS": 408600,
       "projectedGrowthUS": "Faster than average",
@@ -638,7 +799,8 @@
       "growthPercent10Y": 10,
       "aiResilience": "RED",
       "aiExposure": 8,
-      "aiExposureRationale": "PR specialists perform predominantly digital work involving content creation, data analysis, and social media strategy\u2014all areas where AI is rapidly advancing. While high-level client relationships and crisis communication require human judgment, the core tasks of drafting press releases, monitoring media coverage, and analyzing audience metrics are highly susceptible to AI-driven automation.",
+      "aiExposureRationale": "PR specialists perform predominantly digital work involving content creation, data analysis, and social media strategy—all areas where AI is rapidly advancing. While high-level client relationships and crisis communication require human judgment, the core tasks of drafting press releases, monitoring media coverage, and analyzing audience metrics are highly susceptible to AI-driven automation.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 68780,
       "employmentUS": 286600,
       "projectedGrowthUS": "Faster than average",
@@ -666,7 +828,8 @@
       "growthPercent10Y": 6,
       "aiResilience": "RED",
       "aiExposure": 9,
-      "aiExposureRationale": "Graphic design is a fully digital occupation centered on creating visual content using software tools\u2014a domain where generative AI is rapidly advancing. AI can now generate layouts, color schemes, and even complete designs from text prompts, significantly increasing productivity and potentially reducing the number of human designers needed for routine commercial work.",
+      "aiExposureRationale": "Graphic design is a fully digital occupation centered on creating visual content using software tools—a domain where generative AI is rapidly advancing. AI can now generate layouts, color schemes, and even complete designs from text prompts, significantly increasing productivity and potentially reducing the number of human designers needed for routine commercial work.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 63670,
       "employmentUS": 286200,
       "projectedGrowthUS": "Slower than average",
@@ -695,6 +858,7 @@
       "aiResilience": "RED",
       "aiExposure": 9,
       "aiExposureRationale": "Journalism is experiencing severe disruption as AI can now generate news summaries, conduct automated fact-checking, and produce basic news articles from raw data feeds. While investigative reporting and on-scene presence provide some protection, the BLS projects significant decline due to AI's ability to research, write, and distribute news content at scale.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 54420,
       "employmentUS": 55900,
       "projectedGrowthUS": "Decline",
@@ -723,6 +887,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 4,
       "aiExposureRationale": "The occupation is a hybrid of physical patrol and digital detective work. While AI can significantly automate crime analysis, facial recognition, and report writing, the core duties of physical law enforcement, crisis intervention, and real-time community presence require human judgment and physical capability that AI cannot replicate.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 71170,
       "employmentUS": 764400,
       "projectedGrowthUS": "Slower than average",
@@ -751,6 +916,7 @@
       "aiResilience": "GREEN",
       "aiExposure": 3,
       "aiExposureRationale": "Social work requires physical presence, deep cultural competence, and real-time human judgment in emotionally complex situations that AI cannot replicate. While AI can assist with peripheral administrative tasks like case documentation and resource matching, the core work of building trust with vulnerable populations and providing crisis intervention remains fundamentally human-centric.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 63620,
       "employmentUS": 710200,
       "projectedGrowthUS": "Much faster than average",
@@ -779,6 +945,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 6,
       "aiExposureRationale": "Civil engineering involves significant digital knowledge work, including CAD design, data analysis, and cost estimation, which are highly susceptible to AI-driven productivity gains. However, the role is anchored by the necessity for physical site inspections, real-world surveying, and the legal accountability of a Professional Engineer (PE) license, which requires human judgment and liability that AI cannot currently replace.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 99590,
       "employmentUS": 368900,
       "projectedGrowthUS": "Faster than average",
@@ -806,7 +973,8 @@
       "growthPercent10Y": 21,
       "aiResilience": "RED",
       "aiExposure": 8,
-      "aiExposureRationale": "Actuarial work is fundamentally digital, involving the analysis of large datasets, statistical modeling, and financial forecasting\u2014all areas where AI and machine learning excel. While the profession requires high-level human judgment and the ability to explain complex risks to stakeholders, the core technical tasks of data compilation and probability estimation are highly susceptible to automation and significant productivity gains through AI.",
+      "aiExposureRationale": "Actuarial work is fundamentally digital, involving the analysis of large datasets, statistical modeling, and financial forecasting—all areas where AI and machine learning excel. While the profession requires high-level human judgment and the ability to explain complex risks to stakeholders, the core technical tasks of data compilation and probability estimation are highly susceptible to automation and significant productivity gains through AI.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 125770,
       "employmentUS": 33600,
       "projectedGrowthUS": "Much faster than average",
@@ -834,7 +1002,8 @@
       "growthPercent10Y": 32,
       "aiResilience": "RED",
       "aiExposure": 8,
-      "aiExposureRationale": "Information security analysis is a digital-first occupation centered on monitoring networks, identifying vulnerabilities, and responding to cyber threats\u2014all areas where AI is rapidly advancing. AI can automate threat detection, vulnerability scanning, and incident response, significantly increasing analyst productivity. However, high-level strategic decision-making and complex incident investigation provide some insulation from full automation.",
+      "aiExposureRationale": "Information security analysis is a digital-first occupation centered on monitoring networks, identifying vulnerabilities, and responding to cyber threats—all areas where AI is rapidly advancing. AI can automate threat detection, vulnerability scanning, and incident response, significantly increasing analyst productivity. However, high-level strategic decision-making and complex incident investigation provide some insulation from full automation.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 104200,
       "employmentUS": 165400,
       "projectedGrowthUS": "Much faster than average",
@@ -863,6 +1032,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 5,
       "aiExposureRationale": "The role is a hybrid of physical laboratory work and digital data analysis. While AI can significantly automate data interpretation, report writing, and experimental modeling, the core duties involve manual tasks like setting up equipment, preparing biological samples, and conducting physical experiments that require a human presence in a lab or field environment.",
+      "rationaleSource": "KARPATHY_JOBS",
       "blsMedianSalaryUS": 52000,
       "employmentUS": 82700,
       "projectedGrowthUS": "As fast as average",
@@ -891,6 +1061,7 @@
       "aiResilience": "GREEN",
       "aiExposure": 3,
       "aiExposureRationale": "The core of physical therapy is highly hands-on, requiring manual dexterity for patient treatment, real-time assessment of movement and pain, and direct clinical intervention that AI cannot replicate. While AI will significantly enhance diagnostic accuracy through motion analysis and assist with peripheral administrative and planning tasks, the fundamental requirement for human presence and tactile therapeutic work creates a strong barrier to high exposure.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 102220,
       "employmentUS": 319000,
       "projectedGrowthUS": "Much faster than average",
@@ -919,6 +1090,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 6,
       "aiExposureRationale": "Event planning involves significant digital knowledge work, such as budgeting, vendor coordination via email, and logistics scheduling, all of which are highly susceptible to AI automation. However, the role requires substantial physical presence for on-site setup and real-time problem-solving during events, as well as high-touch interpersonal relationship management with clients and vendors that AI cannot currently replicate.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 56901,
       "employmentUS": 106900,
       "projectedGrowthUS": "Much faster than average",
@@ -947,6 +1119,7 @@
       "aiResilience": "YELLOW",
       "aiExposure": 5,
       "aiExposureRationale": "Surveying is a hybrid occupation involving physical fieldwork with specialized equipment alongside digital data processing and legal documentation. While drone technology and AI-powered analysis of geospatial data significantly enhance productivity, the requirement for legal licensure, physical site validation, and professional liability means human surveyors remain essential for certification and final verification.",
+      "rationaleSource": "OWN",
       "blsMedianSalaryUS": 74590,
       "employmentUS": 55300,
       "projectedGrowthUS": "Faster than average",
@@ -989,7 +1162,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Chemistry",
       "pathway": "Medicine",
@@ -1014,7 +1186,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Economics",
       "pathway": "Economics & Finance",
@@ -1039,7 +1210,6 @@
       "weight": 2,
       "hlRequired": false
     },
-
     {
       "subject": "Mathematics: Analysis and Approaches",
       "pathway": "Engineering",
@@ -1064,7 +1234,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "English A: Language and Literature",
       "pathway": "Law",
@@ -1131,7 +1300,12 @@
       "weight": 2,
       "hlRequired": false
     },
-    { "subject": "History", "pathway": "Law", "weight": 3, "hlRequired": true },
+    {
+      "subject": "History",
+      "pathway": "Law",
+      "weight": 3,
+      "hlRequired": true
+    },
     {
       "subject": "Economics",
       "pathway": "Law",
@@ -1144,7 +1318,6 @@
       "weight": 2,
       "hlRequired": false
     },
-
     {
       "subject": "Psychology",
       "pathway": "Psychology",
@@ -1169,7 +1342,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Business Management",
       "pathway": "Business & Management",
@@ -1194,7 +1366,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Mathematics: Analysis and Approaches",
       "pathway": "Architecture",
@@ -1219,7 +1390,6 @@
       "weight": 2,
       "hlRequired": false
     },
-
     {
       "subject": "History",
       "pathway": "International Relations",
@@ -1304,7 +1474,6 @@
       "weight": 2,
       "hlRequired": false
     },
-
     {
       "subject": "English B",
       "pathway": "International Relations",
@@ -1347,7 +1516,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "English B",
       "pathway": "Education",
@@ -1372,7 +1540,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "English B",
       "pathway": "Law",
@@ -1397,7 +1564,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "English B",
       "pathway": "Marketing & Communications",
@@ -1416,7 +1582,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "English B",
       "pathway": "Business & Management",
@@ -1435,7 +1600,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Biology",
       "pathway": "Environmental Science",
@@ -1460,7 +1624,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Film",
       "pathway": "Film & Media Studies",
@@ -1491,7 +1654,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Music",
       "pathway": "Music Performance & Production",
@@ -1504,7 +1666,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Psychology",
       "pathway": "Education",
@@ -1547,7 +1708,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Business Management",
       "pathway": "Marketing & Communications",
@@ -1584,7 +1744,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "English A: Literature",
       "pathway": "English & Creative Writing",
@@ -1615,7 +1774,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "History",
       "pathway": "History & Politics",
@@ -1646,7 +1804,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Biology",
       "pathway": "Biology & Life Sciences",
@@ -1671,7 +1828,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Psychology",
       "pathway": "Sociology & Social Work",
@@ -1702,7 +1858,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Sports, Exercise and Health Science",
       "pathway": "Sports Science",
@@ -1733,7 +1888,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Visual Arts",
       "pathway": "Design & Visual Arts",
@@ -1764,7 +1918,6 @@
       "weight": 1,
       "hlRequired": false
     },
-
     {
       "subject": "Geography",
       "pathway": "Environmental Science",
@@ -1796,14 +1949,21 @@
       "career": "Software Engineer",
       "weight": 3
     },
-    { "pathway": "Computer Science", "career": "Product Manager", "weight": 1 },
-    { "pathway": "Computer Science", "career": "Data Analyst", "weight": 2 },
+    {
+      "pathway": "Computer Science",
+      "career": "Product Manager",
+      "weight": 1
+    },
+    {
+      "pathway": "Computer Science",
+      "career": "Data Analyst",
+      "weight": 2
+    },
     {
       "pathway": "Computer Science",
       "career": "Cyber Security Professional",
       "weight": 2
     },
-
     {
       "pathway": "Medicine",
       "career": "Doctor (General Practitioner)",
@@ -1814,7 +1974,6 @@
       "career": "Biologist / Lab Scientist",
       "weight": 1
     },
-
     {
       "pathway": "Economics & Finance",
       "career": "Investment Banker",
@@ -1825,26 +1984,66 @@
       "career": "Management Consultant",
       "weight": 2
     },
-    { "pathway": "Economics & Finance", "career": "Accountant", "weight": 2 },
-    { "pathway": "Economics & Finance", "career": "Data Analyst", "weight": 1 },
-    { "pathway": "Economics & Finance", "career": "Actuary", "weight": 2 },
-
-    { "pathway": "Engineering", "career": "Mechanical Engineer", "weight": 3 },
-    { "pathway": "Engineering", "career": "Civil Engineer", "weight": 2 },
-    { "pathway": "Engineering", "career": "Software Engineer", "weight": 1 },
-
-    { "pathway": "Law", "career": "Lawyer", "weight": 3 },
-    { "pathway": "Law", "career": "Police Officer", "weight": 1 },
-
-    { "pathway": "Psychology", "career": "Clinical Psychologist", "weight": 3 },
-    { "pathway": "Psychology", "career": "Social Worker", "weight": 1 },
-    { "pathway": "Psychology", "career": "HR Professional", "weight": 1 },
+    {
+      "pathway": "Economics & Finance",
+      "career": "Accountant",
+      "weight": 2
+    },
+    {
+      "pathway": "Economics & Finance",
+      "career": "Data Analyst",
+      "weight": 1
+    },
+    {
+      "pathway": "Economics & Finance",
+      "career": "Actuary",
+      "weight": 2
+    },
+    {
+      "pathway": "Engineering",
+      "career": "Mechanical Engineer",
+      "weight": 3
+    },
+    {
+      "pathway": "Engineering",
+      "career": "Civil Engineer",
+      "weight": 2
+    },
+    {
+      "pathway": "Engineering",
+      "career": "Software Engineer",
+      "weight": 1
+    },
+    {
+      "pathway": "Law",
+      "career": "Lawyer",
+      "weight": 3
+    },
+    {
+      "pathway": "Law",
+      "career": "Police Officer",
+      "weight": 1
+    },
+    {
+      "pathway": "Psychology",
+      "career": "Clinical Psychologist",
+      "weight": 3
+    },
+    {
+      "pathway": "Psychology",
+      "career": "Social Worker",
+      "weight": 1
+    },
+    {
+      "pathway": "Psychology",
+      "career": "HR Professional",
+      "weight": 1
+    },
     {
       "pathway": "Psychology",
       "career": "Secondary School Teacher",
       "weight": 1
     },
-
     {
       "pathway": "Business & Management",
       "career": "Management Consultant",
@@ -1860,25 +2059,46 @@
       "career": "HR Professional",
       "weight": 1
     },
-    { "pathway": "Business & Management", "career": "Accountant", "weight": 1 },
+    {
+      "pathway": "Business & Management",
+      "career": "Accountant",
+      "weight": 1
+    },
     {
       "pathway": "Business & Management",
       "career": "Marketing & PR Professional",
       "weight": 1
     },
-
-    { "pathway": "Architecture", "career": "Architect", "weight": 3 },
-    { "pathway": "Architecture", "career": "Quantity Surveyor", "weight": 2 },
-    { "pathway": "Architecture", "career": "Civil Engineer", "weight": 1 },
-
-    { "pathway": "International Relations", "career": "Diplomat", "weight": 3 },
-    { "pathway": "International Relations", "career": "Lawyer", "weight": 1 },
+    {
+      "pathway": "Architecture",
+      "career": "Architect",
+      "weight": 3
+    },
+    {
+      "pathway": "Architecture",
+      "career": "Quantity Surveyor",
+      "weight": 2
+    },
+    {
+      "pathway": "Architecture",
+      "career": "Civil Engineer",
+      "weight": 1
+    },
+    {
+      "pathway": "International Relations",
+      "career": "Diplomat",
+      "weight": 3
+    },
+    {
+      "pathway": "International Relations",
+      "career": "Lawyer",
+      "weight": 1
+    },
     {
       "pathway": "International Relations",
       "career": "Journalist / Writer",
       "weight": 1
     },
-
     {
       "pathway": "Environmental Science",
       "career": "Environmental Scientist",
@@ -1894,7 +2114,6 @@
       "career": "Secondary School Teacher",
       "weight": 1
     },
-
     {
       "pathway": "Film & Media Studies",
       "career": "Film Director / Producer",
@@ -1915,7 +2134,6 @@
       "career": "Marketing & PR Professional",
       "weight": 1
     },
-
     {
       "pathway": "Music Performance & Production",
       "career": "Film Director / Producer",
@@ -1931,15 +2149,21 @@
       "career": "Secondary School Teacher",
       "weight": 1
     },
-
     {
       "pathway": "Education",
       "career": "Secondary School Teacher",
       "weight": 3
     },
-    { "pathway": "Education", "career": "Primary School Teacher", "weight": 3 },
-    { "pathway": "Education", "career": "Social Worker", "weight": 1 },
-
+    {
+      "pathway": "Education",
+      "career": "Primary School Teacher",
+      "weight": 3
+    },
+    {
+      "pathway": "Education",
+      "career": "Social Worker",
+      "weight": 1
+    },
     {
       "pathway": "Marketing & Communications",
       "career": "Marketing & PR Professional",
@@ -1960,7 +2184,6 @@
       "career": "Journalist / Writer",
       "weight": 1
     },
-
     {
       "pathway": "English & Creative Writing",
       "career": "Journalist / Writer",
@@ -1976,14 +2199,21 @@
       "career": "Marketing & PR Professional",
       "weight": 1
     },
-
     {
       "pathway": "History & Politics",
       "career": "Secondary School Teacher",
       "weight": 2
     },
-    { "pathway": "History & Politics", "career": "Diplomat", "weight": 1 },
-    { "pathway": "History & Politics", "career": "Lawyer", "weight": 1 },
+    {
+      "pathway": "History & Politics",
+      "career": "Diplomat",
+      "weight": 1
+    },
+    {
+      "pathway": "History & Politics",
+      "career": "Lawyer",
+      "weight": 1
+    },
     {
       "pathway": "History & Politics",
       "career": "Journalist / Writer",
@@ -1994,7 +2224,6 @@
       "career": "Police Officer",
       "weight": 1
     },
-
     {
       "pathway": "Biology & Life Sciences",
       "career": "Biologist / Lab Scientist",
@@ -2015,7 +2244,6 @@
       "career": "Secondary School Teacher",
       "weight": 1
     },
-
     {
       "pathway": "Sociology & Social Work",
       "career": "Social Worker",
@@ -2036,21 +2264,31 @@
       "career": "Secondary School Teacher",
       "weight": 1
     },
-
-    { "pathway": "Sports Science", "career": "Physiotherapist", "weight": 3 },
+    {
+      "pathway": "Sports Science",
+      "career": "Physiotherapist",
+      "weight": 3
+    },
     {
       "pathway": "Sports Science",
       "career": "Secondary School Teacher",
       "weight": 2
     },
-    { "pathway": "Sports Science", "career": "Events Manager", "weight": 1 },
-
+    {
+      "pathway": "Sports Science",
+      "career": "Events Manager",
+      "weight": 1
+    },
     {
       "pathway": "Design & Visual Arts",
       "career": "Graphic & Multimedia Designer",
       "weight": 3
     },
-    { "pathway": "Design & Visual Arts", "career": "Architect", "weight": 1 },
+    {
+      "pathway": "Design & Visual Arts",
+      "career": "Architect",
+      "weight": 1
+    },
     {
       "pathway": "Design & Visual Arts",
       "career": "Film Director / Producer",

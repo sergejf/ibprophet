@@ -46,6 +46,7 @@ model Career {
   aiResilience    AIResilience
   aiExposure            Int?
   aiExposureRationale   String?
+  rationaleSource       RationaleSource @default(OWN)
   blsMedianSalaryUS     Int?
   employmentUS          Int?
   projectedGrowthUS     String?
@@ -96,6 +97,14 @@ enum SubjectCategory {
   HL_ONLY
   SL_ONLY
   BOTH
+}
+
+/// Provenance for aiExposureRationale. OWN = written for this project;
+/// KARPATHY_JOBS = reproduced from github.com/karpathy/jobs (LLM-generated,
+/// unlicensed) and surfaced as a quotation rather than presented as our own.
+enum RationaleSource {
+  OWN
+  KARPATHY_JOBS
 }
 
 enum AIResilience {

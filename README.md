@@ -28,8 +28,31 @@ IB Prophet helps International Baccalaureate Diploma students explore how their 
 - [IB Diploma Programme](https://www.ibo.org/programmes/diploma-programme/curriculum/) — subject groups, HL/SL structure, subject descriptions
 - [US Bureau of Labor Statistics](https://www.bls.gov/ooh/) — median salary, employment, growth projections, education requirements
 - [DAAD / KMK](https://www.daad.de/) — German university admission rules for IB diploma holders
-- [karpathy/jobs](https://github.com/karpathy/jobs) — AI career impact analysis (exposure scores 1-9)
+- [karpathy/jobs](https://github.com/karpathy/jobs) — AI exposure scoring rubric, and 7 rationales reproduced verbatim (see _Data provenance_ below)
 - [uniadmissions.co.uk](https://uniadmissions.co.uk) / [num8ers.com](https://num8ers.com) — Russell Group and global university IB point ranges
+
+### Data provenance
+
+AI exposure rationales come from two places, and every career records which:
+
+| `rationaleSource` | Count | Meaning                                                                    |
+| ----------------- | ----- | -------------------------------------------------------------------------- |
+| `OWN`             | 22    | Written for this project, scored against the BLS occupational description  |
+| `KARPATHY_JOBS`   | 7     | Reproduced verbatim from [karpathy/jobs](https://github.com/karpathy/jobs) |
+
+The distinction is surfaced in the UI rather than kept in the database: a quoted
+rationale is labelled as quoted, so the 22 judgements that are ours are not
+presented interchangeably with the 7 that are not.
+
+Two caveats worth stating plainly. `karpathy/jobs` carries no licence, so it is
+"all rights reserved" by default — the 7 reproduced rationales are used as
+attributed quotation. They are also LLM-generated (his `score.py` scores each
+occupation via OpenRouter), which is why they are quoted rather than
+paraphrased: rewriting machine-generated text to obscure its origin would add
+no analysis and misrepresent where the judgement came from.
+
+The underlying BLS Occupational Outlook Handbook data is a US Government work
+and in the public domain.
 
 ## Data Coverage
 

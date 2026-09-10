@@ -5,6 +5,7 @@ import { Link } from "wasp/client/router";
 import { Badge } from "../shared/components/Badge";
 import { SalaryBar } from "../shared/components/SalaryBar";
 import { AIExposureGauge } from "../shared/components/AIExposureGauge";
+import { RationaleAttribution } from "../shared/components/RationaleAttribution";
 import { aiResilienceLabels } from "../shared/ai-exposure";
 
 function formatNumber(n: number): string {
@@ -133,9 +134,15 @@ export function CareerPage() {
                   {rationaleOpen ? "\u25BE" : "\u25B8"}
                 </button>
                 {rationaleOpen && (
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-300">
-                    {career.aiExposureRationale}
-                  </p>
+                  <>
+                    <p className="mt-2 text-sm leading-relaxed text-neutral-300">
+                      {career.aiExposureRationale}
+                    </p>
+                    <RationaleAttribution
+                      source={career.rationaleSource}
+                      className="mt-2"
+                    />
+                  </>
                 )}
               </div>
             )}

@@ -4,6 +4,7 @@ import { Dialog } from "../shared/components/Dialog";
 import { Badge } from "../shared/components/Badge";
 import { SalaryBar } from "../shared/components/SalaryBar";
 import { aiResilienceLabels } from "../shared/ai-exposure";
+import { RationaleAttribution } from "../shared/components/RationaleAttribution";
 
 interface CareerCardModalProps {
   career: Career | null;
@@ -47,9 +48,17 @@ export function CareerCardModal({
         <p className="text-sm text-neutral-300">{career.description}</p>
 
         {rationaleTeaser && (
-          <p className="text-xs leading-relaxed text-neutral-400 italic">
-            {rationaleTeaser}
-          </p>
+          <div>
+            <p className="text-xs leading-relaxed text-neutral-400 italic">
+              {rationaleTeaser}
+            </p>
+            {career.rationaleSource === "KARPATHY_JOBS" && (
+              <RationaleAttribution
+                source={career.rationaleSource}
+                className="mt-1"
+              />
+            )}
+          </div>
         )}
 
         {career.educationRequired && (
