@@ -9,6 +9,15 @@
 #
 set -euo pipefail
 
+# flyctl writes "Warning: Metrics token unavailable" to stderr when it cannot
+# reach its metrics endpoint. Wasp's deploy CLI captures stdout and stderr
+# together and JSON.parse()s the result, so that one warning line lands after
+# the closing "]" of `flyctl secrets list --json` and aborts the whole deploy
+# with "Unexpected non-whitespace character after JSON". Disable metrics and the
+# update check for every flyctl call, including the ones Wasp makes itself.
+export FLY_SEND_METRICS=0
+export FLY_NO_UPDATE_CHECK=1
+
 FLY="${FLYCTL:-flyctl}"
 APP_SERVER="ibprophet-server"
 APP_CLIENT="ibprophet-client"
