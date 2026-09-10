@@ -1,8 +1,13 @@
 # IB Prophet
 
+[![CI](https://github.com/sergejf/ibprophet/actions/workflows/ci.yml/badge.svg)](https://github.com/sergejf/ibprophet/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 IB Prophet helps International Baccalaureate Diploma students explore how their subject choices connect to university pathways and AI-ready careers. Pick your HL and SL subjects, and instantly see which degrees and professions open up — with AI exposure scores, salary data, growth projections, and BLS labor market stats.
 
 **Live:** https://ibprophet.app
+
+![The explorer: IB subjects flowing through university pathways to careers](docs/explorer-sankey.png)
 
 ## Features
 
@@ -71,6 +76,51 @@ and in the public domain.
 - PostHog analytics
 - Deployed on Fly.io (custom domain: ibprophet.app)
 
+## Architecture
+
+`main.wasp` is the single source of truth: it declares routes, pages, and
+operations, and Wasp generates a typed RPC layer from it. A query declared
+there becomes both a server function receiving `context.entities` (Prisma) and
+a client hook — no REST controllers, no fetch wrappers, no hand-maintained
+API types. That removes most of the boilerplate a small full-stack app would
+otherwise carry.
+
+```
+seed-data.json ──► Prisma ──► Postgres
+                                 │
+                    src/*/operations.ts   (server: queries + actions)
+                                 │        generated typed RPC
+                    src/*/Page.tsx        (client: useQuery)
+```
+
+Code is organised per feature rather than per type — `src/explorer/`,
+`src/career/`, `src/auth/` each hold their page, components, and operations
+together, with `src/shared/` for cross-cutting pieces.
+
+**Pure computation is separated from React.** The subject-combination analysis
+(`src/explorer/SubjectReport.tsx` → `analyseSubjects`) and the flow-diagram
+builder (`src/explorer/sankey-utils.ts`) are plain functions over plain data.
+That is why the 34 tests run in ~200ms with no database, no browser, and no
+Wasp SDK — the interesting logic never touches the DOM.
+
+### Decisions and tradeoffs
+
+- **Reference data lives in `seed-data.json`, not a CMS.** 40 subjects, 20
+  pathways, 29 careers, changing rarely. Keeping it in the repo means data
+  changes are reviewable in a pull request and testable in CI. It would be the
+  wrong call at 10× the size or with non-technical editors.
+- **No SSR or prerendering.** Google indexes SPAs, and `public/llms.txt`
+  handles the AI crawlers that don't execute JavaScript. Adding SSR would have
+  meant a heavier framework for no measurable reach.
+- **`pros` / `cons` are JSON-encoded strings, not a native Postgres `Json`
+  column.** A pragmatic early shortcut that is now a known wart — it pushes
+  `JSON.parse` into the page component. Worth migrating.
+- **Deploys go through `deploy.sh`, never `wasp deploy` directly.** The Wasp
+  server runs `prisma migrate deploy` on boot, so deploying against a stopped
+  database puts the machine into a restart loop that needs manual recovery.
+  The script health-checks the database first and re-pins VM memory to 256MB
+  afterwards, which Wasp's generated `fly.toml` otherwise resets to 1GB.
+
 ## Development
 
 ### Prerequisites
@@ -126,4 +176,19 @@ Always use `deploy.sh` — never run `wasp deploy fly deploy` directly. The scri
 
 ## License
 
-All rights reserved.
+**Code** is MIT licensed — see [LICENSE](LICENSE).
+
+**Data is not.** The MIT grant covers the application source only. The
+reference dataset in `src/shared/seed-data.json` aggregates third-party
+material that is not mine to relicense:
+
+- BLS Occupational Outlook Handbook figures — US Government work, public domain
+- 7 AI-exposure rationales quoted from [karpathy/jobs](https://github.com/karpathy/jobs), which carries no licence (see [Data provenance](#data-provenance))
+- University entry requirements compiled from published admissions guidance
+
+Reuse the code freely. For the dataset, go to the original sources.
+
+IB Prophet is not affiliated with, endorsed by, or connected to the
+International Baccalaureate Organization, the Russell Group, or any university
+or employer named in the data. "International Baccalaureate" and "IB" are
+trademarks of the IBO.
